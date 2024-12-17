@@ -1,0 +1,7 @@
+comment "camera misc device"
+
+config KERNEL_CAMERA_USE_MISC_DEVICE
+    bool "camera use misc dev"
+    default n
+    help
+        Say Y here to enable camera misc device

@@ -1,0 +1,29 @@
+config CAM_IDI2AXI
+    tristate "idi2axi driver"
+    default n
+    select VIDEOBUF2_CORE
+    select VIDEOBUF2_DMA_CONTIG
+    select VIDEO_V4L2
+    help
+        enable idi2axi device, if enabled, need select idi2axi version
+        and sensor gen if needed
+
+if CAM_IDI2AXI
+choice
+    prompt "idi2axi version"
+    default IDI2AXI_V100
+    config IDI2AXI_V100
+        bool "idi2axi v100"
+endchoice
+
+config CAM_IDI2AXI_DEBUG
+    bool "enable debug fs props"
+    default n
+    help
+        create i2a debug fs, provide some dynamic control
+
+#if IDI2AXI_V100
+#source "platform_source/camera/drivers/media/native/camera/idi2axi/platform/v100/Kconfig"
+#endif # IDI2AXI_V100
+
+endif # CAM_IDI2AXI

@@ -1,0 +1,6 @@
+config HW_STAT_PHYMEM
+	bool "HW_STAT_PHYMEM support."
+	depends on HW_STAT
+	default n
+	help
+	  HW_STAT_PHYMEM support.

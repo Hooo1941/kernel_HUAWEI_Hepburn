@@ -1,0 +1,5 @@
+config MDMPM_DEBUG
+	bool "mdm wakeup"
+	default n
+	help
+	support for mdm wakeup

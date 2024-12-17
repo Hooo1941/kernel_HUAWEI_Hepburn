@@ -1,0 +1,45 @@
+menu "driver Configuration"
+
+source "platform_source/cee/drivers/mpam/Kconfig"
+source "platform_source/cee/drivers/hck/Kconfig"
+source "platform_source/cee/drivers/hw_vote/Kconfig"
+source "platform_source/cee/drivers/qos/Kconfig"
+source "platform_source/cee/drivers/file_encry/Kconfig"
+source "platform_source/cee/drivers/pm/Kconfig"
+source "platform_source/cee/drivers/gpufreq/Kconfig"
+source "platform_source/cee/drivers/npu_pm/Kconfig"
+source "platform_source/cee/drivers/onsys_avs/Kconfig"
+source "platform_source/cee/drivers/adc/Kconfig"
+source "platform_source/cee/drivers/dpm/Kconfig"
+source "platform_source/cee/drivers/ddrc/Kconfig"
+source "platform_source/cee/drivers/lpmcu_debug/Kconfig"
+source "platform_source/cee/drivers/hotplug_agent/Kconfig"
+source "platform_source/cee/drivers/freqdump/Kconfig"
+source "platform_source/cee/drivers/bus_monitor/Kconfig"
+source "platform_source/cee/drivers/devfreq/Kconfig"
+source "platform_source/cee/drivers/drg/Kconfig"
+source "platform_source/cee/drivers/hwtracing/dfx_coresight/Kconfig"
+source "platform_source/cee/drivers/cpuidle/Kconfig"
+source "platform_source/cee/drivers/lpcpu_timer/Kconfig"
+source "platform_source/cee/drivers/lpcpu_pmu/Kconfig"
+source "platform_source/cee/drivers/freq_qos_debug/Kconfig"
+source "platform_source/cee/drivers/mips_mem/Kconfig"
+source "platform_source/cee/drivers/amu/Kconfig"
+source "platform_source/cee/drivers/rtm/Kconfig"
+source "platform_source/cee/drivers/cpu_hide/Kconfig"
+
+if ARM || ARM64
+source "platform_source/cee/drivers/cpufreq/lpcpu/Kconfig"
+endif
+
+if EDAC
+source "platform_source/cee/drivers/edac/lpedac/Kconfig"
+endif
+
+source "platform_source/cee/drivers/heca/Kconfig"
+
+menu "ithermal drivers"
+depends on ARCH_PLATFORM
+source "platform_source/cee/drivers/thermal_platform/Kconfig"
+endmenu
+endmenu

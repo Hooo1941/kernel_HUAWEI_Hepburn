@@ -1,0 +1,10 @@
+obj-$(CONFIG_SCHARGER_ARCH)             += hisi_charger.o hisi_charging_core.o
+obj-$(CONFIG_SCHARGER_V200)             += schargerV200/
+obj-$(CONFIG_SCHARGER_V300)             += schargerV300/
+obj-$(CONFIG_SCHARGER_V600)             += schargerV600/
+obj-$(CONFIG_CHARGER_SYS_WDG)      += hisi_charging_watchdog.o
+obj-$(CONFIG_SCHARGER_V700)             += schargerV700/
+obj-$(CONFIG_SCHARGER_DYNAMIC_CV)       += scharger_dynamic_cv.o
+obj-$(CONFIG_HISI_UFCS_DRV)             += hisi_ufcs/
+obj-$(CONFIG_SCHARGER_V800)             += schargerV800/
+obj-$(CONFIG_HISI_FCP_DRV)              += hisi_fcp/

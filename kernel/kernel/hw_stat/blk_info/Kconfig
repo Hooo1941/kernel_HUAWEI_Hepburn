@@ -1,0 +1,6 @@
+config HW_STAT_BLK_INFO
+	bool "HW_STAT_BLK_INFO support."
+	depends on HW_STAT && MAS_BLK
+	default n
+	help
+	  HW_STAT_BLK_INFO support, provide depth, MQ tags, hardware tags info of block layer

@@ -1,0 +1,9 @@
+menu "Huawei Device Usage Big-data Analytics Initiative Support for PERF"
+
+config HUAWEI_PERF
+	bool "Huawei Device Usage Big-data Analytics Initiative Support for PERF"
+	default n
+	help
+	  This driver provides PERF feature
+
+endmenu

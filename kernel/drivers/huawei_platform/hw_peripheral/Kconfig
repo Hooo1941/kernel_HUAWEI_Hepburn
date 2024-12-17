@@ -1,0 +1,5 @@
+source "drivers/huawei_platform/hw_peripheral/sw/Kconfig"
+source "drivers/huawei_platform/hw_peripheral/plc/Kconfig"
+source "drivers/huawei_platform/hw_peripheral/mcu/Kconfig"
+source "drivers/huawei_platform/hw_peripheral/logo/Kconfig"
+source "drivers/huawei_platform/hw_peripheral/fbe/Kconfig"

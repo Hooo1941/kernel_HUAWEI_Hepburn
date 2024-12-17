@@ -1,0 +1,5 @@
+config HUAWEI_SMARTPA_HIGH_VOLTAGE_CONVERTER
+	tristate "smartpa high voltage converter driver"
+	default n
+	help
+		Say Y to enable smartpa high voltage converter support

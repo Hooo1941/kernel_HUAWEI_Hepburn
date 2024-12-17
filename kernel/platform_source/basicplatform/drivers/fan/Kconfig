@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config FAN_CTRL
+	tristate "fan ctrl support"
+	default n
+	help
+	  Support the fan for some devices.

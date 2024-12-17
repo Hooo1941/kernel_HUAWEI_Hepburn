@@ -1,0 +1,14 @@
+comment "MODULE ISP"
+
+choice
+	prompt "HISP Version"
+	default HISP_USE_V500
+	depends on ISP_BUF_PRIVATIZE
+	help
+        Select ISP version.
+
+config HISP_USE_V500
+	bool "V500"
+	depends on ISP_BUF_PRIVATIZE
+
+endchoice

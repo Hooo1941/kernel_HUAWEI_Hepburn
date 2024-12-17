@@ -1,0 +1,5 @@
+config AUDIO_VIBRATOR_STATE
+    bool "vibrator state driver"
+    default n
+    help
+    Say Y to enable vibrator state driver support

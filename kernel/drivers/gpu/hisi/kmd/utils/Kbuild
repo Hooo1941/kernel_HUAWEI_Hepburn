@@ -1,0 +1,10 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+include $(HVGR_PATH)/utils/kv/Kbuild
+include $(HVGR_PATH)/utils/softq/Kbuild
+include $(HVGR_PATH)/utils/log/Kbuild
+include $(HVGR_PATH)/utils/debugfs/Kbuild
+include $(HVGR_PATH)/utils/pool/Kbuild
+include $(HVGR_PATH)/utils/file/Kbuild

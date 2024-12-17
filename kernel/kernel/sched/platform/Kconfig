@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config SCHED_LTS
+	bool "sched feature support LTS kernel"
+	default n
+	help
+	  Say Y here if OHOS LTS kernel
+	  Say N here if ASOP kernel

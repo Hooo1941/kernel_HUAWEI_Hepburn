@@ -1,0 +1,5 @@
+menu "Kernel Configuration"
+
+source "platform_source/basicplatform/kernel/hisi_gcov/Kconfig"
+
+endmenu

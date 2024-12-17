@@ -1,0 +1,10 @@
+
+menu "HISI GPU Configuration"
+
+config KMD
+        tristate "HISI KMD configs"
+        default n
+
+-source "drivers/gpu/hisi/kmd/Kconfig"
+
+endmenu

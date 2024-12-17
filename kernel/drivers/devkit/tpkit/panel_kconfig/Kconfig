@@ -1,0 +1,106 @@
+#
+# huawei touchscreen driver configuration
+#
+
+menuconfig ATMEL_TS_KIT
+	tristate "huawei  ts kit atmel drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig ELAN_TS_KIT
+	bool "TS_KIT elan drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig FOCAL_TS_KIT
+	tristate "TS_KIT focaltech drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig GOODIX_TS_KIT
+	bool "TS_KIT goodix drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig GOODIX_GT1X_TS_KIT
+	tristate "TS_KIT goodix GT1X drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig HIMAX_TS_KIT
+	bool "huawei  ts kit himax drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig HIMAX_TS_KIT_64
+	bool "huawei  ts kit himax drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig HIMAX_ZF_TS_KIT_64
+	bool "huawei  ts kit himax drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig ILITEK_TS_KIT
+	bool "TS_KIT ilitek drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig ILITEK_TDDI_TS_KIT
+	bool "TS_KIT ilitek tddi drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig MSTAR_TS_KIT
+	bool "TS_KIT mstar drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig NOVATEK_TS_KIT
+	tristate "novatek ts kit drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig  NOVATEK_HYBRID_TS_KIT
+	tristate "TS_KIT novatek_hybrid drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig PARADE_TS_KIT
+	tristate "huawei  ts kit parade drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig SAMSUNG_TS_KIT
+	tristate "TS_KIT samsung.lsi touch drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig ST_TS_KIT
+	tristate "TS_KIT ST touch drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig SYNAPTICS_TS_KIT
+	tristate "TS_KIT synaptics drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig SYNAPTICS_TCM_TS_KIT
+	tristate "Synaptics TCM touchscreen"
+	default n
+	help
+	If you say yes here you get support for huawei touchscreen.
+menuconfig ZINITIX_TS_KIT
+	tristate "TS_KIT zinitix drivers"
+	default n
+	help
+	  If you say yes here you get support for huawei touchscreen.
+menuconfig OMNIVISION_TCM_TS_KIT
+	tristate "OMNIVISION TCM touchscreen"
+	default n
+	help
+	  Say Y here if you have a OMNIVISION TCM touchscreen connected
+	  to your system.
+	  If unsure, say N.

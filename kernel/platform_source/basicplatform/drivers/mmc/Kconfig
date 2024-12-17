@@ -1,0 +1,73 @@
+config ZODIAC_MMC
+	bool "ZODIAC MMC"
+	depends on MMC
+	default y
+	help
+	   config ZODIAC mmc driver
+
+config MMC_SIM_GPIO_EXCHANGE
+	bool "MMC SIM GPIO EXCHANGE"
+	depends on MMC
+	default n
+	help
+	   config ZODIAC sd driver
+
+config SD_SDIO_CRC_RETUNING
+	bool "SD SDIO CRC RETUNING"
+	depends on MMC
+	default n
+	help
+	   config ZODIAC sd driver
+
+config SDIO_HI_CLOCK_RETUNING
+	bool "SDIO HI CLOCK RETUNING"
+	depends on MMC
+	default n
+	help
+	   config ZODIAC sd driver
+
+config SD_TIMEOUT_RESET
+	bool "SD STIMEOUT RESET"
+	depends on MMC
+	default n
+	help
+	   config ZODIAC sd driver
+
+config ZODIAC_MMC_FLUSH_REDUCE
+	bool "Flush Reduce on MMC"
+	depends on MMC != n
+	default n
+	help
+	   Enable this config will provide the flush reduce support in MMC
+
+config ZODIAC_MMC_FLUSH_REDUCE_WHITE_LIST
+	bool "Flush Reduce eMMC devices white list"
+	depends on ZODIAC_MMC_FLUSH_REDUCE != n
+	default n
+	help
+	   Enable this config will enfore white list check on eMMC devices for flush reduce
+
+config ZODIAC_MMC_MANUAL_BKOPS
+	bool "MMC manual BKOPS support"
+	depends on MAS_BKOPS
+	default n
+	help
+	 MMC manual BKOPS support
+
+config HUAWEI_SDCARD_DSM
+	bool "Listen sdcard kernel err"
+	depends on MMC != n
+	default n
+	help
+	   use huawei sdcard log radar
+
+config HUAWEI_EMMC_DSM
+	bool "Listen eMMC kernel err"
+	depends on MMC != n
+	default n
+	help
+	   use huawei emmc log radar
+
+source "platform_source/basicplatform/drivers/mmc/core/Kconfig"
+source "platform_source/basicplatform/drivers/mmc/host/Kconfig"
+

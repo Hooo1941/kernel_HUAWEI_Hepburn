@@ -1,0 +1,2 @@
+
+source "platform_source/maligpu/drivers/gpu/Kconfig"

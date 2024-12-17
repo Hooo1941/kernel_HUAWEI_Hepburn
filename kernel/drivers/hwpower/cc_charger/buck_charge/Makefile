@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+obj-$(CONFIG_HUAWEI_CHARGER) += buck_charge.o
+obj-$(CONFIG_HUAWEI_CHARGER_AP) += buck_charge.o
+obj-$(CONFIG_HUAWEI_CHARGER) += buck_charge_sysfs.o
+obj-$(CONFIG_HUAWEI_CHARGER_AP) += buck_charge_sysfs.o
+obj-$(CONFIG_HUAWEI_CHARGER) += buck_charge_jeita.o
+obj-$(CONFIG_HUAWEI_CHARGER_AP) += buck_charge_jeita.o
+obj-$(CONFIG_HUAWEI_BUCK_CHARGER) += buck_charge_state.o
+obj-$(CONFIG_HUAWEI_CHARGER_AP) += buck_charge_state.o

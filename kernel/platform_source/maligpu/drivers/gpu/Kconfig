@@ -1,0 +1,3 @@
+source "platform_source/maligpu/drivers/gpu/gmc/Kconfig"
+
+source "platform_source/maligpu/drivers/gpu/arm/Kconfig"

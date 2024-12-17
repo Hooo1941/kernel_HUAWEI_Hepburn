@@ -1,0 +1,1 @@
+obj-$(CONFIG_PMU_LINEAR_HAPTIC_EVADE) += pmu_linear_haptics.o

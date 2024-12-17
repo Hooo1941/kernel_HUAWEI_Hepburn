@@ -1,0 +1,130 @@
+config MM_LB
+	bool "last buffer"
+	help
+	  Enable last buffer.
+
+	  If unsure, say N here.
+
+config MM_LB_DEBUG
+	bool "Lb debug"
+	depends on MM_LB
+	help
+	  Enable last buffer debug.
+
+	  If unsure, say N here.
+
+config MM_LB_ENG_DEBUG
+	bool "Lb eng debug"
+	depends on MM_LB
+	help
+	  Enable last buffer eng debug.
+
+	  If unsure, say N here.
+
+config MM_LB_TST
+	bool "Lb ip test"
+	depends on MM_LB
+	help
+	  Enable last buffer ip test
+	  and need disable lb debug
+
+	  if unsure, say N here
+
+config MM_LB_PMU
+	bool "Lb pmu"
+	depends on MM_LB
+	help
+	  Enable last buffer ip test
+	  and need disable lb debug
+
+	  if unsure, say N here
+
+config MM_LB_L3_EXTENSION
+	bool "Lb l3 extension"
+	depends on MM_LB
+	help
+	  Enable last buffer debug.
+
+	  If unsure, say N here.
+
+config MM_LB_V100
+	bool "Lb v100"
+	depends on MM_LB
+	help
+	  Enable last buffer driver v100.
+
+	  If unsure, say N here.
+
+config MM_LB_V200
+	bool "Lb v200"
+	depends on MM_LB
+	help
+	  Enable last buffer driver v200.
+
+	  If unsure, say N here.
+
+config MM_LB_V300
+	bool "Lb v300"
+	depends on MM_LB
+	help
+	  Enable last buffer driver v300.
+
+	  If unsure, say N here.
+
+config MM_LB_V400
+	bool "Lb v400"
+	depends on MM_LB
+	help
+	  Enable last buffer driver v400.
+
+	  If unsure, say N here.
+
+config MM_LB_V500
+	bool "Lb v500"
+	depends on MM_LB
+	help
+	  Enable last buffer driver v500.
+
+	  If unsure, say N here.
+
+config MM_LB_V550
+	bool "Lb v550"
+	depends on MM_LB
+	select MM_LB_FULL_COHERENCY
+	help
+	  Enable last buffer driver v550.
+
+	  If unsure, say N here.
+
+config MM_LB_FULL_COHERENCY
+	bool "Lb support full coherency"
+	depends on MM_LB_V550
+	help
+	  This option is selected by MM_LB_V550 automatically.
+	  It Indicates that the cache coherency is supported by the
+	  last buffer hardware.
+	  With this feature, the cpu cache flush function by set/way
+	  is not available. Drivers should, alternatively, flush cache
+	  by va range.
+
+config MM_LB_GID_PBHA
+	bool "support gid to pbha"
+	depends on MM_LB
+	help
+	  Support gid to pbha.
+
+	  If unsure, say N here.
+
+config MM_LB_PMU_V500
+	bool "Lb pmu"
+	depends on MM_LB
+	help
+	  Enable system cache pmu v500.
+
+	  if unsure, say N here
+
+config MM_LB_GM_TEST
+	bool "LB test with GM"
+	depends on MM_LB_V550
+	help
+		Enable GM test drv.

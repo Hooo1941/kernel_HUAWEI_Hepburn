@@ -1,0 +1,39 @@
+
+config SMT_MODE_GOV
+	bool "smt mode switch governor"
+	default n
+	depends on SCHED_SMT
+
+config SMT_ENABLE_CORE_SCHED
+	bool "smt core use core scheduling default"
+	default n
+	depends on SCHED_SMT && SCHED_CORE
+
+config SCHED_SMT_EXPELLING
+	bool "SMT expelling support"
+	default n
+	depends on SCHED_SMT && SCHED_CORE
+	help
+	  Expell the expellee task. If unsure say N here.
+
+config SCHED_CORE_PREFER
+	bool "Tasks prefer to co-run on SMT core"
+	default n
+	depends on SCHED_SMT && SCHED_CORE
+	help
+	  Scheduler support tasks prefer to co-run on SMT core.
+
+config SCHED_CORE_LAZY_FORCEIDLE
+	bool "Forceidle reduce"
+	default n
+	depends on SCHED_SMT && SCHED_CORE
+	help
+	  Reduce forceidle trigger times due to smt expel and cookie not match.
+
+config SCHED_SMT_USER_HIDE
+	bool "hide SMT to user"
+	default n
+	depends on SCHED_SMT
+	help
+	  Make apps don't aware SMT feature.
+

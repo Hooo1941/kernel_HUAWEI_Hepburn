@@ -1,0 +1,6 @@
+config NPU_PLATFORM_DRIVER
+    tristate "NPU_PLATFORM_DRIVER"
+    depends on MODULES
+    default n
+    help
+	Say m here to support npu platform driver ko.

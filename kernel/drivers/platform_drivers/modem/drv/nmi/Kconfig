@@ -1,0 +1,8 @@
+#
+# Modem nmi driver
+#
+config MODEM_NMI
+    tristate "nmi driver"
+    default n
+    help
+       modem nmi for tsp

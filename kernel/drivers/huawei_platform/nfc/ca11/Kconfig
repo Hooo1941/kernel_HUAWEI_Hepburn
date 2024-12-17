@@ -1,0 +1,26 @@
+#
+# Near Field Communication (NFC) devices
+#
+config NFC_FANLI
+	tristate "PRIV NFC driver"
+	depends on I2C
+	select CRC_CCITT
+	default n
+	help
+	  Say yes if you want NFC Near Field Communication driver.
+	  This is for i2c connected version. If unsure, say N here.
+
+	  To compile this driver as a module, choose m here. The module will
+	  be called PRIV NFC.
+
+config CA11_NFC
+	tristate "CA11 NFC driver"
+	depends on I2C
+	select CRC_CCITT
+	default n
+	help
+	  Say yes if you want NFC Near Field Communication driver.
+	  This is for i2c connected version. If unsure, say N here.
+
+	  To compile this driver as a module, choose m here. The module will
+	  be called PRIV NFC.

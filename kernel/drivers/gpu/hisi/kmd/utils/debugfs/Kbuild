@@ -1,0 +1,6 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2022. All rights reserved.
+#
+
+SRC += \
+	$(HVGR_ROOT)/utils/debugfs/hvgr_debugfs.c

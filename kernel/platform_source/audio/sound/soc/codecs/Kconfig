@@ -1,0 +1,34 @@
+
+config SND_SOC_DA_COMBINE_V3
+	tristate "Support Sound SoC DA combine v3 Codec"
+	depends on DA_COMBINE_V3_CODEC
+
+config SND_SOC_DA_COMBINE_V5
+	tristate "Support Sound SoC DA combine v5 Codec"
+
+
+config SND_SOC_DP_AUDIO
+	tristate "Support Sound SoC DP audio"
+
+# Supported au pa
+source "platform_source/audio/sound/soc/codecs/vendor/au_pa/Kconfig"
+
+config SND_SOC_CODEC_DA_SEPARATE_V2
+	tristate "Soc Smartstar Codec DA separate v2 support"
+
+config SND_SOC_CODEC_DEBUG
+	bool "Codec debug support"
+
+config SND_SOC_ASP_CODEC
+	tristate "Soc Smartstar asp codec"
+
+config SND_SOC_ASP_CODEC_CODECLESS
+	tristate "Soc Smartstar asp codec for codecless support"
+
+config SND_SOC_ASP_CODEC_ANA
+	tristate "Soc Smartstar asp codec for ana support"
+
+# Support codecless series audio ana codec
+
+# Supported da separate codecs
+source "platform_source/audio/sound/soc/codecs/vendor/legacy/da_separate/Kconfig"

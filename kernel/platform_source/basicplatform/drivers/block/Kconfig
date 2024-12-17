@@ -1,0 +1,6 @@
+config BLK_DEV_RAM_EMULATION
+	bool "Support EMU RAM block devices"
+	depends on BLK_DEV_RAM && DFX_DEBUG_FS
+	default n
+	help
+	  Support create a emulator ram filesystem.

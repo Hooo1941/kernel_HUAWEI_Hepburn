@@ -1,0 +1,10 @@
+#
+# echub log interface
+#
+
+config ARMPC_ECHUB_LOG
+	bool "echub log"
+	depends on ARMPC_ECHUB
+	default n
+	help
+	  This driver supports echub log interface.

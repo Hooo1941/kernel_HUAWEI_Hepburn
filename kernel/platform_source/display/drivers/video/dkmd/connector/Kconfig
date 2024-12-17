@@ -1,0 +1,57 @@
+
+config DKMD_DPU_CONNECTOR
+	bool "Enable connector support in dpu driver"
+	default n
+	depends on DKMD_DKSM
+	select DKMD_DPU_MIPI_DSI
+	help
+	  Choose this option if need connector support.
+
+config DKMD_DPU_MIPI_DSI
+	bool "Enable DSI support in dpu driver"
+	default n
+	depends on DKMD_DPU_COMPOSER
+	help
+	  Choose this option if need mipi dsi driver support.
+
+config DKMD_DPU_PANEL
+	bool "Enable panel support in dpu driver"
+	default n
+	depends on DKMD_DPU_MIPI_DSI
+	help
+	  Choose this option if need panel driver support.
+
+config DKMD_DPU_DP
+	bool "Enable dp tx support in dpu driver"
+	default n
+	depends on DKMD_DPU_COMPOSER
+	help
+	  Choose this option if need dp tx driver support.
+
+config DKMD_DPU_DP_RX
+	bool "Enable dp rx support in dpu driver"
+	default n
+	depends on DKMD_DPU_COMPOSER
+	help
+	  Choose this option if need dp rxdriver support.
+
+config DKMD_DPU_HDMI_TX
+	bool "Enable hdmi tx support in dpu driver"
+	default n
+	depends on DKMD_DPU_COMPOSER
+	help
+	  Choose this option if need hdmi tx driver support.
+
+config DKMD_DPU_HDMI_RX
+	bool "Enable hdmi rx support in dpu driver"
+	default n
+	depends on DKMD_DPU_COMPOSER
+	help
+	  Choose this option if need hdmi rx driver support.
+
+config DKMD_DPU_OFFLINE
+	bool "Enable offline device support in dpu driver"
+	default n
+	depends on DKMD_DPU_COMPOSER
+	help
+	  Choose this option if need offline driver support.

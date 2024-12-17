@@ -1,0 +1,16 @@
+menu "MPAM"
+config MPAM
+	depends on ARM64
+	tristate "CPU MPAM ARMv8"
+	help
+	  MPAM Support for ARMv8.
+	  For debugging issues having to do with stability and overall system
+	  health, you should probably say 'Y' here.
+
+config MPAM_DEBUG
+	depends on MPAM
+	bool "MPAM debug"
+	default n
+	help
+	  Say y if you want to use MPAM debug function.
+endmenu

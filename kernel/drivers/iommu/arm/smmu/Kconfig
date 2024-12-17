@@ -1,0 +1,169 @@
+# IOMMU support
+
+config MM_IODOMAIN_API
+	bool
+
+config MM_IOMMU
+	bool "IOMMU Support"
+	select IOMMU_API
+	select MM_IODOMAIN_API
+	select DMA_OPS
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_LPAE
+	bool "IOMMU LPAE Support"
+	select IOMMU_API
+	depends on MM_IOMMU
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_BYPASS
+	bool "IOMMU Bypass Support"
+	select IOMMU_API
+	depends on MM_IOMMU
+	help
+	  IOMMU Bypass Support.
+
+config MM_IOMMU_LEGACY
+	bool "IOMMU SECOND LEVEL PAGE TABLE Support"
+	select IOMMU_API
+	depends on MM_IOMMU && !MM_IOMMU_LPAE
+	help
+	  IOMMU Support.
+
+config MM_IOMMU_TEST
+	bool "IOMMU TEST Support"
+	depends on MM_IOMMU_LPAE
+	select IOMMU_API
+	help
+	  IOMMU Support.
+
+config MM_VIOMMU_TEST
+	bool "RDA IOMMU TEST Support"
+	depends on MM_IOMMU_LPAE || MM_SMMU_V3
+	select IOMMU_API
+	help
+	  RDA IOMMU Support.
+
+config MM_IOMMU_IOVA_DEBUG
+        bool "IOMMU IOVA DEBUG Support"
+	depends on MM_IOMMU
+	default n
+	help
+	  IOMMU IOVA DEBUG Support
+
+config MM_SVM
+	tristate "SVM driver"
+	depends on !ARM_SMMU_V3 && !MM_SMMU_V3
+	select MMU_NOTIFIER
+	help
+	  This option enables support for the svm features base on the ARM
+	  smmu v3 hardware. Select this option if you want to use devices by ssid
+	  and asid interface.
+
+config MM_SMMUV310
+	bool "SMMUV310 Support"
+	depends on MM_SVM
+	default n
+	help
+	  SMMUV310 Support
+
+config MM_SMMUV320
+	bool "SMMUV320 Support"
+	depends on MM_SVM
+	default n
+	help
+	  SMMUV320 Support
+
+config MM_SMMU_V3
+	bool "Self-Developed System MMU Version 3 (SMMUv3) Support"
+	depends on ARM64 && !ARM_SMMU_V3
+	select IOMMU_API
+	select IOMMU_IO_PGTABLE_LPAE
+	select GENERIC_MSI_IRQ_DOMAIN
+	help
+	  Support for implementations of the self-developed System MMU architecture
+	  version 3 providing translation support to a PCIe root complex.
+
+	  Say Y here if your system includes an IOMMU device implementing
+	  the self-developed SMMUv3 architecture.
+
+config LDK_SVM
+	bool "LDK_SVM support"
+	depends on MM_SMMU_V3
+	default n
+	help
+	  Support svm feature on hm-kernel LDK.
+
+config MM_IO_PGTABLE_EBIT
+	bool "build io-pgtable with E-bit"
+	depends on MM_SMMU_V3
+	default n
+	help
+	  Support building io-pgtable with E-bit.
+	  Only for hardware systems with MDE IP.
+
+config MM_IOMMU_LAST_PAGE
+	bool "IOMMU Last Page Support"
+	depends on MM_IOMMU
+	select IOMMU_API
+	help
+	  IOMMU Last Page Support
+
+config MM_IOMMU_DMA
+	bool "IOMMU DMA Support"
+	depends on MM_IOMMU
+	default n
+	help
+	  IOMMU DMA Support
+
+config MM_VIRTIO_IOMMU
+	tristate "Virtio IOMMU driver"
+	depends on VIRTIO
+	help
+	  Para-virtualised IOMMU driver with virtio.
+
+config MM_IOMMU_ERRATUM_NHVA_FLUSH_TLB
+	bool "IOMMU NHVA leaf(=0) flush tlb bugfix"
+	depends on MM_SMMU_V3
+	help
+	  NHVA flush tlb debug. For some platfprms,
+	  when leaf == 0, NHVA flush cannot flush pte entry,
+	  so we need to use leaf == 1 to flush pte entry,
+	  leaf == 0 to flush pgd/pmd entry.
+
+config MM_RDA_SMMU
+	bool "rda_mem IOMMU DRIVER Support"
+	select IOMMU_API
+	depends on MM_IOMMU
+	help
+		RDA IOMMU DRIVER Support.
+
+config SMMU_SUPPORT_2_LVL_STETAB
+	bool "smmu 2 level stetab support"
+	depends on MM_SMMU_V3
+	default n
+	help
+		config smmu 2 level stetab support.
+
+config SMMU_SUPPORT_2_LVL_CDTAB
+	bool "smmu 2 level cdtab support"
+	depends on MM_SMMU_V3
+	default n
+	help
+		config smmu 2 level cd support.
+
+config SMMU_SUPPORT_FFA
+	bool "smmu ffa support"
+	depends on ARM_FFA_TRANSPORT
+	default n
+	help
+		config smmu ffa support.
+
+config SMMU_SUPPORT_ECC
+	bool "smmu ecc support"
+	depends on MM_SMMU_V3
+	default n
+	help
+		config smmu ecc support.

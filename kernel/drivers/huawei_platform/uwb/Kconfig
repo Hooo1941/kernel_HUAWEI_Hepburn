@@ -1,0 +1,14 @@
+menu "UWB (Ultra-Wideband)"
+menuconfig UWB_DEVICES
+	tristate "Ultra-Wideband (UWB) devices"
+	default n
+	help
+	  You'll have to say Y if your computer contains an UWB device that
+	  you want to use under Linux.
+
+	  You can say N here if you don't have any UWB devices connected to your computer.
+
+source "drivers/huawei_platform/uwb/zl1500/Kconfig"
+
+endmenu
+

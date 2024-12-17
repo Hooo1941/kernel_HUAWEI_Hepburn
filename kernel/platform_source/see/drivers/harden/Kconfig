@@ -1,0 +1,22 @@
+menu "Kernel Harden"
+
+config KERNEL_REGION_PROTECT
+	bool "Secure region protect for ACPU access of kernel region"
+	depends on !DDRC_KERNEL_CODE_PROTECTION
+	default n
+	help
+	  This module is for kernel code protection within ddrc mechanism.
+	  Include:
+	  kernel code,
+	  kernel ro data,
+	  etc ...
+
+config DDRC_SUPPORT_FFA
+	bool "ddrc support ffa"
+	depends on ARM_FFA_TRANSPORT
+	default n
+	help
+	  Registering the ffa probe with the ddrc.
+	  The component invokes the ffa interface of the ddrc.
+
+endmenu

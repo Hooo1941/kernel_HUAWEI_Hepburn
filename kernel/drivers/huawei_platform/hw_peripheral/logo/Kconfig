@@ -1,0 +1,9 @@
+#
+# huawei kernel logo drivers
+#
+
+config FB_KERNEL_LOGO
+	tristate "fb kernel logo"
+	default n
+	help
+	  Kernel logo.

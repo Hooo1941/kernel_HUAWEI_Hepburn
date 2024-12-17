@@ -1,0 +1,27 @@
+config MM_SDCU
+	bool "System Data Compress Unit"
+	help
+	  Enable SDCU.
+	  When enabling this macro, SDCU hardware will be used
+	  to perform page compress/decompress operations.
+	  If unsure, say N here.
+
+config MM_SDCU_STATISTICS
+	bool "Display SDCU Statistics"
+	depends on MM_SDCU
+	help
+	  Enable SDCU statistics display interface.
+
+config MM_SDCU_TEST
+	bool "SDCU Unit Test"
+	depends on MM_SDCU
+	help
+	  Enable SDCU Unit Test.
+	  If unsure, say N here.
+
+config CRYPTO_SDCU
+	tristate "System Data Compression Unit Algorithm"
+	depends on MM_SDCU
+	select CRYPTO_ALGAPI
+	help
+	  This is the sdcu algorithm registered in crypto.

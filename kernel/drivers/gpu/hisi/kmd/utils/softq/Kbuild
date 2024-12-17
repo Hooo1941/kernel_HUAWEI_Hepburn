@@ -1,0 +1,6 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+SRC += \
+	$(HVGR_ROOT)/utils/softq/hvgr_softq.c

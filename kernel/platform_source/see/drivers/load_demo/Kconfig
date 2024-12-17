@@ -1,0 +1,6 @@
+config LOAD_DEMO
+	bool "Support load demo image"
+	default n
+	depends on TZDRIVER
+	help
+	  This driver supports load demo image

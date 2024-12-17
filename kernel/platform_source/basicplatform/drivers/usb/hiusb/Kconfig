@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: GPL-2.0
+config USB_HIUSB
+	tristate "HIUSB Support"
+	depends on USB
+	help
+	  Say Y or M here if your system has USB Hardware based on the HIUSB.
+
+	  If you choose to build this driver is a dynamically linked
+	  module, the module will be called hiusb.ko.
+config HIUSB_SUPPORT_FFA
+	tristate "HIUSB Support"
+	depends on USB_HIUSB && PLATDRV_SUPPORT_FFA
+	help
+	  Say Y here to enable hiusb FFA.

@@ -1,0 +1,5 @@
+config SIM_SD_MUX
+        tristate "kernel sim2 and nmc share same tray"
+    default n
+    help
+          This module adds support for sim2 & sd share same tray

@@ -1,0 +1,14 @@
+#
+# om socket driver
+#
+config OM_SOCKET
+	tristate "support om socket"
+	default n
+	help
+	  om socket
+
+config OM_SOCKET_AT_PORT
+	tristate "support om socket at port"
+	default y
+	help
+	  om socket at port

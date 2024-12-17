@@ -1,0 +1,3 @@
+config FFRT_UNIFORM_ID
+	tristate "FFRT_UNIFORM_ID"
+	default n

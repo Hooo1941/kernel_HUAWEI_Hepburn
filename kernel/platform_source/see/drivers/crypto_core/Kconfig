@@ -1,0 +1,54 @@
+config CRYPTO_CORE
+	bool "crypto core "
+	default n
+	help
+	  crypto core driver
+
+config CRYPTO_CORE_MNTN_RESET_IRQ_SEPARATE
+        depends on CRYPTO_CORE
+        bool "crypto_core reset use separate interrupts."
+        default n
+        help
+          whether crypto_core reset support separate interrupts feature
+
+config CRYPTO_CORE_SUPPORT_DCS
+        depends on CRYPTO_CORE
+	bool "Support for Dynamic Binaries upgrade"
+        default n
+        help
+	  whether to support dynamic binaries upgrade in crypto_core
+
+config CRYPTO_CORE_DISABLE_KEY
+	depends on CRYPTO_CORE
+	bool "crypto_core disable open and close key."
+	default n
+	help
+	  whether crypto_core support disable open and close key
+
+config CRYPTO_CORE_PINCODE
+	depends on CRYPTO_CORE
+	bool "crypto_core support pincode."
+	default n
+	help
+	  whether crypto_core support pincode
+
+config CRYPTO_CORE_V2
+	depends on CRYPTO_CORE
+	bool "crypto core v2"
+	default n
+	help
+	  whether crypto core v2 driver
+
+config CRYPTO_CORE_FFA_SUPPORT
+	bool "crypto core ffa support"
+	depends on RPMBMSPC_SUPPORT_FFA
+	default n
+	help
+	   config crypto core ffa support
+
+config CRYPTO_CORE_APM_KCA_NOTIFY
+	depends on CRYPTO_CORE_V2
+	bool "crypto core support apm kernel ca notify"
+	default n
+	help
+	  whether crypto core support apm kernel ca notify

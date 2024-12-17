@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: GPL-2.0
+config HUAWEI_BATTERY_CYCLE
+	bool "huawei battery cycle"
+	default n
+	help
+	  Say Y here to enable battery cycle normalize driver.
+	  This driver is an adaptation layer. It provides
+	  channels for modules in the native layer to retrieve
+	  relevant data from kernel.

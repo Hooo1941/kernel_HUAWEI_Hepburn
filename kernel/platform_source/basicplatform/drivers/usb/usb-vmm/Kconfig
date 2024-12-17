@@ -1,0 +1,3 @@
+config HIUSB_VM_CORE
+	bool "usb module support"
+	default n

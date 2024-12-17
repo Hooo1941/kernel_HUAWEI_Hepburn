@@ -1,0 +1,8 @@
+#
+# sysview driver
+#
+config SYSVIEW
+	tristate "support sysview"
+	default n
+	help
+	  sysview driver

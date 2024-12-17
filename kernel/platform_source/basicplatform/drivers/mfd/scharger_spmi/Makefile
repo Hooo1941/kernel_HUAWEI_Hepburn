@@ -1,0 +1,1 @@
+obj-$(CONFIG_SCHARGER_SPMI) += scharger_spmi.o

@@ -1,0 +1,20 @@
+
+config VENDOR_FS
+	bool "venodor fs interface feature"
+	default n
+	help
+		vendor fs interface feature
+
+config HYPERFRAME
+	bool "camera hyperframe feature"
+	depends on IO_URING && MAS_BLK && MAS_HEALTH
+	default n
+
+config HYPERFRAME_SPACE_MANAGE
+	bool "support ufs space and lifetime manage"
+	depends on HYPERFRAME
+	default n
+
+source "platform_source/basicplatform/fs/proc/Kconfig"
+source "platform_source/basicplatform/fs/filemap_manager/Kconfig"
+source "platform_source/basicplatform/fs/crypto/Kconfig"

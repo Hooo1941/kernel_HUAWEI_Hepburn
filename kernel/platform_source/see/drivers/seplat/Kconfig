@@ -1,0 +1,5 @@
+config SEPLAT
+	bool "seplat"
+	default n
+	help
+	  seplat driver

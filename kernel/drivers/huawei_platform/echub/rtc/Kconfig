@@ -1,0 +1,10 @@
+#
+# Echub RTC driver
+#
+
+config ARMPC_ECHUB_RTC
+	bool "Echub rtc driver"
+	depends on ARMPC_ECHUB
+	default n
+	help
+	  This driver supports the rtc feature of EC or MCU.

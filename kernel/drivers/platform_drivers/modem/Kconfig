@@ -1,0 +1,27 @@
+menu "Modem"
+config MODEM_DRIVER
+	tristate "ap+modem config for fusion platform"
+	default n
+	help
+	ap+modem config support.
+
+config EXTRA_MODEM_DRIVER
+	bool "extra_modem config"
+	default n
+	help
+	ap+modem config support.
+
+config EXTRA_MODEM_DRIVER_MBB
+	bool "MBB extra_modem config"
+	default n
+	help
+	ap+modem MBB config support
+
+config MODEM_PS_FUSION_VERSION
+        tristate "modem ps fusion version"
+        default n
+        help
+        modem ps fusion
+
+source "drivers/platform_drivers/modem/drv/Kconfig"
+endmenu

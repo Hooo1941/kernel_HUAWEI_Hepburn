@@ -1,0 +1,40 @@
+config SCHARGER
+	bool "scharger driver"
+	default n
+	help
+	  Compiling the platform/charger.
+config SCHARGER_ARCH
+	bool "scharger arch"
+	default n
+	help
+	  enable scharger core.
+config SCHARGER_V200
+	bool "schargerV200"
+	default n
+config SCHARGER_V300
+	bool "schargerV300"
+	default n
+config SCHARGER_V600
+	bool "schargerV600"
+	default n
+config CHARGER_SYS_WDG
+	bool "pmic charger sys watchdog"
+	default n
+config CHARGER_WDG
+	bool "pmic charger watchdog"
+	default n
+config SCHARGER_SCP_PROTOCOL
+	bool "scharger scp protocol"
+	default n
+config SCHARGER_DYNAMIC_CV
+	bool "scharger dynamic cv"
+	default n
+config HISI_UFCS_DRV
+	bool "scharger ufcs protocol"
+	default n
+config HISI_FCP_DRV
+	bool "scharger fcp protocol"
+	default n
+config SCHARGER_V800
+	bool "schargerV800"
+	default n

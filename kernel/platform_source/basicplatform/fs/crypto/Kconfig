@@ -1,0 +1,6 @@
+
+config FS_ENCRYPT_CASEFOLD
+	bool "Enable casefold for encrypt"
+	depends on UNICODE && FS_ENCRYPTION
+	help
+		Enable casefold for encrypt.

@@ -1,0 +1,6 @@
+config LP_ARM_PMU_PER_CPU_EVENT_HOOK
+	bool "arm pmu per cpu envents"
+	depends on CEE_CPU_HCK
+	default n
+	help
+	  Enable arm pmu per cpu envents hook

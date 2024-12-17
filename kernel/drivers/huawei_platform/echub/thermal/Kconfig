@@ -1,0 +1,17 @@
+#
+# echub thermal moudule
+#
+
+config  PC_ECHUB_THERMAL
+        bool "echub thermal"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This driver provides support for echub thermal
+
+config THERMAL_DEVICE_INTERFACE
+	bool "thermal device interface"
+	depends on ARMPC_ECHUB
+	default n
+	help
+	  Say Yes here to support thermal device interface

@@ -1,0 +1,6 @@
+
+config PMU_OCP
+    bool "modem pmu ocp"
+    default n
+    help
+    support for pmu ocp

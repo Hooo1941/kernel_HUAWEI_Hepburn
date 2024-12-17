@@ -1,0 +1,17 @@
+#
+# modem control interface
+#
+
+comment "modem control interface"
+
+config MCI_CUST
+	tristate "mci support customize"
+	default n
+	help
+	  open for mbb
+
+config MCI_SWITCH
+    tristate "mci support switch"
+    default n
+    help
+      open for mbb, support PCUI/MODEM/UART/CMUX/APPVCOM switch

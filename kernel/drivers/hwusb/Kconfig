@@ -1,0 +1,9 @@
+source "drivers/hwusb/hw_gadget/Kconfig"
+source "drivers/hwusb/hw_usb/Kconfig"
+source "drivers/hwusb/hw_dp/Kconfig"
+
+config HW_PD_COMMON
+        bool "Hw pd common"
+        default n
+        help
+          Say Y to enable

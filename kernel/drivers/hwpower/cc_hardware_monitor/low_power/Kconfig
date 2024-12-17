@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# low power drivers
+#
+
+config HUAWEI_LOW_POWER
+	bool "low power"
+	default n
+	help
+	  Say Y here to enable low power driver.
+	  Currently supported emergency mode, low temperature mode.
+	  Improves battery efficiency through the boost circuit.

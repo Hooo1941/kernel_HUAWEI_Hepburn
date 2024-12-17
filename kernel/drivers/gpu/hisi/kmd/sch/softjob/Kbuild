@@ -1,0 +1,20 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/sch \
+	-I$(HVGR_PATH)/sch/cq \
+	-I$(HVGR_PATH)/sch/cq/sched \
+	-I$(HVGR_PATH)/sch/cq/driver \
+	-I$(HVGR_PATH)/sch/cq/driver/$(CHIP_VER_DIR) \
+	-I$(HVGR_PATH)/sch/cq/sched/sched_policy \
+	-I$(HVGR_PATH)/sch/cq/sched/sched_policy/$(CHIP_VER_DIR) \
+	-I$(HVGR_PATH)/sch/softjob
+SRC += \
+	$(HVGR_ROOT)/sch/softjob/hvgr_ksync.c \
+	$(HVGR_ROOT)/sch/softjob/hvgr_ksync_dma_fence.c \
+	$(HVGR_ROOT)/sch/softjob/hvgr_msync.c \
+	$(HVGR_ROOT)/sch/softjob/hvgr_softjob.c \
+	$(HVGR_ROOT)/sch/softjob/hvgr_softjob_api.c \
+	$(HVGR_ROOT)/sch/softjob/hvgr_wq.c

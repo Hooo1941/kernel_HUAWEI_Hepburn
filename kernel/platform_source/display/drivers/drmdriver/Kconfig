@@ -1,0 +1,19 @@
+config DRMDRIVER
+    tristate "dpu drm module driver"
+    default n
+    help
+      Provides a secure configuration between kernel and BL31,
+	  and drm module driver
+
+config DPU_FFA_SUPPORT
+    bool "dpu choose ffa support"
+    depends on ARM_FFA_TRANSPORT
+    default n
+    help
+      Say yes here to support ffa.
+
+config DKMD_HIMATRIX_STUB
+    bool "DKMD_HIMATRIX_STUB"
+    default n
+    help
+      Say yes here to support himatrix stub.

@@ -1,0 +1,19 @@
+# SPDX-License-Identifier: GPL-2.0-only
+menu "UART HID support"
+	depends on TTY
+
+config UART_HID
+	tristate "HID over uart tty transport layer"
+	default n
+	depends on TTY && INPUT
+	select HID
+	help
+	  Say Y here if you use a keyboard, a touchpad, a touchscreen, or any
+	  other HID based devices which is connected to your computer via uart.
+
+	  If unsure, say N.
+
+	  This support is also available as a module.  If so, the module
+	  will be called uart-hid.
+
+endmenu

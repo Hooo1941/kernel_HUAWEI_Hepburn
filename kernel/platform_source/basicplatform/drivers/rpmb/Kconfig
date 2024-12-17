@@ -1,0 +1,93 @@
+
+menu "RPMB support"
+
+config VENDOR_RPMB
+	bool "rpmb"
+	default n
+	help
+	   config rpmb driver
+
+config RPMB_MMC
+	bool "rpmb mmc"
+	depends on VENDOR_RPMB && ZODIAC_MMC
+	default n
+	help
+	   config mmc rpmb driver
+
+config RPMB_UFS
+	bool "rpmb ufs"
+	depends on VENDOR_RPMB && SCSI_HUFS
+	default n
+	help
+	   config ufs rpmb driver
+
+config RPMB_STORAGE_INTERFACE
+	bool "storage interface"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb storage interface
+
+config RPMB_SET_MULTI_KEY
+	bool "rpmb set multi key"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb set multi key
+
+config RPMB_DEBUG_FS
+	bool "rpmb debugfs"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb debug
+
+config RPMB_TIME_DEBUG
+	bool "rpmb time debug"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb time debug
+
+config RPMB_KEY_ENABLE
+	bool "rpmb key enable"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb key enable
+
+config RPMB_DMD_REPORT
+	bool "rpmb dmd report"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb dmd report
+
+config RPMB_SHARE_MEM
+	bool "rpmb share mem addr config in DTS"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   config rpmb share mem addr config in DTS
+
+config RPMB_FFA_SUPPORT
+	bool "rpmb ffa support"
+	depends on RPMBMSPC_SUPPORT_FFA
+	default n
+	help
+	   config rpmb ffa support
+
+config RPMB_REQ_LOCK_DISABLE
+	bool "rpmb req lock disable"
+	depends on VENDOR_RPMB
+	default n
+	help
+	   disable rpmb counter lock and cmd lock
+
+config UFS_RPMB_SUPPORT_FROM_TEEOS_IN_KERNEL
+	bool "support call from teeos in kernel"
+	depends on HIBERNATION
+	default n
+	help
+	   support call from teeos in kernel
+endmenu

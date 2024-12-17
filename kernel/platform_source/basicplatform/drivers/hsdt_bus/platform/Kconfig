@@ -1,0 +1,6 @@
+#
+# Kirin HSDT BUS platform configuration
+#
+config HSDT_BUS_OCT
+	tristate "HSDT BUS Oct, Cpxx use this macro"
+	select HSDT_BUS_DOMAIN

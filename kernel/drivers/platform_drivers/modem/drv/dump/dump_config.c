@@ -1,0 +1,106 @@
+/*
+ * Copyright (c) Huawei Technologies Co., Ltd. 2012-2020. All rights reserved.
+ * foss@huawei.com
+ *
+ * If distributed as part of the Linux kernel, the following license terms
+ * apply:
+ *
+ * * This program is free software; you can redistribute it and/or modify
+ * * it under the terms of the GNU General Public License version 2 and
+ * * only version 2 as published by the Free Software Foundation.
+ * *
+ * * This program is distributed in the hope that it will be useful,
+ * * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * * GNU General Public License for more details.
+ * *
+ * * You should have received a copy of the GNU General Public License
+ * * along with this program; if not, write to the Free Software
+ * * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA
+ *
+ * Otherwise, the following license terms apply:
+ *
+ * * Redistribution and use in source and binary forms, with or without
+ * * modification, are permitted provided that the following conditions
+ * * are met:
+ * * 1) Redistributions of source code must retain the above copyright
+ * *    notice, this list of conditions and the following disclaimer.
+ * * 2) Redistributions in binary form must reproduce the above copyright
+ * *    notice, this list of conditions and the following disclaimer in the
+ * *    documentation and/or other materials provided with the distribution.
+ * * 3) Neither the name of Huawei nor the names of its contributors may
+ * *    be used to endorse or promote products derived from this software
+ * *    without specific prior written permission.
+ *
+ * * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ */
+
+#include <product_config.h>
+#include <bsp_dt.h>
+#include <osl_types.h>
+#include <bsp_dump_mem.h>
+#include <dump_log_strategy.h>
+#include "dump_frame.h"
+#include "dump_errno.h"
+#include "dump_config.h"
+
+#undef THIS_MODU
+#define THIS_MODU mod_dump
+
+#define DUMP_DEFAULT_MODEMAP_USER_DATA_SIZE 0x1000
+
+u32 dump_cfg[DUMP_CFG_MAX_ENUM_NUM] = {
+    DUMP_DEFAULT_MODEMAP_USER_DATA_SIZE,
+    DUMP_FIELD_MAX_NUM,
+};
+
+bool dump_cfg_match_cur_dump_level(dump_level_e target_level)
+{
+    dump_level_e firmware_dump_level = DUMP_LEVEL_INVALID;
+    if (dump_is_fulldump()) {
+        firmware_dump_level = DUMP_LEVEL_FULLDUMP;
+    } else if (dump_is_minidump()) {
+        firmware_dump_level = DUMP_LEVEL_MINIDUMP;
+    }
+    if ((target_level <= firmware_dump_level) &&
+        firmware_dump_level < DUMP_LEVEL_INVALID) {
+        return true;
+    }
+    return false;
+}
+
+u32 dump_get_u32_cfg(dump_config_e cfg_enum)
+{
+    if ((u32)cfg_enum >= (u32)DUMP_CFG_MAX_ENUM_NUM) {
+        return DUMP_CFG_INVALID_VAL;
+    }
+    return dump_cfg[(u32)cfg_enum];
+}
+
+int dump_cfg_init(void)
+{
+    device_node_s *node = NULL;
+
+    node = bsp_dt_find_node_by_path("/dump_cfg");
+    if (node == NULL) {
+        dump_error("no dts_cfg, use default\n");
+        return DUMP_ERRNO_DTS_NODE;
+    }
+
+    if (bsp_dt_property_read_u32_array(node, "ap_cfg", &dump_cfg[0], DUMP_CFG_MAX_ENUM_NUM) != 0) {
+        dump_error("read dts cfg err, use default\n");
+        return DUMP_ERRNO_DTS_PROP;
+    }
+    return DUMP_OK;
+}

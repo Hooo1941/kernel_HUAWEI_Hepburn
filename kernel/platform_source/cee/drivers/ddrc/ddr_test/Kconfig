@@ -1,0 +1,6 @@
+config DDR_TEST
+    bool "ddr test support"
+    depends on DFX_DEBUG_FS
+    default n
+    help
+      Say yes here to support the ddr test module.

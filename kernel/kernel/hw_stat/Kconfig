@@ -1,0 +1,38 @@
+config HW_STAT
+	bool "HW_STAT support."
+	default n
+	help
+	  HW_STAT provides a basic framework for kernel statistics.
+config HW_STAT_TRACING_MARK_WRITE
+	bool "HW_STAT_TRACING_MARK_WRITE support."
+	default n
+	help
+	  If enabled, we can use hw_stat_trace() to print debugging
+	  slices on perfetto traces.
+config HW_STAT_TRACE_PAGEFAULT
+	bool "HW_STAT_TRACE_PAGEFAULT support."
+	depends on HW_STAT_TRACING_MARK_WRITE
+	default n
+	help
+	  If enabled, print major page fault info
+	  into trace using tracing_mark_write.
+config HW_STAT_TRACE_MMAP
+	bool "HW_STAT_TRACE_MMAP support."
+	depends on HW_STAT_TRACING_MARK_WRITE
+	default n
+	help
+	  If enabled, print mmap info
+	  into trace using tracing_mark_write.
+config HW_STAT_TRACE_FULLPATH
+	bool "HW_STAT_TRACE_FULLPATH support."
+	depends on HW_STAT_TRACING_MARK_WRITE
+	default n
+	help
+	  If HW_STAT_TRACE_FULLPATH is enabled, HW_STAT_TRACE
+	  may print out some file path.
+
+source "kernel/hw_stat/fault_stat/Kconfig"
+source "kernel/hw_stat/hw_iostat/Kconfig"
+source "kernel/hw_stat/psi/Kconfig"
+source "kernel/hw_stat/blk_info/Kconfig"
+source "kernel/hw_stat/phymem/Kconfig

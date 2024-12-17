@@ -1,0 +1,30 @@
+config DFX_SEC_QIC
+	bool "Support Secure QIC"
+	default n
+	help
+	  This driver supports xxx secure QIC,
+	  including qic driver
+config DFX_SEC_QIC_V100
+	depends on DFX_SEC_QIC
+	bool "Support Secure QIC V100"
+	default n
+	help
+	  Support Secure QIC V100
+config DFX_SEC_QIC_V100_MODID_REGISTER
+	depends on DFX_SEC_QIC_V100
+	bool "Support Secure QIC V100 modid register"
+	default n
+	help
+	  Support Secure QIC V100 modid register
+config DFX_SEC_QIC_V300
+	depends on DFX_SEC_QIC
+	bool "Support Secure QIC V300"
+	default n
+	help
+	  Support Secure QIC V300
+config DFX_SEC_QIC_V300_MODID_REGISTER
+	depends on DFX_SEC_QIC_V300
+	bool "Support Secure QIC V300 modid register"
+	default n
+	help
+	  Support Secure QIC V300 modid register

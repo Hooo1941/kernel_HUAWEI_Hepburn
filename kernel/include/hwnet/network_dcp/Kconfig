@@ -1,0 +1,5 @@
+config HW_NETWORK_DCP
+    bool "weixin cloud server proxy"
+    default n
+    help
+        This module adds support for dnat socket to specifical server.

@@ -1,0 +1,11 @@
+config HWDPS
+	bool "hwdps System"
+	default n
+	help
+	Huawei Application Authentication System
+
+config HWDPS_OHOS
+	bool "hwdps config for ohos kernel build"
+	default n
+	help
+	  Say 'Y' in ohos kernel

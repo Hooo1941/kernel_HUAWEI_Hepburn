@@ -1,0 +1,24 @@
+cc_defaults {
+    name: "ntfsprogs_defaults",
+    header_libs: [
+        "libntfs-3g_headers",
+        "ntfs-3g-config_headers",
+        "elfutils_headers",
+    ],
+    shared_libs: ["libntfs-3g"],
+    cflags: [
+        "-DHAVE_CONFIG_H",
+        "-Werror",
+        "-Wall"
+    ],
+}
+
+cc_binary {
+    name: "ntfsfix",
+    defaults: ["ntfsprogs_defaults"],
+
+    srcs: [
+        "ntfsfix.c",
+        "utils.c",
+    ],
+}

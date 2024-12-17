@@ -1,0 +1,8 @@
+config TZDRIVER_INTERNAL
+	tristate "Secure Execution Communicator driver private code"
+	default n
+	depends on TZDRIVER
+	help
+	  include tzdriver features which not open-source.
+
+source "drivers/platform_drivers/tzdriver/tzdriver_internal/tee_trace_event/Kconfig"

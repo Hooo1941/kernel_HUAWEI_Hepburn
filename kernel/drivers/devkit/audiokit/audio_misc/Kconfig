@@ -1,0 +1,8 @@
+config HUAWEI_AUDIO_MISC
+    bool "audio misc driver"
+    default n
+    help
+    Say Y to enable audio misc driver support
+if HUAWEI_AUDIO_MISC
+    source "drivers/devkit/audiokit/audio_misc/vibrator_state/Kconfig"
+endif

@@ -1,0 +1,33 @@
+#
+# Armpc echub driver configuration
+#
+
+config ARMPC_ECHUB
+	bool "armpc echub drvier"
+	depends on I2C
+	default n
+	help
+	  echub handle all EC chipset status and messages required by OS,it's agent of EC in the Linux Kernel.
+
+config ARMPC_ECHUB_I2C
+	bool "armpc echub i2c drvier"
+	depends on ARMPC_ECHUB
+	default n
+	help
+	  echub i2c drvier handle all EC chipset data read/write.
+
+config ARMPC_ECHUB_DEBUG_FS
+	bool "armpc echub debug"
+	depends on ARMPC_ECHUB
+	default n
+	help
+	  enable echub debug fs
+
+source "drivers/huawei_platform/echub/keyboard/Kconfig"
+source "drivers/huawei_platform/echub/power/Kconfig"
+source "drivers/huawei_platform/echub/battery/Kconfig"
+source "drivers/huawei_platform/echub/fnled/Kconfig"
+source "drivers/huawei_platform/echub/thermal/Kconfig"
+source "drivers/huawei_platform/echub/echub_update/Kconfig"
+source "drivers/huawei_platform/echub/echub_log/Kconfig"
+source "drivers/huawei_platform/echub/rtc/Kconfig"

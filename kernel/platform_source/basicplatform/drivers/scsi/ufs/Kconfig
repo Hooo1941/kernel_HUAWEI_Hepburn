@@ -1,0 +1,360 @@
+config VENDOR_UFS
+	tristate "vendor ufs"
+	help
+	This selects use VENDOR UFS.
+
+config HUFS_HC
+	tristate "HUFS Host Controller"
+	help
+	This selects use HUFS host controller.
+
+config HUFS_HC_CORE_UTR
+	depends on HUFS_HC
+	tristate "HUFS Host Controller Core Utrs Instead Of Spec Utrs"
+	help
+		This selects use HUFS host controller Core Utr.
+
+config SCSI_HUFS
+	  tristate "UFS Host Controller Driver"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM
+	  help
+	  This selects the UFS host controller driver.
+	  If you have a controller with this interface, say Y or M here.
+	  If unsure, say N.
+
+config SCSI_UFS_TAURUS
+	  tristate "UFS Host TAURUS Controller Driver"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	  help
+	  This selects the UFS TAURUS host controller driver.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config SCSI_UFS_PISCES
+	  tristate "UFS Host PISCES Controller Driver"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	  help
+	  This selects the UFS PISCES host controller driver.
+	  If you have a controller with this interface, say Y or M here.
+	  If unsure, say N.
+
+config SCSI_UFS_SCORPIO
+	  tristate "UFS Host SCORPIO Controller Driver"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	  help
+	  This selects the UFS SCORPIO host controller driver.
+	  If you have a controller with this interface, say Y or M here.
+	  If unsure, say N.
+
+config SCSI_UFS_AQUILA
+	  tristate "UFS Host aquila Controller Driver"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	  help
+	  This selects the UFS SCORPIO host controller driver.
+	  If you have a controller with this interface, say Y or M here.
+	  If unsure, say N.
+
+config SCSI_UFS_ARA
+	  tristate "UFS Host qra Controller Driver"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	  help
+	  This selects the UFS SCORPIO host controller driver.
+	  If you have a controller with this interface, say Y or M here.
+	  If unsure, say N.
+
+config SCSI_UFS_INTR_HUB
+	  tristate "UFS Host Intr Hub Support"
+	  depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	  help
+	  This selects the hufs intr hub.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config SCSI_UFS_LIBRA
+        tristate "UFS Host LIBRA Controller Driver"
+        depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+        help
+        This selects the UFS LIBRA host controller driver.
+
+        If you have a controller with this interface, say Y or M here.
+
+        If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO
+       tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced)"
+       depends on SCSI_UFS_INLINE_CRYPTO
+
+       help
+       This selects the HUFS inline enhanced crypto driver.
+
+       Select this if you want to use Hardware Crypto Engine
+       and using its interface for some special cryto func.
+       Otherwise, if you love my driver code, say Y or M here.
+
+       If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO_V2
+       tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced v2)"
+       depends on SCSI_UFS_ENHANCED_INLINE_CRYPTO
+
+       help
+       This selects the HUFS inline enhanced crypto driver V2.
+
+       Select this if you want to use Hardware Crypto Engine
+       and using its interface for some special cryto func.
+       Otherwise, if you love my driver code, say Y or M here.
+
+       If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO_V3
+       tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced v3)"
+       depends on FILE_BASED_ENCRYPTO
+       depends on SCSI_UFS_ENHANCED_INLINE_CRYPTO_V2
+
+       help
+       This selects the HUFS inline enhanced crypto driver V3.
+
+       Select this if you want to use Hardware Crypto Engine
+       and using its KDF function for some special cryto func.
+       Otherwise, if you love my driver code, say Y or M here.
+
+       If unsure, say N.
+
+config SCSI_UFS_LEO
+	 tristate "UFS Host LEO Controller Driver"
+	 depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	 help
+	 This selects the UFS LEO host controller driver.
+	 If you have a controller with this interface, say Y or M here.
+	 If unsure, say N.
+
+config SCSI_UFS_SGR
+	 tristate "UFS Host SGR Controller Driver"
+	 depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	 help
+	 This selects the UFS SGR host controller driver.
+	 If you have a controller with this interface, say Y or M here.
+	 If unsure, say N.
+
+config SCSI_UFS_ANTLIA
+	 tristate "UFS Host ANTLIA Controller Driver"
+	 depends on SCSI_UFSHCD && SCSI_UFSHCD_PLATFORM && SCSI_HUFS
+	 help
+	 This selects the UFS ANTLIA host controller driver.
+	 If you have a controller with this interface, say Y or M here.
+	 If unsure, say N.
+
+config HUFS_MANUAL_BKOPS
+	bool "hisi manual BKOPS support for UFS"
+	depends on MAS_BKOPS && SCSI_UFSHCD
+	default n
+
+config SCSI_UFS_CUST_MAX_SECTORS
+	bool "enable custom max sectors in UFS"
+	depends on SCSI_UFSHCD && MAS_BLK
+	default n
+	help
+	   enable custom max sectors in UFS
+
+config SCSI_UFS_HI1861_VCMD
+	bool "UFS Hi1861 Device Vendor Command"
+	depends on SCSI_UFSHCD
+	help
+		This adds UFS Hufs Device defined vendor command.
+		contained that query fsr and so on.
+
+config SCSI_HUFS_MQ_DEFAULT
+	bool "Active MAS UFS MQ as default IO Scheduler"
+	default n
+	help
+	   Active MAS UFS MQ as default IO Scheduler
+
+config SCSI_UFS_SYNCCACHE_RECORD
+	bool "UFS sync cache status record"
+	depends on SCSI_UFSHCD
+
+config SCSI_UFS_UNISTORE
+	bool "enable unistore in UFS"
+	depends on SCSI_UFSHCD && SCSI_UFS_HI1861_VCMD
+	default n
+	help
+		This enable unistore in UFS.
+
+config SCSI_UFS_INLINE_CRYPTO
+	tristate "UFS inline crytpo driver based on HUFS Host Controller"
+	depends on SCSI_UFSHCD && SCSI_HUFS
+	help
+	This selects the HUFS inline crypto driver.
+
+	Select this if you want to use Hardware Crypto Engine
+	and using its interface for some special cryto func.
+	Otherwise, if you love my driver code, say Y or M here.
+
+	If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO
+	tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced)"
+	depends on SCSI_UFS_INLINE_CRYPTO
+	help
+	This selects the HUFS inline enhanced crypto driver.
+
+	Select this if you want to use Hardware Crypto Engine
+	and using its interface for some special cryto func.
+	Otherwise, if you love my driver code, say Y or M here.
+
+	If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO_V2
+	tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced v2)"
+	depends on SCSI_UFS_ENHANCED_INLINE_CRYPTO
+	help
+	This selects the HUFS inline enhanced crypto driver V2.
+
+	Select this if you want to use Hardware Crypto Engine
+	and using its interface for some special cryto func.
+	Otherwise, if you love my driver code, say Y or M here.
+
+	If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO_V3
+	tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced v3)"
+	depends on FILE_BASED_ENCRYPTO || LIBLINUX
+	depends on SCSI_UFS_ENHANCED_INLINE_CRYPTO_V2
+	help
+	This selects the HUFS inline enhanced crypto driver V3.
+
+	Select this if you want to use Hardware Crypto Engine
+	and using its KDF function for some special cryto func.
+	Otherwise, if you love my driver code, say Y or M here.
+
+	If unsure, say N.
+
+config SCSI_UFS_ENHANCED_INLINE_CRYPTO_KM
+	tristate "UFS inline crytpo driver based on HUFS Host Controller (enhanced km)"
+	depends on FILE_BASED_ENCRYPTO || LIBLINUX
+	depends on SCSI_UFS_ENHANCED_INLINE_CRYPTO_V3
+	help
+	This selects the HUFS inline enhanced crypto driver km.
+
+	Select this if you want to use Hardware Crypto Engine
+	and using its KDF function for some special cryto func.
+	Otherwise, if you love my driver code, say Y or M here.
+
+	If unsure, say N.
+
+config HUAWEI_UFS_DSM
+	bool "Listen UFS Kernel Error"
+	depends on SCSI_UFSHCD
+
+config HUAWEI_UFS_TRACE
+	bool "Trace UFS kernel Error"
+	depends on SCSI_UFSHCD
+
+config HUAWEI_UFS_VENDOR_MODE
+	bool "Enter UFS vendor mode"
+	depends on SCSI_UFSHCD
+
+config SCSI_UFS_FAULT_INJECT
+	tristate "UFS Fault Inject"
+	depends on SCSI_UFSHCD && FAULT_INJECTION && FAULT_INJECTION_DEBUG_FS
+	help
+	This adds the UFS Fault Inject Interface to the ufshcd.
+	The infrastructure can be used for debugging the driver from user space
+	by injecting fault to the driver.
+
+	Select this if you want to enable fault injection.
+	If unsure, say N.
+
+config SCSI_DISK_PARTITION_DRIFT
+	tristate "disk partition drift"
+	depends on SCSI
+
+config SCSI_UFS_GEAR_CTRL
+	bool "UFS gear control support"
+	default n
+	help
+	This selects the ufs support gear ctrl ability.
+
+config HUFS_BOOTROM_MODE
+	bool "UFS BootRom Mode"
+	depends on HUFS_HC && BOOTDEVICE
+	default n
+	help
+	Select this if you want to enable the capability of UFS switching to
+	HSG1 in onchiprom stage.
+
+config HUFS_BOOTROM_MODE_NO_CHARGER
+	bool "UFS BootRom Mode without Charger Check"
+	depends on HUFS_BOOTROM_MODE
+	default n
+	help
+	Select this if you want to stop charger check.
+
+config UFS_FFA_SUPPORT
+	bool "ufs ffa support"
+	depends on ARM_FFA_TRANSPORT && PLATDRV_SUPPORT_FFA
+	default n
+	help
+	   config ufs ffa support
+
+config UFS_2DW_PRDT
+	bool "UFS 2dw prdt"
+	depends on HUFS_HC
+	help
+	This selects the ufs 4.0 version support.
+
+	Select this if host support 4.0 spec, the OoO feature depend on 2dw prdt selected.
+	if device OoO opened, cannot be closed never.
+
+config UFS_4_0_HC
+	bool "UFS 4.0 host"
+	depends on HUFS_HC
+	help
+	This selects the ufs 4.0 version support.
+
+	Select this if host support 4.0 spec, the OoO feature depend on 4.0 host selected.
+
+config DFA_MCQ
+	bool "DFA MCQ driver"
+	depends on UFS_4_0_HC && MAS_MCQ
+	help
+	This selects the dfa driver support.
+
+config SCSI_UFS_VIRTUALIZ_AGENT
+	tristate "UFS virtualization agent"
+	depends on (VIRTIO_BLK || SCSI_VIRTIO) && (SCSI_UFS_INLINE_CRYPTO || RPMB_UFS || AB_PARTITION_TABLE)
+	help
+	This selects the ufs virtualization agent.
+
+	Select this if you want to use storage virtualization
+	based on virtio-blk or virtio-scsi.
+
+	If unsure, say N.
+
+config SCSI_UFS_VIRTUALIZ_SERVICE
+	tristate "UFS virtualization service"
+	depends on LIBLINUX && SCSI_UFSHCD
+	help
+	This selects the ufs virtualization service.
+
+	Select this if you want to use storage virtualization
+	based on virtio-blk or virtio-scsi.
+
+	If unsure, say N.
+
+config SCSI_UFS_SMMU
+	bool "UFS smmu enable"
+	depends on HUFS_HC && MM_SMMU_V3
+	default n
+	help
+	Select this if you want to enable ufs smmu.
+
+config UFS_H8_IDLE_3MS
+	bool "UFS H8 IDLE 3MS enable"
+	default n
+	help
+	Select this if you want to enable ufs h8 idle time 3ms.

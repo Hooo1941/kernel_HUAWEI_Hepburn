@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-only
+source "platform_source/cee/drivers/devfreq/mem_lat/Kconfig"
+source "platform_source/cee/drivers/devfreq/gpu_devfreq/Kconfig"
+source "platform_source/cee/drivers/devfreq/npu_devfreq/Kconfig"
+if PM_DEVFREQ
+source "platform_source/cee/drivers/devfreq/l3c_devfreq/Kconfig"
+endif

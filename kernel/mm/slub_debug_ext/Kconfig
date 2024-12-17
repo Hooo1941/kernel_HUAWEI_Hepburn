@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config SLUB_DEBUG_ENHANCED
+	bool "Enhanced slub debug info, to show slab usage by pid"
+	depends on SLUB && SLUB_DEBUG
+	default n
+	help
+	  Debug slub usage by process id

@@ -1,0 +1,20 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei bypass boost drivers
+#
+
+config BYPASS_BOOST
+	bool "bypass boost"
+	default n
+	help
+	  Say Y here to enable bypass boost.
+	  This driver provides a unified interface to the bypass boost.
+	  Currently supported ic as below.
+	  hl7603
+
+config BYPASS_BOOST_HL7603
+	bool "bypass boost hl7603"
+	depends on BYPASS_BOOST
+	default n
+	help
+	  Say Y here to enable bypass boost hl7103 driver.

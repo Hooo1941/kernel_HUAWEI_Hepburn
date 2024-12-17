@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config VENDOR_SATA
+    bool "Enable sata driver for 10cc controller"
+    depends on SATA_AHCI
+    default n
+    help
+          If you say yes here, the 10cc controller driver will be enabled
+
+config VENDOR_SATA_ANTLIA
+    bool "Enable sata antlia driver"
+    depends on VENDOR_SATA
+    default n
+    help
+          If you say yes here, the 10cc controller driver will be enabled

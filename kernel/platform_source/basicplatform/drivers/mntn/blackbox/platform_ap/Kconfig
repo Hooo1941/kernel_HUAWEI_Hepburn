@@ -1,0 +1,37 @@
+config DFX_IRQ_REGISTER
+	bool "record irq register"
+	depends on DFX_BB
+	default n
+	help
+	  This module can record irq register.
+
+config DFX_REENTRANT_EXCEPTION
+	bool "reentrant exception"
+	depends on DFX_BB
+	default n
+	help
+	  this module deal with reentrant exception.
+
+config DFX_TIME_HOOK
+	bool "support print time call trace "
+	depends on DFX_BB
+	default n
+	help
+	  Say 'Y' here if you want to print time call trace.
+
+config OPTIMIZE_DFX_RINGBUFFER_WRITE
+	bool "optimize ringbuffer write"
+	default n
+	help
+	  this module optimze ringbuffer write
+
+config LIBLINUX_REBOOT_WITH_SNAPSHOT
+	bool "Reboot with snapshot printed in the HM kernel."
+	depends on LIBLINUX
+	default n
+
+config DFX_CONTEXTHUB_LOG_SAVE
+	bool "save contexthub log"
+	default n
+	help
+	  this module save contexthub log

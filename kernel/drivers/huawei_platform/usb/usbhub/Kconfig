@@ -1,0 +1,6 @@
+#sensor unification for differ platform
+menuconfig ARMPC_USB_HUB
+	bool "armpc usb hub device"
+	default n
+	help
+	Say yes here to support usb hub for Kirin PC.

@@ -1,0 +1,14 @@
+config HW_STAT_PSI
+    bool "HW_STAT_PSI support."
+    depends on HW_STAT
+    depends on PSI
+    default n
+    help
+      hw_stat psi base.
+
+config HW_STAT_PSI_LRB
+    bool "HW_STAT_PSI_LRB support."
+    depends on HW_STAT_PSI
+    default n
+    help
+      Pressure stall information for lrb_in_use.

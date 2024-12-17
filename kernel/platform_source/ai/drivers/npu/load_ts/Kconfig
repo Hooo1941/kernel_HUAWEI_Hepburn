@@ -1,0 +1,4 @@
+config NPU_LOAD_TS
+	tristate "NPU_LOAD_TS"
+	default n
+

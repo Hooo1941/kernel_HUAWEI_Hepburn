@@ -1,0 +1,39 @@
+config DMABUF_HEAPS_SECSG
+	bool "DMA-BUF Secsg Heap"
+	depends on DMABUF_HEAPS
+	select DMABUF_MM
+	help
+	  Choose this option to enable the secsg dmabuf heap. The secsg heap
+	  can init many heaps and is backed by cma allocate. If in doubt, say Y.
+
+config DMABUF_HEAPS_SECCG
+	bool "DMA-BUF Seccg Heap"
+	depends on DMABUF_HEAPS
+	select DMABUF_MM
+	help
+	  Choose this option to enable the seccg dmabuf heap. The seccg heap
+	  can init many heaps and is backed by cma allocate. If in doubt, say Y.
+
+config DMABUF_HEAPS_CPA
+	bool "DMA-BUF CPA Heap"
+	depends on DMABUF_HEAPS
+	select DMABUF_MM
+	help
+	  Choose this option to enable the cpa dmabuf heap. The cpa heap
+	  is backed by pages from the buddy allocator. If in doubt, say Y.
+
+config DMABUF_HEAPS_DMA_POOL
+	bool "DMA-BUF DMA POOL Heap"
+	depends on DMABUF_HEAPS
+	select DMABUF_MM
+	help
+	  Choose this option to enable the dma_pool dmabuf heap. The dma_pool heap
+	  is backed by pages from the cma allocator. If in doubt, say Y.
+
+config DMABUF_HEAPS_CARVEOUT
+	bool "DMA-BUF CARVEOUT Heap"
+	depends on DMABUF_HEAPS
+	select DMABUF_MM
+	help
+	  Choose this option to enable the carveout dmabuf heap. The carveout heap
+	  is backed by pages from the reserved memory. If in doubt, say Y.

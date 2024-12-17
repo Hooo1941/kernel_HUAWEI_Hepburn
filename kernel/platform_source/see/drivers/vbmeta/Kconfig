@@ -1,0 +1,5 @@
+config VBMETA_ROLLBACK
+	bool "vbmeta_rollback"
+	default n
+	help
+	  config update vbmeta rollback value

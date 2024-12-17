@@ -1,0 +1,7 @@
+menu "driver Configuration"
+
+source "platform_source/display/drivers/drmdriver/Kconfig"
+source "platform_source/display/drivers/jpu/Kconfig"
+source "platform_source/display/drivers/dpu_drm/Kconfig"
+
+endmenu

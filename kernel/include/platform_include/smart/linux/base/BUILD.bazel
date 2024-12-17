@@ -1,0 +1,13 @@
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "contexthub_base_headers",
+    hdrs = glob(["**/*.h"]),
+    includes = [
+        ".",
+        "ap",
+        "hifi",
+    ],
+)

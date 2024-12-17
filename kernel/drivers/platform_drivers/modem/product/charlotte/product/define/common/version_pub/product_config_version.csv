@@ -1,0 +1,11 @@
+switch,comment,cs_eng,cs_rtt,cs_user:cs_eng,cs_asan:cs_eng,csv2_eng,csv2_user:csv2_eng,csv2_asan:csv2_eng
+CFG_PRODUCT_CFG_CHIP_SOLUTION_NAME,,"""Balong""","""Balong""",,,"""Balong""",,
+CFG_BUILD_TYPE,,RELEASE,RELEASE,,,RELEASE,,
+CFG_PRODUCT_VERSION,,V121R001C00B010,V121R001C00B010,,,V121R001C00B010,,
+CFG_PRODUCT_VERSION_STR,,"""V121R001C00B010""","""V121R001C00B010""",,,"""V121R001C00B010""",,
+CFG_PRODUCT_FULL_VERSION_STR,修改版本号前8个字符需知会工具组,"""Baltimore V100R001C60SPC115""","""Baltimore V100R001C60SPC115""",,,"""Baltimore V100R001C60SPC115""",,
+CFG_PRODUCT_DLOAD_SOFTWARE_VER,修改版本号前8个字符需知会工具组,"""21C60SPC115CP0000""","""21C60SPC115CP0000""",,,"""21C60SPC115CP0000""",,
+CFG_PLATFORM,,charlotte,charlotte,,,charlotte,,
+CFG_PLATFORM_HISI_BALONG,,charlotte,charlotte,,,charlotte,,
+CFG_MODEM_FUSION_VERSION,modem融合架构打开为true,true,true,,,true,,
+CFG_NV_VERSION,,charlotte,charlotte,,,charlotte,,

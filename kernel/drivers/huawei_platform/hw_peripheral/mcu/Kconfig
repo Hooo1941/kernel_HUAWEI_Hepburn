@@ -1,0 +1,9 @@
+#
+# huawei mcu drivers
+#
+
+config HW_MCU_DRIVER
+	tristate "mcu hc32l110 driver"
+	default n
+	help
+	  MCU hc32l110 I2C driver.

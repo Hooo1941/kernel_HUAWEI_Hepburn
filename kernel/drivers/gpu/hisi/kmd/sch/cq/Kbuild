@@ -1,0 +1,26 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/sch \
+	-I$(HVGR_PATH)/sch/cq \
+	-I$(HVGR_PATH)/sch/cq/sched \
+	-I$(HVGR_PATH)/sch/cq/driver \
+	-I$(HVGR_PATH)/sch/cq/driver/$(CHIP_VER_DIR) \
+	-I$(HVGR_PATH)/sch/cq/sched/sched_policy \
+	-I$(HVGR_PATH)/sch/cq/sched/sched_policy/$(CHIP_VER_DIR) \
+	-I$(HVGR_PATH)/sch/softjob
+SRC += \
+	$(HVGR_ROOT)/sch/cq/hvgr_cq.c \
+	$(HVGR_ROOT)/sch/cq/hvgr_cq_queue.c \
+	$(HVGR_ROOT)/sch/cq/hvgr_ctx_sched.c  \
+	$(HVGR_ROOT)/sch/cq/sched/hvgr_cq_schedule.c \
+	$(HVGR_ROOT)/sch/cq/sched/sched_policy/hvgr_sch_policy_manager.c \
+	$(HVGR_ROOT)/sch/cq/sched/sched_policy/$(CHIP_VER_DIR)/hvgr_sch_policy_default.c \
+	$(HVGR_ROOT)/sch/cq/driver/hvgr_cq_driver_base.c \
+	$(HVGR_ROOT)/sch/cq/driver/$(CHIP_VER_DIR)/hvgr_cq_driver_adapt.c
+
+ifeq ($(CONFIG_DFX_DEBUG_FS), y)
+        SRC += $(HVGR_ROOT)/sch/cq/driver/$(CHIP_VER_DIR)/hvgr_cq_debug_switch.c
+endif

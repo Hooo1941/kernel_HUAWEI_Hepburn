@@ -1,0 +1,19 @@
+config SND_SOC_PCM_CODECS
+	tristate "SoC Audio support for pcm codec"
+	default n
+
+config SND_SOC_CDC_CUSTOM
+	tristate "Soc Audio support for cdc custom"
+	depends on SND_SOC_PCM_CODECS
+	default n
+
+config SND_SOC_ARMPC_CUSTOM
+	tristate "Soc Audio support for armpc custom"
+	depends on SND_SOC_PCM_CODECS
+	default n
+
+config SND_SOC_PCM_AXI2TDM
+	tristate "Soc Audio support for pcm axi2tdm"
+	depends on SND_SOC_PCM_CODECS
+	default n
+

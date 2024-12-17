@@ -1,0 +1,12 @@
+config HW_WIFI_AMAX
+	tristate "kernel huawei driver hook for wifi multilink"
+	default n
+	help
+	  This module adds support for wifi multilink.
+
+config HW_WIFI_CLOCK
+	tristate "kernel huawei driver hook for wifi clock"
+	default n
+	help
+	  This module adds support for wifi clock.
+

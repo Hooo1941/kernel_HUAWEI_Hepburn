@@ -1,0 +1,1 @@
+obj-$(CONFIG_BATT_EIS_SCHARGER) += hisi_scharger_eis.o

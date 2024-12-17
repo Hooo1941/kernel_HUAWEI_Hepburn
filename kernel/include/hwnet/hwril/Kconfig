@@ -1,0 +1,5 @@
+config VSIM_ADAPT
+        tristate "kernel vsim adapt"
+    default n
+    help
+          This module adds support for vsim

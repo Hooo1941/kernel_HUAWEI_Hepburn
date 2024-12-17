@@ -1,0 +1,6 @@
+config PMU_LINEAR_HAPTIC_EVADE
+	bool "pmu linear haptic evade schedule"
+	depends on LINEAR_VIBRATOR
+	default n
+	help
+	  Say yes here to support the linear haptic evade schedule.

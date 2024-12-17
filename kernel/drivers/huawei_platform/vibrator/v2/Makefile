@@ -1,0 +1,2 @@
+obj-$(CONFIG_HUAWEI_VIBRATOR_V2_0) += core/
+obj-$(CONFIG_HUAWEI_VIBRATOR_V2_0) += adapter/

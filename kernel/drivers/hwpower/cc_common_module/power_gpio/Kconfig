@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei power gpio drivers
+#
+
+config HUAWEI_POWER_GPIO_MISC
+	tristate "huawei power gpio misc"
+	default n
+	help
+	  Say Y here to enable power gpio misc driver.
+	  Say M here to compile the driver as a module.

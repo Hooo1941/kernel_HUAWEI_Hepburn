@@ -1,0 +1,25 @@
+#
+# modem reset driver
+#
+
+comment "modem reset"
+
+config MODEM_RESET
+	tristate "support modem reset feature"
+	default n
+	help
+	  modem reset
+
+config MODEM_RESET_TEST
+	tristate "test code of modem reset feature"
+	default n
+	help
+	  modem reset test program
+	  
+config MODEM_POWER_MANAGE
+	tristate "the interface of modem power manage"
+	default n
+	help
+	  modem state
+
+

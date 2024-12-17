@@ -1,0 +1,15 @@
+#
+# EFUSE infrastructure and drivers
+#
+
+config EFUSE_IOT
+	tristate "Modem EFUSE Read/Write support"
+	default n
+	help
+	  Support for Modem SoC read or write.
+
+config EFUSE_MODEM_AGENT
+	tristate "Modem EFUSE Read/Write Agent"
+	default n
+	help
+	  Support for Modem SoC read or write Agent.

@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# dischg boost drivers
+#
+
+config HUAWEI_DISCHG_BOOST
+	bool "dischg boost"
+	default n
+	help
+	  Say Y here to enable dischg boost driver.
+	  Currently supported operating by gpio and triggered by soc.
+	  Improves output voltage through the boost circuit.

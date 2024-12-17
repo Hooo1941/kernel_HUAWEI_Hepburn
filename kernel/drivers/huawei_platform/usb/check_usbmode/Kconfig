@@ -1,0 +1,9 @@
+#
+# check usbmode for usb drivers
+#
+
+config CHECK_USBMODE
+	bool "CHECK_USBMODE support"
+	default n
+	help
+	  Say Y here to enable check usbmode for usb driver.

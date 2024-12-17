@@ -1,0 +1,105 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+# Driver version string which is returned to userspace via an ioctl
+HVGR_RELEASE_NAME ?= "B236"
+
+src:=$(if $(patsubst /%,,$(src)),$(srctree)/$(src),$(src))
+
+DEFINES += -DHVGR_V200=200
+DEFINES += -DHVGR_V300=300
+DEFINES += -DHVGR_V350=350
+
+ifndef HVGR_PATH
+	ifeq ($(CONFIG_HVGR_V2XX), y)
+		HVGR_VER=_v2xx
+		HVGR_V200 ?= 1
+		DEFINES += -DHVGR_SUPPORT_SPEC_LOW=1
+		DEFINES += -DHVGR_CMDQ_PROPERTY=0
+	else ifeq ($(CONFIG_HVGR_V3XX), y)
+		HVGR_VER=_v3xx
+		HVGR_V300 ?= 1
+		DEFINES += -DHVGR_SUPPORT_SPEC_LOW=0
+		DEFINES += -DHVGR_CMDQ_PROPERTY=1
+		ifeq ($(CONFIG_DFX_DEBUG_FS), y)
+		DEFINES += -DHVGR_SCHTIME_SHOW=1
+		endif
+	else ifeq ($(CONFIG_HVGR_V350), y)
+		HVGR_VER=_v350
+		HVGR_V350 ?= 1
+		DEFINES += -DHVGR_SUPPORT_SPEC_LOW=0
+		DEFINES += -DHVGR_CMDQ_PROPERTY=1
+		ifeq ($(CONFIG_DFX_DEBUG_FS), y)
+		DEFINES += -DHVGR_SCHTIME_SHOW=1
+		endif
+	else
+		#do nothing
+	endif
+	HVGR_PATH = $(src)
+endif
+
+# Set up our defines, which will be passed to gcc
+DEFINES += -DHVGR_RELEASE_NAME=\"$(HVGR_RELEASE_NAME)\"
+
+ifndef HVGR_ROOT
+	HVGR_ROOT=.
+endif
+
+ifeq ($(HVGR_V200), 1)
+DEFINES += -DHVGR_VERSION_CODE=200
+CHIP_VER_DIR=hvgr_v200
+endif
+
+ifeq ($(HVGR_V300), 1)
+DEFINES += -DHVGR_VERSION_CODE=300
+CHIP_VER_DIR=hvgr_v300
+endif
+
+ifeq ($(HVGR_V350), 1)
+DEFINES += -DHVGR_VERSION_CODE=350
+CHIP_VER_DIR=hvgr_v350
+endif
+
+HVGR_PLATFORM_NAME := $(shell echo $(CONFIG_HVGR_PLATFORM_NAME))
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/apicmd \
+	-I$(HVGR_PATH)/apicmd/$(CHIP_VER_DIR) \
+	-I$(HVGR_PATH)/apicmd/$(CHIP_VER_DIR)/apicmd \
+	-I$(HVGR_PATH)/include \
+	-I$(HVGR_PATH)/include/chip/ \
+	-I$(HVGR_PATH)/include/chip/$(CHIP_VER_DIR) \
+	-I$(HVGR_PATH)
+
+ifeq ($(CONFIG_LIBLINUX),y)
+SRC :=
+SRC_ARB :=
+SRC_FE :=
+endif
+
+include $(HVGR_PATH)/dm/Kbuild
+include $(HVGR_PATH)/pm/Kbuild
+include $(HVGR_PATH)/mem/Kbuild
+-include $(HVGR_PATH)/ldk/Kbuild
+include $(HVGR_PATH)/sch/Kbuild
+include $(HVGR_PATH)/utils/Kbuild
+include $(HVGR_PATH)/datan/Kbuild
+include $(HVGR_PATH)/platform/Kbuild
+include $(HVGR_PATH)/external/Kbuild
+-include $(HVGR_PATH)/virtual/arb/Kbuild
+-include $(HVGR_PATH)/virtual/frontend/Kbuild
+
+
+# ccflags-y += $(INCLUDE_DIR) -I$(DEFINES)
+subdir-ccflags-y += $(INCLUDE_DIR) -I$(DEFINES)
+
+# Tell the Linux build system from which .o file to create the kernel module
+obj-$(CONFIG_HVGR_VIRTUAL_HOST) += hvgr_arb$(HVGR_VER).o
+obj-$(CONFIG_HVGR_VIRTUAL) += hvgr_fe$(HVGR_VER).o
+obj-$(CONFIG_HISI_GPU) += hvgr_kmd$(HVGR_VER).o
+
+# Tell the Linux build system to enable building of our .c files
+hvgr_arb$(HVGR_VER)-$(CONFIG_HVGR_VIRTUAL_HOST) := $(SRC_ARB:.c=.o)
+hvgr_fe$(HVGR_VER)-$(CONFIG_HVGR_VIRTUAL) := $(SRC_FE:.c=.o)
+hvgr_kmd$(HVGR_VER)-y := $(SRC:.c=.o)

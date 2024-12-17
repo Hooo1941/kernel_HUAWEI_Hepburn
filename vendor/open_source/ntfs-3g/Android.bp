@@ -1,0 +1,17 @@
+cc_library_headers {
+    name: "libfuse-lite_headers",
+    export_include_dirs: ["include/fuse-lite"],
+    recovery_available: true,
+}
+
+cc_library_headers {
+    name: "libntfs-3g_headers",
+    export_include_dirs: ["include/ntfs-3g"],
+    recovery_available: true,
+}
+
+cc_library_headers {
+    name: "ntfs-3g-config_headers",
+    export_include_dirs: ["."],
+    recovery_available: true,
+}

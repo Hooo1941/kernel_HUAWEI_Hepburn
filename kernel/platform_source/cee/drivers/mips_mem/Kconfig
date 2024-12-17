@@ -1,0 +1,5 @@
+config MIPS_MEM_FREQ
+        bool "mips memfreq governor"
+        depends on MIPS_LOAD_TRACKING
+        help
+          Note that use mips informance to change mem freq

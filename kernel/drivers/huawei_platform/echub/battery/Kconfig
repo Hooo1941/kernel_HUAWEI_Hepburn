@@ -1,0 +1,10 @@
+#
+# echub battery moudule
+#
+
+config ARMPC_ECHUB_BATTERY
+        bool "echub battery"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This driver provides support for echub battery

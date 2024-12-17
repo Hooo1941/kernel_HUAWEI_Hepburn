@@ -1,0 +1,6 @@
+menu "NPU Kernel Configuration"
+
+source "platform_source/ai/drivers/npu/Kconfig"
+
+
+endmenu

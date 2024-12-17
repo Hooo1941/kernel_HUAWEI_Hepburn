@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# SPI driver configuration
+#
+menuconfig SPI_FR8000
+	tristate "FR8000 UWB SPI driver"
+	help
+	  This supports FR8000 UWB device.

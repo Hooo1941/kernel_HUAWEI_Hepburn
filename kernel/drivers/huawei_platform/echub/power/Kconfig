@@ -1,0 +1,40 @@
+#
+# echub power moudule
+#
+
+config ARMPC_ECHUB_PMSYNC
+        bool "ec state sync"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This driver provides support for ec state sync(suspend / resume)
+          via GPIO.
+
+config ARMPC_ECHUB_LID
+        bool "ec lid func"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This driver provides support for Lid function
+          via GPIO.
+
+config ARMPC_ECHUB_LID_TEST
+        bool "lid production test"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This config provides support for Lid production test.
+
+config ARMPC_ECHUB_CHARGE_STATUS
+        bool "ec charge func"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This driver provides support for ec charge status function.
+
+config ARMPC_ECHUB_WAKEALARM
+        bool "ec wakealarm"
+        depends on ARMPC_ECHUB
+        default n
+        help
+          This driver provides support for ec wakealarm function

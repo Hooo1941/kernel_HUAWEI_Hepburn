@@ -1,0 +1,34 @@
+
+
+#ifndef __WIFI_EXT_EVENT_H__
+#define __WIFI_EXT_EVENT_H__
+#define SET_MSS_TPUT_THRESHOLD 102
+#define SET_MSS_TPUT_LEVEL	103
+#define SET_TRAFFIC_MODEL_ALG_MODE 104
+
+#include <linux/etherdevice.h>
+
+typedef enum {
+	NETLINK_REG_TO_KERNEL = 0,
+	NETLINK_UNREG_TO_KERNEL,
+	NETLINK_CMM_TO_KERNEL,
+	NETLINK_SET_RULE_TO_KERNEL,
+	NETLINK_STOP_MARK,
+	NETLINK_START_MARK,
+	NETLINK_MPLK_BIND_NETWORK,
+	NETLINK_MPLK_UNBIND_NETWORK,
+	NETLINK_MPLK_RESET_SOCKET,
+	NETLINK_MPLK_CLOSE_SOCKET,
+	NETLINK_HID2D_TYPE,
+	NETLINK_WIFI_EXT_TO_KERNEL
+} ntl_cmd_type_t;
+
+/* 命令列表 */
+typedef enum {
+	WIFI_CMD_SET_TRAFFIC_MOEDL_ALG = 0,
+	WIFI_CMD_SET_TRAFFIC_MOEDL_UPPER_BOUND = 1,
+} wifi_hal_cmd_to_kernel;
+
+extern void cfg80211_drv_mss_report(const u8 *buf, size_t len);
+
+#endif /* __WIFI_EXT_EVENT_H__ */

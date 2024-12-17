@@ -1,0 +1,20 @@
+config TEE_TUI
+	bool "Trusted User Interface Driver"
+	default n
+	depends on TZDRIVER
+	help
+	  Trusted user interface diver
+
+config TEE_TUI_FP
+	bool "Trusted User Interface Driver For FP"
+	default n
+	depends on TZDRIVER
+	help
+	  Trusted user interface diver
+
+config TEE_TUI_DISPLAY_3_0
+	bool "Trusted User Interface Driver For DSS3.0"
+	default n
+	depends on TEE_TUI
+	help
+	  Trusted user interface diver

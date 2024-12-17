@@ -1,0 +1,70 @@
+menu "HHEE options"
+
+config HHEE
+	bool "HHEE support"
+	default n
+	help
+	  Say yes here to support the HHEE
+
+config HKIP_MODULE_ALLOC
+	bool "HKIP overload module_alloc for hhee"
+	depends on HHEE
+	default n
+	help
+	  Say yes when overload is needed
+
+config HHEE_DEBUG
+	bool "HKIP HHEE test support"
+	depends on !UBSAN && !KCOV && !KASAN
+	depends on HHEE
+	depends on DFX_DEBUG_FS
+	default n
+	help
+	  Say yes here to support the HHEE debug
+
+config ACE_ENABLE_TVM
+	bool "HKIP support for cdc ace tvm enable"
+	depends on HHEE
+	default n
+	help
+	  Say yes here to support HKIP in cdc ace devices
+
+config HHEE_USING_IPI
+	bool "HKIP HHEE Using IPI interrupt"
+	depends on HHEE
+	default n
+	help
+	  Say yes here to support using IPI not GIC
+
+config HKIP_XOM_CODE
+	bool "HKIP XOM protection of kernel code"
+	depends on HHEE
+	default y
+	help
+	  Say yes here to enable kernel XOM protection
+
+config HKIP_MAP_KERNEL_PROTECT
+	bool "Protect kernel text and rodata pagetable in map_kernel"
+	depends on HHEE
+	default y
+	help
+	  Protect kernel text and rodata pagetable in map_kernel.
+
+config HHEE_OHOS
+	bool "openharmony hhee adapt"
+	depends on HHEE
+	default n
+	help
+	  Openharmony hhee adapt, only enabled in linux-5.10-lts kernel.
+
+config HHEE_HIBERNATE
+	bool "HHEE S4 Hibernate feature support"
+	default HIBERNATION
+	help
+	---help---
+	  This module supports the safe configuration or saving and recovery of
+	  data for hhee modules. HHEE implements the saving and recovery
+	  mechanism of S4 state, which is used by hhee module.
+	  If unsure, say N.
+
+endmenu

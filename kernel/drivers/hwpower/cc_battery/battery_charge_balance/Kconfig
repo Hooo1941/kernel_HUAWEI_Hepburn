@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei multi batteries charge balance driver
+#
+
+config HUAWEI_BATTERY_CHARGE_BALANCE
+	bool "huawei multi batteries balance driver"
+	default n
+	help
+	  Say Y here to enable huawei parallel or serial connection of multi batteries driver.
+	  It monitor multi battery infomation and provid multi battery power supply.
+	  It merge multi battery infomation for battery power supply.

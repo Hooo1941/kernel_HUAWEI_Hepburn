@@ -1,0 +1,5 @@
+config DDR_DDRC_FLUX_SOFTTIMER
+    bool "ddrc flux module support"
+    default n
+    help
+      Say yes here to support the ddrc flux module.

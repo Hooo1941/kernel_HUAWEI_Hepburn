@@ -1,0 +1,28 @@
+# Auth Configuration
+config CLIENT_AUTH
+	bool "Client Application Hash Auth"
+	default n
+	depends on TZDRIVER
+	help
+	  TEEOS CA code hash auth
+
+config ANDROID_HIDL
+	bool "Android Hidl Adapt"
+	default n
+	depends on CLIENT_AUTH
+	help
+	  TEEOS hidl proc auth
+
+config CADAEMON_AUTH
+	bool "Teec Daemon Path Hash Auth"
+	default n
+	depends on TZDRIVER
+	help
+	  TEEOS TEECD path hash auth
+
+config TZDRIVER_OHOS
+	bool "Is in OH"
+	default n
+	depends on TZDRIVER
+	help
+	  OH Cadaemon uid

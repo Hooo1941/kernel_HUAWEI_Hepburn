@@ -1,0 +1,7 @@
+config HUAWEI_SMARTPAKIT_AUDIO
+	tristate "smartpakit driver"
+	default n
+	help
+		Say Y to enable smartpakit driver support
+
+source "drivers/devkit/audiokit/smartpakit/high_power_smartpa/Kconfig"

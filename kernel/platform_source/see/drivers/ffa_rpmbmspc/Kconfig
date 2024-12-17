@@ -1,0 +1,7 @@
+config RPMBMSPC_SUPPORT_FFA
+	bool "rpmbmspc support ffa"
+	depends on ARM_FFA_TRANSPORT
+	default n
+	help
+	  Registering the ffa probe with the rpmbmspc.
+	  The component invokes the ffa interface of the rpmbmspc.

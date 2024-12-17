@@ -1,0 +1,5 @@
+config AUDIO_GPIO_CTL
+	tristate "audio gpio driver"
+	default n
+	help
+	  Say Y to enable audio gpio driver support

@@ -1,0 +1,7 @@
+menu "FFRT Kernel Configuration"
+
+-source "platform_source/ffrt/ffts/Kconfig"
+-source "platform_source/ffrt/hts/Kconfig"
+-source "platform_source/ffrt/uniform_id/Kconfig"
+
+endmenu

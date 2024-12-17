@@ -1,0 +1,10 @@
+#
+# huawei s4 secimage drivers
+#
+
+config HIBERNATE_SECIMAGE
+	tristate "s4 secimage"
+    depends on HIBERNATION
+	default n
+	help
+	  support encrypted s4 Image.

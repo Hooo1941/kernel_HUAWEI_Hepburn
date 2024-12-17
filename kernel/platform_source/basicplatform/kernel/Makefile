@@ -1,0 +1,1 @@
+obj-$(CONFIG_HISI_KERNEL_GCOV)   += hisi_gcov/

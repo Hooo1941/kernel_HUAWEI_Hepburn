@@ -1,0 +1,5 @@
+config SOFTWARE_BOARDID
+	bool "Support Platform BOARDID driver"
+	default n
+	help
+	Say yes here if you want to use platform boardid

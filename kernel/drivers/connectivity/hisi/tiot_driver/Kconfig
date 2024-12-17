@@ -1,0 +1,10 @@
+#===============================================================================
+# @brief    Kconfig file for kernel.
+# Copyright (c) @CompanyNameMagicTag 2024-2024. All rights reserved.
+#===============================================================================
+
+config TIOT_DRIVER
+    tristate "tiot driver"
+    default n
+    help
+        Support for tiot drivers.

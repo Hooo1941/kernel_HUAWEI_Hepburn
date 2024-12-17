@@ -1,0 +1,31 @@
+menu "driver Configuration"
+
+source "platform_source/see/drivers/bl2_log/Kconfig"
+source "platform_source/see/drivers/bl31_hibernate/Kconfig"
+source "platform_source/see/drivers/bl31_log/Kconfig"
+source "platform_source/see/drivers/cpusec_test/Kconfig"
+source "platform_source/see/drivers/crypto_core/Kconfig"
+source "platform_source/see/drivers/seplat/Kconfig"
+source "platform_source/see/drivers/crypto_enhance/Kconfig"
+source "platform_source/see/drivers/efuse/Kconfig"
+source "platform_source/see/drivers/general_see/Kconfig"
+source "platform_source/see/drivers/harden/Kconfig"
+source "platform_source/see/drivers/thee/Kconfig"
+source "platform_source/see/drivers/kernel_harden_test/Kconfig"
+source "platform_source/see/drivers/load_image/Kconfig"
+source "platform_source/see/drivers/dev_secinfo/Kconfig"
+source "platform_source/see/drivers/hhee/Kconfig"
+source "platform_source/see/drivers/prmem/Kconfig"
+source "platform_source/see/drivers/uapp/Kconfig"
+source "platform_source/see/drivers/cust_atf_shmem/Kconfig"
+source "platform_source/see/drivers/secboot/Kconfig"
+source "platform_source/see/drivers/sharevpu_sec_irq/Kconfig"
+source "platform_source/see/drivers/pac_stub/Kconfig"
+source "platform_source/see/drivers/ffa/Kconfig"
+source "platform_source/see/drivers/ffa_rpmbmspc/Kconfig"
+source "platform_source/see/drivers/hicrypto/Kconfig"
+source "platform_source/see/drivers/vbmeta/Kconfig"
+
+endmenu
+
+

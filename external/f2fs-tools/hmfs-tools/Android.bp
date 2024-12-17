@@ -1,0 +1,274 @@
+// Copyright 2017 The Android Open Source Project
+
+cc_defaults {
+    name: "hmfs-tools-defaults",
+    cflags: [
+        "-DF2FS_MAJOR_VERSION=1",
+        "-DF2FS_MINOR_VERSION=14",
+        "-DF2FS_TOOLS_VERSION=\"1.14.0\"",
+        "-DF2FS_TOOLS_DATE=\"2021-11-11\"",
+        "-DWITH_ANDROID",
+        "-Wall",
+        "-Werror",
+        "-Wno-format",
+        "-Wno-macro-redefined",
+        "-Wno-missing-field-initializers",
+        "-Wno-pointer-arith",
+        "-Wno-sign-compare",
+        "-Wno-unused-function",
+        "-Wno-string-plus-int",
+        "-Wno-unused-parameter",
+    ],
+    local_include_dirs: [
+        "include",
+        "mkfs",
+        "fsck",
+    ],
+    include_dirs: [
+        "external/e2fsprogs/lib/",
+        "system/core/libsparse/include",
+    ],
+    target: {
+        windows: {
+            enabled: false,
+        },
+        android: {
+            cflags: ["-DHAVE_LOG"],
+            header_libs: ["oemaids_headers"],
+        },
+    },
+}
+
+cc_defaults {
+    name: "libhmfs_src_files",
+    cflags: [
+        "-DWITH_BLKDISCARD",
+        "-DHDIO_GETGIO",
+    ],
+    srcs: [
+        "lib/libf2fs.c",
+        "lib/libf2fs_log.c",
+        "mkfs/f2fs_format.c",
+        "mkfs/f2fs_format_utils.c",
+        "lib/libf2fs_zoned.c",
+        "lib/nls_utf8.c",
+    ],
+}
+
+cc_defaults {
+    name: "make_hmfs_src_files",
+    srcs: [
+        "lib/libf2fs_io.c",
+        "lib/libf2fs_log.c",
+        "mkfs/f2fs_format_main.c",
+    ],
+}
+
+cc_defaults {
+    name: "hmfs_fsck_main_src_files",
+    srcs: [
+        "fsck/dir.c",
+        "fsck/dict.c",
+        "fsck/mkquota.c",
+        "fsck/quotaio.c",
+        "fsck/quotaio_tree.c",
+        "fsck/quotaio_v2.c",
+        "fsck/quotaio_cache.c",
+        "fsck/node.c",
+        "fsck/segment.c",
+        "fsck/xattr.c",
+        "fsck/main.c",
+        "fsck/mount.c",
+        "lib/libf2fs.c",
+        "lib/libf2fs_io.c",
+        "lib/libf2fs_log.c",
+        "fsck/queue.c",
+        "lib/nls_utf8.c",
+    ],
+}
+
+cc_library_static {
+    name: "libhmfs_fmt",
+    recovery_available: true,
+    defaults: [
+        "hmfs-tools-defaults",
+        "libhmfs_src_files"
+    ],
+}
+
+cc_library_host_static {
+    name: "libhmfs_fmt_host",
+    defaults: [
+        "hmfs-tools-defaults",
+        "libhmfs_src_files"
+    ],
+    target: {
+        windows: {
+            include_dirs: [ "external/e2fsprogs/include/mingw" ],
+            cflags: [
+                "-DANDROID_WINDOWS_HOST",
+                "-Wno-typedef-redefinition",
+                "-Wno-unused-parameter",
+            ],
+            enabled: true
+        },
+    },
+}
+
+cc_binary {
+    name: "make_hmfs",
+    defaults: [
+        "hmfs-tools-defaults",
+        "make_hmfs_src_files",
+    ],
+    host_supported: true,
+    recovery_available: true,
+    target: {
+        android: {
+            static_libs: [
+                "libhmfs_fmt",
+            ],
+            shared_libs: [
+                "libext2_uuid",
+                "libsparse",
+                "libbase",
+            ],
+        },
+        host: {
+            static_libs: [
+                "libhmfs_fmt_host",
+                "libext2_uuid",
+                "libsparse",
+                "libbase",
+                "libz",
+            ],
+        },
+        windows: {
+            include_dirs: [ "external/e2fsprogs/include/mingw" ],
+            cflags: ["-DANDROID_WINDOWS_HOST"],
+            ldflags: ["-static"],
+            host_ldlibs: ["-lws2_32"],
+            enabled: true
+        },
+    },
+}
+
+cc_binary {
+    name: "fsck.hmfs",
+    defaults: [
+        "hmfs-tools-defaults",
+        "hmfs_fsck_main_src_files",
+    ],
+    host_supported: true,
+    recovery_available: true,
+    cflags: ["-DWITH_RESIZE", "-DWITH_DEFRAG", "-lpthread", "-DHDIO_GETGIO"],
+    srcs: ["fsck/fsck.c", "fsck/resize.c", "fsck/defrag.c"],
+    shared_libs: [
+        "libext2_uuid",
+        "libsparse",
+        "libbase",
+    ],
+    symlinks: ["resize.hmfs", "defrag.hmfs", "dump.hmfs"],
+}
+
+cc_binary {
+    name: "sload_hmfs",
+    defaults: [
+        "hmfs-tools-defaults",
+        "hmfs_fsck_main_src_files",
+    ],
+    host_supported: true,
+    cflags: ["-DWITH_SLOAD", "-lpthread", "-DHW_F2FS_IMG_OEM"],
+    recovery_available: true,
+    srcs: ["fsck/fsck.c", "fsck/sload.c", "fsck/oem_param.c"],
+    include_dirs: ["vendor/huawei/chipset_common/modules/libc_sec/include"],
+    target: {
+        android: {
+            shared_libs: [
+                "libext2_uuid",
+                "libsparse",
+                "libbase",
+                "libcrypto",
+                "libselinux",
+                "libcutils",
+                "liblog",
+                "libc_secshared",
+            ],
+        },
+        host: {
+            static_libs: [
+                "libext2_uuid",
+                "libsparse",
+                "libbase",
+                "libcrypto",
+                "libselinux",
+                "libcutils",
+                "liblog",
+                "libz",
+                "libc_secstatic"
+            ],
+        },
+    },
+    stl: "libc++_static",
+}
+
+cc_binary {
+    name: "check_hmfs",
+    host_supported: false,
+    cflags: ["--static"],
+    srcs: ["tools/check_f2fs.c"],
+    product_specific: true,
+}
+
+cc_defaults {
+    name: "hmfstools-defaults",
+    cflags: [
+        "-Wno-unused-function",
+    ],
+    local_include_dirs: [
+        "include",
+    ],
+    target: {
+        windows: {
+            enabled: false,
+        },
+        darwin: {
+            enabled: false,
+        },
+    },
+    product_specific: true,
+}
+
+cc_binary {
+    name: "hmfscrypt",
+    defaults: [
+        "hmfstools-defaults",
+    ],
+    shared_libs: [
+        "libext2_uuid",
+    ],
+    srcs: [
+        "tools/f2fscrypt.c",
+        "tools/sha512.c",
+    ],
+}
+
+cc_binary {
+    name: "hmfsstat",
+    defaults: [
+        "hmfstools-defaults",
+    ],
+    srcs: [
+        "tools/f2fstat.c",
+    ],
+}
+
+cc_binary {
+    name: "hmfs.fibmap",
+    defaults: [
+        "hmfstools-defaults",
+    ],
+    srcs: [
+        "tools/fibmap.c",
+    ],
+}

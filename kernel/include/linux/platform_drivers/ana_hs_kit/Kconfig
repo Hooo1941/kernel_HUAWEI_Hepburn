@@ -1,0 +1,33 @@
+menuconfig HUAWEI_ANA_HS_KIT_AUDIO
+	tristate "analog headset drivers support"
+	default n
+	help
+	  Say yes here to support the  analog headset module
+
+if HUAWEI_ANA_HS_KIT_AUDIO
+config ANA_HS
+	tristate "Support for analog headset"
+	default n
+	help
+	  Say Y here if you want to support analog headset
+config ANA_HS_CORE
+	tristate "Support for analog headset core"
+	default n
+	help
+	  Say Y here if you want to support analog headset core
+config INVERT_HS_CORE
+	tristate "Support for invert headset"
+	default n
+	help
+	  Say Y here if you want to support invert headset
+config ANA_HS_EXTERN_OPS_KIT
+	bool "Support for ana hs extern ops"
+	default n
+	help
+	  Say Y here if you want to enable water detect
+config ANA_HS_POP_WINDOW
+	tristate "Support for analog headset pop window"
+	default n
+	help
+	  Say Y here if you want to support analog headset pop window
+endif #HUAWEI_ANA_HS_KIT_AUDIO

@@ -1,0 +1,25 @@
+cc_binary {
+    name: "ntfs-3g",
+
+    srcs: [
+        "ntfs-3g.c",
+        "ntfs-3g_common.c",
+    ],
+    header_libs: [
+        "libfuse-lite_headers",
+        "libntfs-3g_headers",
+        "ntfs-3g-config_headers"
+    ],
+    shared_libs: [
+        "libfuse-lite",
+        "libntfs-3g",
+        "libdl",
+    ],
+    cflags: [
+        "-DHAVE_CONFIG_H",
+        "-Werror",
+        "-Wall",
+    ],
+    recovery_available: true,
+}
+

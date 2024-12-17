@@ -1,0 +1,5 @@
+config FREQ_QOS_DEBUG
+	bool "show freq qos vote value"
+	default n
+	help
+	  Make a debug sysfs to show freq qos vote value.

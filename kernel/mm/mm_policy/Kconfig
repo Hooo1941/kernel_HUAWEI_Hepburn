@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0-only
+config HW_MM_POLICY
+	bool "memory policy module"
+	default n
+	help
+	  Huawei memory policy.

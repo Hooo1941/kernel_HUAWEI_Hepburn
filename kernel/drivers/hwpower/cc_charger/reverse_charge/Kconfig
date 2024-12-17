@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# reverse charge drivers
+#
+
+config REVERSE_CHARGE_PD
+	bool "reverse charge pd"
+	default n
+	help
+	  Say Y here to enable reverse charge pd driver.
+	  This driver provides reverse charge func.

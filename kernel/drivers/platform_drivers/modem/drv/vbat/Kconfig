@@ -1,0 +1,5 @@
+config MODEM_VBAT
+	tristate "support modem vbat"
+	default n
+	help
+	  modem vbat driver

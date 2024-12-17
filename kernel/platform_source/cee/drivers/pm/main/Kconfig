@@ -1,0 +1,65 @@
+menu "S/R options for main function"
+
+config SR_SYNC
+	bool "The optimizes file synchronization in the SR process"
+	depends on SR
+	default n
+	help
+	  Optimizes file synchronization in the SR process
+
+config PM_LPCTRL
+	bool "ap kernel can control functions of sr in lpm3"
+	depends on SR
+	default n
+	help
+	  The ap kernel controls the sr function of lpm3
+
+config SR_SWITCH_32K
+	bool "Switch 32K clock source when the system is suspend or resume for more power saving"
+	depends on PM_LPCTRL
+	default n
+	help
+	  Switch 32K clock source
+
+config SYS_PM_ULSR
+	bool "ultra lowpower system suspend"
+	depends on SR
+	default n
+	help
+	  Ultra lowpower system suspend
+config SYS_PM_DOZE
+	bool "Support doze state"
+	depends on SR
+	default n
+	help
+	  Support doze state
+config SYS_PM_DOZE_INDEPEND_VOTE
+	bool "Support doze state"
+	depends on SYS_PM_DOZE
+	default n
+	help
+	  Support doze state independ control
+config FORCE_SUSPEND
+	bool "Force suspend"
+	depends on SR
+	default n
+	help
+	  Force suspend, ignor pm wakeup pending
+config HM_SR_PHONE
+	bool "Support HM SR for phone products only, but not for cdc"
+	depends on SR
+	default n
+	help
+	  Support HM SR for phone products only, but not for cdc
+
+config SR_HIBERNATION_WATCHDOG
+	bool "S4 suspend watchdog timeout adjust"
+	default n
+	help
+	  Hibernation watchdog timeout
+config S4_RESERVE_BIGCORE
+	bool "Reserve big core as the primary cpu when hibernate"
+	default n
+	help
+	   Reserve big core as the primary cpu when hibernate
+endmenu

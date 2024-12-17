@@ -1,0 +1,26 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/pm \
+	-I$(HVGR_PATH)/pm/power \
+	-I$(HVGR_PATH)/pm/dfx \
+	-I$(HVGR_PATH)/pm/dvfs \
+	-I$(HVGR_PATH)/pm/driver \
+	-I$(HVGR_PATH)/pm/driver/$(CHIP_VER_DIR)
+
+SRC += \
+	$(HVGR_ROOT)/pm/hvgr_pm.c \
+	$(HVGR_ROOT)/pm/power/hvgr_pm_core_mask.c \
+	$(HVGR_ROOT)/pm/power/hvgr_pm_policy.c \
+	$(HVGR_ROOT)/pm/power/hvgr_pm_power.c \
+	$(HVGR_ROOT)/pm/power/hvgr_pm_sr.c \
+	$(HVGR_ROOT)/pm/power/hvgr_pm_state_machine.c \
+	$(HVGR_ROOT)/pm/power/hvgr_pm_gpu_reset.c \
+	$(HVGR_ROOT)/pm/driver/hvgr_pm_driver_base.c \
+	$(HVGR_ROOT)/pm/dvfs/hvgr_pm_dvfs.c \
+	$(HVGR_ROOT)/pm/dfx/hvgr_pm_dfx.c \
+	$(HVGR_ROOT)/pm/driver/$(CHIP_VER_DIR)/hvgr_pm_driver_adapt.c
+
+DEFINES += -DHVGR_GPU_POWER_ASYNC

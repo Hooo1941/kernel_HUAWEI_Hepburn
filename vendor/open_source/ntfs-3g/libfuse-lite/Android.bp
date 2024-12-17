@@ -1,0 +1,26 @@
+cc_library {
+    name: "libfuse-lite",
+    recovery_available: true,
+    srcs: [
+        "fuse.c",
+        "fuse_kern_chan.c",
+        "fuse_loop.c",
+        "fuse_lowlevel.c",
+        "fuse_opt.c",
+        "fuse_session.c",
+        "fuse_signals.c",
+        "fusermount.c",
+        "helper.c",
+        "mount.c",
+        "mount_util.c",
+    ],
+    header_libs: [
+        "libfuse-lite_headers",
+        "ntfs-3g-config_headers"
+    ],
+    cflags: [
+        "-DHAVE_CONFIG_H",
+        "-Werror",
+        "-Wall"
+    ],
+}

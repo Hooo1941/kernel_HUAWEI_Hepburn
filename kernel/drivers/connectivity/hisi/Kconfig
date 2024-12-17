@@ -1,0 +1,9 @@
+#
+# Generic huawei hisi misc drivers configuration
+#
+#source "drivers/connectivity/hisi/tiot_driver/Kconfig"
+config TIOT_DRIVER
+    tristate "tiot driver"
+    default n
+    help
+        Support for tiot drivers.

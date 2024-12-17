@@ -1,0 +1,12 @@
+config THEED
+	bool "THEE support"
+	depends on HAVE_ARM_SMCCC
+	default n
+	help
+	  thee linux kernel despitch
+
+config THEE_TEST
+        bool "THEE test support"
+        default n
+        help
+          Say yes here to support the THEE debug

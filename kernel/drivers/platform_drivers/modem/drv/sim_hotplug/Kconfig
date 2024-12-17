@@ -1,0 +1,14 @@
+#
+#SIM hotplug support.
+#
+
+config SIM_HOTPLUG_SPMI
+	bool "support spmi sim hotplug function"
+	default n
+	help
+	  Say 'Y' here if you want to support the SPMI SIM HOTPLUG.
+config ESIM_SUPPORT
+	bool "support esim function"
+	default n
+	help
+	  Say 'Y' here if you want to support the eSIM feature.

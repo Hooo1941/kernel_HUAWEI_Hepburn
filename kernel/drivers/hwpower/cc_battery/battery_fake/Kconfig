@@ -1,0 +1,11 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei faulty coul recovery drive
+#
+
+config HUAWEI_BATTERY_FAKE
+	bool "huawei faulty coul recovery drive"
+	default n
+	help
+	  There is a possibility that the CW and RT coul fail, resulting in charging failure.
+	  Adjust the coul by analog coul drive to correct the charging function

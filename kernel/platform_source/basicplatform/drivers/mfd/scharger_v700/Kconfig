@@ -1,0 +1,5 @@
+config SCHARGER_V700
+    tristate "schargerV700 base driver"
+    depends on OF
+    help
+      This driver supports schargerV700.

@@ -1,0 +1,28 @@
+#
+# Kirin PCIe driver configuration
+#
+
+config HIPCIE_CTRL
+	tristate "HiPCIe ctrl"
+	depends on HIPCIE_CORE
+	select HIPCIE_CTRL_RC
+	help
+	  Say Y here to enable PCIe controller support on Kirin SoCs.
+
+config HIPCIE_CTRL_RC
+	tristate "HiPCIe rc ctrl"
+	depends on HIPCIE_CTRL
+	help
+	  Say Y here to enable PCIe rc controller support on Kirin SoCs.
+
+config HIPCIE_CTRL_EP
+	tristate "HiPCIe ep ctrl"
+	depends on HIPCIE_CTRL
+	help
+	  Say Y here to enable PCIe ep controller support on Kirin SoCs.
+
+config HIPCIE_CTRL_DMA
+	tristate "HiPCIe ctrl dma"
+	depends on HIPCIE_CTRL
+	help
+	  Say Y here to enable PCIe controller dma support on Kirin SoCs.

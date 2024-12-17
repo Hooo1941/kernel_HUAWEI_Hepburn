@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei battery cccv driver
+#
+
+config HUAWEI_BATTERY_CCCV
+	bool "huawei battery cccv driver"
+	default n
+	help
+	  Say Y here to enable battery cccv driver.
+	  This driver provides a unified interface to
+	  get battery max current.

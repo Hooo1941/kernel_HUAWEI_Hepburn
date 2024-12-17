@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0+
+#
+# IC FM1230 test drivers
+#
+
+config HUAWEI_BATTCT_FM1230
+	bool
+	prompt "Support fm1230 as certification IC."
+	depends on HUAWEI_BATTERY_INFORMATION
+	default n
+	help
+	  Say Y here to enable fm1230 ic driver

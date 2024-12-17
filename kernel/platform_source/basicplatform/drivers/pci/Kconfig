@@ -1,0 +1,2 @@
+source "platform_source/basicplatform/drivers/pci/host/Kconfig"
+source "platform_source/basicplatform/drivers/pci/controller/Kconfig"

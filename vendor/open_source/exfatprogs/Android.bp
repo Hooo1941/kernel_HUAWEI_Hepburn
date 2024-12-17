@@ -1,0 +1,21 @@
+// Copyright 2020 The Android Open Source Project
+
+cc_library_headers {
+    name: "libexfatprogs-headers",
+    export_include_dirs: [
+        "include",
+        "mkfs",
+        "fsck",
+        "tune",
+        "label",
+        "dump",
+	"exfat2img",
+    ],
+}
+
+cc_defaults {
+    name: "exfatprogs-defaults",
+    header_libs: ["libexfatprogs-headers"],
+    export_header_lib_headers: ["libexfatprogs-headers"],
+    cflags: ["-D_FILE_OFFSET_BITS=64"],
+}

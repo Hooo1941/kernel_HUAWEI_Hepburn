@@ -1,0 +1,114 @@
+menuconfig H_MM
+	bool "H_MM support"
+	help
+	  This option add some h_mm codes, needed by following modules.
+
+if H_MM
+
+config H_MM_SLOW_PATH_COUNT
+	bool "page alloc enter slow path count"
+	default n
+	help
+	  Say 'Y' here is you want to count page alloc slow path.
+
+config H_MM_PAGE_TRACE
+	bool "HMM page trace"
+	help
+	  This option enables h_mm page trace, needed by memleak check modules.
+
+config H_MM_PAGE_TRACE_TEST
+	bool "HMM page trace test"
+	depends on H_MM_PAGE_TRACE
+	help
+	  This option enables h_mm page trace test, needed by h_mm page trace modules.
+endif
+
+config MM_MEM_OFFLINE
+	bool "Dynamic Memory Region Offline driver"
+	depends on MEMORY_HOTPLUG
+	help
+	  Add support for DDR Self-Refresh power management through the dynamic
+	  memory offline framework. This driver interfaces between the memory
+	  hotplug subsystem and AOP which hot adds or removes memory blocks and
+	  controls the start/stop of self-refresh of these DDR regions. This
+	  helps reduce power consumption during idle mode of the system.
+	  If unsure, say N
+
+config MM_BOOTMEM_OPTIMIZE
+	bool "MM bootmem optimize"
+	default n
+	depends on HAVE_ARCH_PFN_VALID
+	depends on !HAVE_MEMBLOCK_NODE_MAP
+	help
+	  Orign bootmem_init in zone init function "memmap_init_zone" waste too much time
+	  in iterate zone [start, end) pfn and judge if the pfn is valid, and when memory
+	  has hole, it will cost too much time. So let it only iterate memory which in memblock.
+	  if unsure, say N
+
+config PM_PEAK
+	bool "Physical Memory Peak"
+	default n
+	help
+	  Record physical memory peak for each task.
+
+config KSWAPD_DEBUG
+	bool "kswapd debug"
+	default n
+	help
+	  Provide extra log to find why kswapd is running frequently.
+
+config PARA_SWAPD
+	bool "Enable parallel kz/swapd to reclaim anon page per memcg"
+	default n
+	depends on HYPERHOLD_ZSWAPD
+	help
+	  Para swapd is a new implement of shrink_anon/shrink_hyperhold_anon.
+	  It separately reclaim anon page by memcg, and limit running cpu to
+	  middle cluster.
+
+config MM_AMA
+	bool "Enable AMA mempolicy for asymmetrical memory access"
+	default n
+	depends on NUMA
+	help
+	  AMA mempolicy is a new MemoryManagement Architecture for memory alloc&reclaim.
+	  It builds a new memory allocation strategy by page Attributes, and using
+	  differential recycling strategy to improve memory usage efficiency.
+
+config PROCESS_RECLAIM
+	bool "Enable process reclaim"
+	depends on PROC_FS
+	default n
+	help
+	  It allows to reclaim pages of the process by /proc/pid/reclaim.
+	  (echo file > /proc/PID/reclaim) reclaims file-backed pages only.
+	  (echo anon > /proc/PID/reclaim) reclaims anonymous pages only.
+	  (echo all > /proc/PID/reclaim) reclaims all pages.
+	  (echo addr size-byte > /proc/PID/reclaim) reclaims pages in
+	  (addr, addr + size-bytes) of the process.
+	  Any other vaule is ignored.
+
+config MM_SMART_RECLAIM
+	bool "Enable smart reclaim"
+	default y
+	depends on PROCESS_RECLAIM
+	help
+	  When enabled, memory pages of background processes will be reclaimed.
+	  Depending on if the process is an application or service.
+	  In case of service, advise kernel to reclaim file backed pages
+	  of background processes(file tpyes .dex, .jar and/or .apk).
+	  This triggered by writting soft to /proc/<pid>/reclaim from user space.
+
+config HISI_SWAP_ZDATA
+	bool "Compressed data to swap"
+	depends on SWAP
+	depends on PROCESS_RECLAIM
+	default n
+	help
+	  Save compressed data to swap page.
+	  If unsure, say Y to enable swap_zdata.
+config MM_VIP
+	bool "Enable memory vip allocation"
+	default n
+	help
+	  Support memory vip allocation for vip process.

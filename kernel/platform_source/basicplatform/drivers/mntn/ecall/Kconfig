@@ -1,0 +1,11 @@
+config PLATFORM_DFX_EASYSHELL
+	bool "Support Easy Shell"
+	default n
+	help
+	  This driver supports XXX SOC,
+	  including easy shell, etc.
+config KERNEL_NOCFI_NONE
+	bool "Support config nocfi"
+	default n
+	help
+	  Config none nocfi.

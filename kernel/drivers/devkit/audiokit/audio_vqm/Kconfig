@@ -1,0 +1,5 @@
+config HUAWEI_AUDIO_VQM
+	tristate "audio vqm driver"
+    default n
+    help
+    Say Y to enable audio vqm driver support

@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# Huawei battery current configuration
+#
+
+config HUAWEI_BATTERY_ADC_MONITOR
+	bool "battery adc monitor"
+	default n
+	help
+	  Say Y here to enable battery adc monitor support.
+	  Support battery adc monitor management.
+	  Compatible with coul driver.

@@ -1,0 +1,9 @@
+menu "GUEST GPU VOTE Options"
+
+config GUEST_GPUFREQ_VOTE
+    tristate "Guest gpufreq vote"
+    depends on PRODUCT_CDC_ACE
+    help
+      This enables the guest gpufreq vote.
+
+endmenu

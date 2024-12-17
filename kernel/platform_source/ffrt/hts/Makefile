@@ -1,0 +1,5 @@
+ARCH_VERSION=v100
+export ARCH_VERSION
+
+obj-$(CONFIG_FFRT_HTS) += hkd/
+obj-$(CONFIG_FFRT_HTS) += hpd/

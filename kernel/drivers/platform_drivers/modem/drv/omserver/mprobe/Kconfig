@@ -1,0 +1,8 @@
+#
+# mprobe driver
+#
+config MPROBE
+	tristate "support mprobe"
+	default n
+	help
+	  mprobe driver

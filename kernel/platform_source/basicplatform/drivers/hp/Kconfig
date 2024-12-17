@@ -1,0 +1,64 @@
+# SPDX-License-Identifier: GPL-2.0
+# Heterogeneous memory container backend device configuration
+
+# Selected when system need heterogeneous memory container
+config HP_CORE
+	bool "Heterogeneous memory container device support"
+	depends on ZRAM && HYPERHOLD && ZS_MALLOC_EXT
+	default n
+	help
+	  Say Y here if you want to use the heterogeneous memory
+	  as the backend device in ZRAM.
+	  If unsure, say N here.
+	  This module can't be compiled as a module,
+	  the module is as one part of the ZRAM driver.
+
+config HP_FILE
+	bool "Heterogeneous memory file preallocate functions"
+	depends on HP_CORE
+	default n
+	help
+	  Say Y here if you want to allocate a file in /data for heterogeneous memory.
+	  If unsure, say N here.
+	  This module can't be compiled as a module,
+	  the module is as one part of the ZRAM driver.
+
+config HP_DEFAULT_FILE_SPACE
+	bool "set default file space"
+	depends on HP_FILE
+	default n
+
+config RAMTURBO
+	bool "RAM Turbo"
+	depends on HP_CORE
+	default n
+	help
+	  RAM Turbo features, swapout background tasks
+
+config HH_REMAP
+	bool "hyperhold remap"
+	depends on HP_CORE
+	default n
+	help
+	  hyperhold remap features
+
+config HH_REMAP_DEBUG
+	bool "hyperhold remap debug"
+	depends on HP_CORE
+	default n
+	help
+	  hyperhold remap debug
+
+config HP_TURBO
+	bool "hyperhold turbo"
+	depends on HP_CORE
+	default n
+	help
+	  hyperhold turbo features, swap without zram
+
+config HP_TURBO_DEBUG
+	bool "hyperhold turbo debug"
+	depends on HP_TURBO
+	default n
+	help
+	  hyperhold turbo debug

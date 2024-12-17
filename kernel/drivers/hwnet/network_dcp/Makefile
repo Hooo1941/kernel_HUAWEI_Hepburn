@@ -1,0 +1,1 @@
+obj-$(CONFIG_HW_NETWORK_DCP) += network_dcp_handle.o

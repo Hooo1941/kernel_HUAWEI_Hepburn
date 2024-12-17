@@ -1,0 +1,2 @@
+switch,comment,group,cs_eng,cs_rtt,cs_user:cs_eng,cs_asan:cs_eng,csv2_eng,csv2_user:csv2_eng,csv2_asan:csv2_eng
+CFG_CONFIG_MODEM_MINI_DUMP,,BSP_OS,YES,YES,,,YES,,

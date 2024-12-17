@@ -1,0 +1,37 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config GPIO_HIV500
+	bool "PrimeCell HIV500 GPIO support"
+	depends on ARM_AMBA
+	select IRQ_DOMAIN
+	select GPIOLIB_IRQCHIP
+	help
+	  Say yes here to support the PrimeCell HIV500 GPIO device
+
+config GPIO_V500_DUMP_DEBUG
+	bool "PrimeCell HIV500 GPIO support"
+	depends on GPIO_HIV500
+	default n
+	help
+	   Say yes here to support the gpio debug
+
+config GPIO_HIV500_VM
+	bool "PrimeCell HIV500 GPIO VM support"
+	depends on ARM_AMBA
+	select IRQ_DOMAIN
+	select GPIOLIB_IRQCHIP
+	help
+	  Say yes here to support the PrimeCell HIV500 GPIO VM device
+
+config GPIO_HI6502
+	bool "HI6502 GPIO support"
+	depends on GPIO_PL061
+	help
+	  Say yes here to support the HI6502 GPIO device
+
+config GPIO_PL061_VM
+	bool "HI Virtual GPIO support"
+	depends on GPIO_PL061
+	default n
+	help
+	  Say yes here to support the virtual gpio

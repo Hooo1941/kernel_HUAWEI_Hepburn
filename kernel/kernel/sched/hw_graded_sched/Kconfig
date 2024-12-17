@@ -1,0 +1,12 @@
+config HW_GRADED_SCHED
+	bool "Graded CFS sched policy"
+	default n
+	help
+	  if set, foreground apps and background apps will be graded in CFS nice ranges.
+
+config HW_GRADED_SCHED_WAKEUP_NEW_TASK_FAST
+	bool "Wake up new tasks faster"
+	depends on HW_GRADED_SCHED
+	default n
+	help
+	  if set, can control wakeup new thread faster.

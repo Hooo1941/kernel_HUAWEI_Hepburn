@@ -1,0 +1,57 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+ifeq ($(CONFIG_HVGR_SYSTEM_CACHE), y)
+	HVGR_FEATURE_SYSTEM_CACHE ?= 1
+	DEFINES += -DHVGR_FEATURE_SYSTEM_CACHE=$(HVGR_FEATURE_SYSTEM_CACHE)
+endif
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/mem \
+	-I$(HVGR_PATH)/mem/$(CHIP_VER_DIR)
+
+SRC += \
+	$(HVGR_ROOT)/mem/hvgr_mem_api.c \
+	$(HVGR_ROOT)/mem/hvgr_memory.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_space.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_opts.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_zone.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_drv.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_4gva.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_sameva.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_jit.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_sparse.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_replay.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_gpu.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_2m.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_map.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_import.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_alias.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_pool.c \
+	$(HVGR_ROOT)/mem/hvgr_memory_page.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_debugfs.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_mtrack.c \
+	$(HVGR_ROOT)/mem/hvgr_mem_interval_tree.c \
+	$(HVGR_ROOT)/mem/hvgr_as.c \
+	$(HVGR_ROOT)/mem/hvgr_mmu.c \
+	$(HVGR_ROOT)/mem/hvgr_mmu_base.c \
+	$(HVGR_ROOT)/mem/$(CHIP_VER_DIR)/hvgr_mmu_driver.c \
+	$(HVGR_ROOT)/mem/$(CHIP_VER_DIR)/hvgr_mmu_entry.c \
+	$(HVGR_ROOT)/mem/$(CHIP_VER_DIR)/hvgr_mmu_hal.c \
+	$(HVGR_ROOT)/mem/$(CHIP_VER_DIR)/hvgr_mmu_fault.c \
+	$(HVGR_ROOT)/mem/$(CHIP_VER_DIR)/hvgr_mmu_pt_driver.c
+
+ifdef CONFIG_HVGR_DFX_DATAN
+	SRC += $(HVGR_ROOT)/mem/hvgr_mmu_dump.c
+endif
+
+ifdef CONFIG_LIBLINUX
+	SRC += $(HVGR_ROOT)/mem/hvgr_mem_ldk.c
+endif
+
+ifeq ($(HVGR_FEATURE_SYSTEM_CACHE), 1)
+	SRC += $(HVGR_ROOT)/mem/hvgr_mem_sc_hal.c \
+		$(HVGR_ROOT)/mem/hvgr_mem_sc.c \
+		$(HVGR_ROOT)/mem/$(CHIP_VER_DIR)/hvgr_sc_api.c
+endif

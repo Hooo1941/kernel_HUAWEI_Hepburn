@@ -1,0 +1,1 @@
+obj-$(CONFIG_HW_WIFI_CLOCK) += wifi_clock_dev.o

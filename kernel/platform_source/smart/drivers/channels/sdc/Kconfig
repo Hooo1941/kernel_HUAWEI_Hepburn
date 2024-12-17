@@ -1,0 +1,6 @@
+config SENSOR_DIRECT_CHANNEL
+	bool "sensor direct channel support"
+	depends on INPUTHUB_30
+	default n
+	help
+	Say yes here to support the sensor direct channel

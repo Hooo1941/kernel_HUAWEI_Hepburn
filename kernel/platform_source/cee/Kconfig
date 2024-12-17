@@ -1,0 +1,16 @@
+menu "cee Kernel Configuration"
+
+source "platform_source/cee/drivers/Kconfig"
+source "platform_source/cee/kernel/sched/Kconfig"
+
+config KERNEL_CODEMERGE
+	bool "enable CodeMerge in kernel"
+	default n
+	help
+	  Improve the kernel performance by using compiler optimization.
+	  CodeMerge includes these compiler passes:PGO, Function Reorder,
+	  Hot-Cold Split and Unplt.
+	  It is a feature based on profiling data and needs to update when
+	  version of kernel changes.
+
+endmenu

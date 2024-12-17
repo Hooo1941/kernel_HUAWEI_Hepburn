@@ -1,0 +1,7 @@
+menu "sound Configuration"
+
+source "platform_source/audio/sound/soc/platforms/Kconfig"
+source "platform_source/audio/sound/soc/codecs/Kconfig"
+source "platform_source/audio/sound/usb/hifi/Kconfig"
+source "platform_source/audio/sound/usb/usbaudio_mailbox/Kconfig"
+endmenu

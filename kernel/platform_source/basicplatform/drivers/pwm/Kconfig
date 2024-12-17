@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config PWM_HISI
+	bool "hisilicon kirin pwm"
+	default n
+
+config BLPWM
+	bool "hisilicon kirin pwm"
+	default n
+
+config BLPWM_TEST
+	bool "hisilicon kirin pwm"
+	depends on BLPWM
+	help
+		This keep blpwm_test case open or not.
+		If unsure, say n.

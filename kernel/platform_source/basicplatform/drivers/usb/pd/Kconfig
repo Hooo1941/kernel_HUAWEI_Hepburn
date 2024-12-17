@@ -1,0 +1,12 @@
+config USB_VBUS_CTRL
+	bool "Hisilicon USB type-c rt1711 power controller"
+	depends on TCPC_CLASS
+	help
+	  Say Y to enable rt1711 vbus gpio control power
+
+config CS32G_USB_PD
+	bool "Cs32g050 Usb Pd Driver"
+	help
+	  Say Y to enable Cs32g050 Usb Pd Driver
+
+

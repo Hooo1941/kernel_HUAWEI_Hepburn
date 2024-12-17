@@ -1,0 +1,1 @@
+obj-y += vibrator_event.o

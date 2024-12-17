@@ -1,0 +1,28 @@
+menuconfig HWCXEXT_CODEC_MODULE_PC
+	bool "hwcxext codec drivers support"
+	default n
+	help
+	Say yes here to support the hwcxext codec module pc
+
+if HWCXEXT_CODEC_MODULE_PC
+config HWCXEXT_CODEC_INTERFACE_PC
+	tristate "Support for HWCXEXT_CODEC_INTERFACE_PC"
+	default n
+	help
+	 Say Y here if you want to support HWCXEXT_CODEC_INTERFACE_PC
+config HWCXEXT_CODEC_V1_PC
+	tristate "Support for hwcxext codec v1 pc"
+	default n
+	help
+	 Say Y here if you want to support hwcxext codec v1 pc
+config HWCXEXT_MBHC_PC
+	tristate "Support for hwcxext mbhc pc"
+	default n
+	help
+	 Say Y here if you want to support hwcxext mbhc pc
+config HWCXEXT_I2C_OPS_PC
+	tristate "Support for hwcxext i2c ops pc"
+	default n
+	help
+	 Say Y here if you want to support hwcxext i2c ops pc
+endif #HWCXEXT_CODEC_MODULE_PC

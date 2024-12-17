@@ -1,0 +1,37 @@
+#
+# DFX enhanced options for hungtask
+#
+config DFX_HUNGTASK
+	bool "DFX hungtask module"
+	depends on DETECT_HUNG_TASK
+	default n
+	help
+	  base DFX hungtask module
+
+config DFX_HUNGTASK_EXT
+	bool "DFX hungtask extention module"
+	depends on DFX_HUNGTASK
+	default n
+	help
+	  Extention DFX hungtask module
+
+config DFX_HUNGTASK_USER
+	bool "DFX hungtask user watchdog module"
+	depends on DFX_HUNGTASK
+	default n
+	help
+	  DFX User watchdog hungtask module
+
+config DFX_HUNGTASK_MMAP_SEM
+	bool "DFX hungtask mmap semaphore module"
+	depends on DFX_HUNGTASK
+	default n
+	help
+	  DFX hungtask mmap semaphore module
+
+config DFX_HUNGTASK_MMAP_SEM_DBG
+	bool "DFX hungtask mmap semaphore debug module"
+	depends on DFX_HUNGTASK_MMAP_SEM
+	default n
+	help
+	  DFX hungtask mmap semaphore debug module

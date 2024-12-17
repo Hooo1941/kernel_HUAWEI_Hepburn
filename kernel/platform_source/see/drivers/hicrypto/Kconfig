@@ -1,0 +1,63 @@
+menu "hicrypto options"
+
+config CRYPTO_HICRYPTO
+	tristate "Support Hisilicon hardware crypto engine driver"
+	select CRYPTO_USER
+	select CRYPTO_ENGINE
+	select CRYPTO_USER_API
+	select CRYPTO_USER_API_HASH
+	select CRYPTO_USER_API_SKCIPHER
+	select CRYPTO_USER_API_AEAD
+	default n
+	help
+		vendor hardware crypto engine driver support
+
+config CRYPTO_HICRYPTO_DEBUG
+	tristate "Support Hisilicon hardware debug crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine debug support
+
+config CRYPTO_HICRYPTO_INTR
+	tristate "Support Hisilicon hardware interrupt crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine interrupt support
+
+config CRYPTO_HICRYPTO_SYS_CACHE
+	tristate "Support Hisilicon hardware syscache crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine syscache support
+
+config CRYPTO_HICRYPTO_SHA
+	tristate "Support Hisilicon hardware hash crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine hash support
+
+config CRYPTO_HICRYPTO_CIPHER
+	tristate "Support Hisilicon hardware cipher crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine cipher support
+
+config CRYPTO_HICRYPTO_MAC
+	tristate "Support Hisilicon hardware mac crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine mac support
+
+config CRYPTO_HICRYPTO_AEAD
+	tristate "Support Hisilicon hardware aead crypto"
+	depends on CRYPTO_HICRYPTO
+	default n
+	help
+	  vendor hardware crypto engine aead support
+endmenu

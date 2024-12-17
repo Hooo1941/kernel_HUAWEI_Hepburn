@@ -1,0 +1,5 @@
+config BALL_CRACK_DETECT
+    bool "ball crack support"
+    default n
+    help
+      Say yes here to support the ball crack detect.

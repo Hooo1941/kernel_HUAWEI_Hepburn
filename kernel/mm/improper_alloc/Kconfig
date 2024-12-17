@@ -1,0 +1,24 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# Improper memory alloc behaviours debug
+#
+
+config IMPROPER_ALLOC
+	bool "Debug improper memory alloc behaviours"
+	default n
+	help
+	  Say Y here if you want to debug improper memory alloc behaviours
+
+config IMPROPER_ALLOC_FAULT
+	bool "Fault injection for improper alloc feature"
+	depends on IMPROPER_ALLOC
+	default n
+	help
+	  Say Y here if you want to injection improper alloc faults
+
+config IMPROPER_ALLOC_SINGLE_FRAME
+	bool "Debug improper memory alloc behaviours in single frame"
+	default n
+	depends on IMPROPER_ALLOC
+	help
+	  Say Y here if you want to debug improper memory alloc behaviours in single frame

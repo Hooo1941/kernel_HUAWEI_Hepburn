@@ -1,0 +1,10 @@
+#
+# echub update channel
+#
+
+config ARMPC_ECHUB_UPDATE
+	bool "echub update channel"
+	depends on ARMPC_ECHUB
+	default n
+	help
+	  echub update channel

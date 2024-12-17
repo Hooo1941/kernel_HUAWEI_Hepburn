@@ -1,0 +1,82 @@
+if CPU_IDLE
+
+config LPCPU_IDLE_SLEEP
+	bool "Support cpu idlesleep vote"
+	default n
+	help
+	  Only used for s1 state(32k).
+
+config CPUIDLE_MENU_GOV_HIST
+	bool "Support C-state reselect with history record"
+	depends on CPU_IDLE_GOV_MENU
+	default n
+	help
+	  Allows the cpuidle C-state reselect with history record.
+	  If unsure say N.
+
+config CPUIDLE_LITTLE_SKIP_CORRECTION
+	bool "Little cpu predict time skip correction"
+	depends on CPUIDLE_MENU_GOV_HIST
+	default n
+	help
+	  Allows little cpu predict time skip correction
+	  If unsure say N.
+
+config CPUIDLE_LP_MODE
+    bool "Support C-state reselect with lowpower mode"
+    depends on CPU_IDLE
+    default n
+    help
+     Allows the cpuidle C-state reselect with lowpower mode.
+     If unsure say N.
+
+config CPUIDLE_SKIP_ALL_CORE_DOWN
+	bool "Last little cpu core down to wfi"
+	depends on CPU_IDLE_GOV_MENU
+	default n
+	help
+	  Allows the last little cpu core down to wfi
+	  If unsure say N.
+
+config CPUIDLE_SKIP_DEEP_CSTATE
+    bool "Support to select non-deepest C-state after select deepest continually."
+    depends on CPU_IDLE
+    default n
+    help
+     Allows the cpuidle C-state reselect after select deepest C-state continually.
+     If unsure say N.
+
+config CPU_IDLE_GOV_ALIGN
+	bool "Cluster CPU Align idle governor (for system Dou and FCM power down)"
+	depends on SCHED_INDICATE_FCM_IDLE
+	default n
+	help
+	  In our system, core idle isn't power saving enough, only clusteridle
+	  and FCM power down can achieve the best power status.
+	  So in this governor, we use ipi to make all of the cpu enter deepest idle
+	  as contemporaneous as possible.
+
+config CPUIDLE_STATE_NOTIFY
+	bool "Notify which C-state CPU entered"
+	depends on CPU_IDLE
+	default n
+	help
+	  Register the notifier to monitor the C-sate of CPU if interested.
+
+if ARM || ARM64
+
+config LPCPU_MULTIDRV_CPUIDLE
+	bool "Generic Multiple Driver CPU idle Driver"
+	depends on ARM_PSCI_FW
+	select CPU_IDLE_MULTIPLE_DRIVERS
+	select DT_IDLE_STATES
+	help
+	  Select this to enable generic cpuidle driver for CPU lowpower.
+	  It provides a generic idle driver whose idle states are configured
+	  at run-time through DT nodes. The CPUidle suspend backend is
+	  initialized by calling the CPU operations init idle hook
+	  provided by architecture code.
+
+endif
+
+endif

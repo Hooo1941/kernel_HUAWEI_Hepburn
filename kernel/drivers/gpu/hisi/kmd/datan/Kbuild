@@ -1,0 +1,47 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2022-2022. All rights reserved.
+#
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/datan/counter
+
+SRC += \
+	$(HVGR_ROOT)/datan/hvgr_datan.c \
+	$(HVGR_ROOT)/datan/counter/hvgr_datan_ct.c \
+	$(HVGR_ROOT)/datan/counter/hvgr_datan_ct_inner.c \
+	$(HVGR_ROOT)/datan/counter/hvgr_datan_ct_time.c \
+	$(HVGR_ROOT)/datan/counter/hvgr_datan_ct_hal.c \
+
+ifdef CONFIG_HVGR_DFX_MNTN_REPORT
+	SRC += \
+	$(HVGR_ROOT)/datan/hvgr_mntn.c \
+	$(HVGR_ROOT)/datan/debugbus/hvgr_mntn_dump.c
+endif
+
+ifdef CONFIG_HVGR_DFX_DEBUG_BUS_DUMP
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/datan/debugbus
+SRC += \
+	$(HVGR_ROOT)/datan/debugbus/$(CHIP_VER_DIR)/hvgr_debug_bus_dump.c
+endif
+
+ifdef CONFIG_HVGR_DFX_MEM_DUMP
+SRC += \
+	$(HVGR_ROOT)/datan/memdump/hvgr_mem_dump.c
+endif
+
+ifdef CONFIG_HVGR_DFX_DATAN
+SRC += \
+	$(HVGR_ROOT)/datan/jobtrace/datan_jobtrace.c
+ifeq ($(findstring $(CHIP_VER_DIR), hvgr_v200 hvgr_v300), )
+SRC += \
+	$(HVGR_ROOT)/datan/jobtrace/datan_jobtrace_fw_upgrade.c \
+	$(HVGR_ROOT)/datan/jobtrace/$(CHIP_VER_DIR)/datan_jobtrace_cd_cmdq_dump.c \
+	$(HVGR_ROOT)/datan/jobtrace/$(CHIP_VER_DIR)/datan_jobtrace_global_reg_dump.c
+endif
+endif
+
+ifdef HVGR_DATAN_JOB_TIMELINE
+SRC += \
+	$(HVGR_ROOT)/datan/jobtimeline/hvgr_job_timeline.c
+endif

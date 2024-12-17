@@ -1,0 +1,6 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+SRC += \
+	$(HVGR_ROOT)/utils/log/hvgr_log.c

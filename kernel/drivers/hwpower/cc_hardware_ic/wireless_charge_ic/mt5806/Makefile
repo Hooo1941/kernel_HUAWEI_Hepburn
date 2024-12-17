@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+obj-$(CONFIG_WIRELESS_MT5806) += mt5806.o
+obj-$(CONFIG_WIRELESS_MT5806) += mt5806_dts.o
+obj-$(CONFIG_WIRELESS_MT5806) += mt5806_tx.o
+obj-$(CONFIG_WIRELESS_MT5806) += mt5806_fw.o
+obj-$(CONFIG_WIRELESS_MT5806) += mt5806_qi.o

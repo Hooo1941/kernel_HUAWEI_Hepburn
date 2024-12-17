@@ -1,0 +1,1 @@
+obj-y += hisi_ufcs_drv.o

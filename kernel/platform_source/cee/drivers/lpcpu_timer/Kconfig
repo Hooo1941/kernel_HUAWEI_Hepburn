@@ -1,0 +1,6 @@
+config LPCPU_HITIMER
+    bool "Support for HITIMER"
+    default n
+    depends on ARM_TIMER_SP804
+    help
+      This option enables HITIMER instead of Hrtimer SP804

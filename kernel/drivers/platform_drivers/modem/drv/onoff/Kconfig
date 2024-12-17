@@ -1,0 +1,18 @@
+#
+# modem onoff management
+#
+
+comment "modem onoff management"
+
+config MODEM_ONOFF
+	tristate "onoff management"
+	default n
+	help
+	  onoff management
+
+config MODEM_ONOFF_PARA
+	tristate "onoff para management"
+	default n
+	help
+	  onoff para management
+

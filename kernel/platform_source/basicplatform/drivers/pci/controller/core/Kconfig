@@ -1,0 +1,9 @@
+#
+# Kirin PCIe driver configuration
+#
+
+config HIPCIE_IDLE
+	tristate "HiPCIe IDLE"
+	depends on HIPCIE_CORE
+	help
+	  Say Y here to enable PCIe Idle support on Kirin Soc.

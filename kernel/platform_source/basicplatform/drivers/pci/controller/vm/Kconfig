@@ -1,0 +1,15 @@
+#
+# Kirin PCIe driver platform configuration
+#
+
+config HIPCIE_VM_IOCTL
+	tristate "HiPCIe controller-vm-ioctl"
+	depends on HIPCIE_VM_CORE
+
+config HIPCIE_VM_CTRL
+	tristate "HiPCIe controller-vm-ctrl"
+	depends on HIPCIE_VM_CORE
+
+config HIPCIE_VM_OCT
+     tristate "HiPCIe controller-Oct"
+     depends on HIPCIE_VM_CORE

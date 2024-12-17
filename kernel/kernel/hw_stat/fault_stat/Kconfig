@@ -1,0 +1,7 @@
+config HW_STAT_FAULT
+	bool "HW_STAT_FAULT support."
+	depends on HW_STAT
+	default n
+	help
+	  Expose statistics about page fault, which helps to monitor file cache
+	  status.

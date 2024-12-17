@@ -1,0 +1,1 @@
+obj-y += hisi_fcp_drv.o

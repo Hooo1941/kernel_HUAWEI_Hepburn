@@ -1,0 +1,5 @@
+config HW_SATE_COMM
+	tristate "kernel space communicate with user space use vcom."
+    default n
+    help
+	  sate kernel driver.

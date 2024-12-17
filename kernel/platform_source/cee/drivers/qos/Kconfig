@@ -1,0 +1,21 @@
+menu "platform qos Options"
+config PLATFORM_QOS
+	bool "platform qos enable"
+	default n
+	help
+	  platform qos enable.
+
+config NETWORK_LATENCY_PLATFORM_QOS
+	bool "Network latency switch for Platform QoS"
+	default n
+	help
+	  Enable /dev/network_latency platform qos file to configure network
+	  latency by demand.
+
+config FREQ_PLATFORM_QOS_DEBUG
+	bool "show freq platform qos vote owner"
+	default n
+	help
+	  Make a debug sysfs to show freq platform qos vote owner.
+
+endmenu

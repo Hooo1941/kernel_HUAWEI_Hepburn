@@ -1,0 +1,109 @@
+/*
+ * render_rt.h
+ *
+ * Copyright (c) 2019, Huawei Technologies Co., Ltd.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+#ifndef __RENDER_RT_H
+#define __RENDER_RT_H
+
+#include <linux/version.h>
+
+#define MAX_TID_COUNT 512
+
+struct related_tid_info {
+	/* pid of query task */
+	pid_t pid;
+	/* Obtain tid count */
+	int rel_count;
+	/* Obtain tid array */
+	pid_t rel_tid[MAX_TID_COUNT];
+};
+
+/*
+ * pid == 0 indicates invalid entry.
+ * util should be in range of 0 to 1024
+ */
+struct thread_util {
+	pid_t pid;
+	unsigned long util;
+	unsigned int woken_count;
+};
+
+#define MAX_THREAD_NUM 21
+struct render_rt {
+	pid_t render_pid;
+	int num;
+	struct thread_util utils[MAX_THREAD_NUM];
+};
+
+struct render_ht {
+	pid_t render_pid;
+	struct thread_util utils[MAX_THREAD_NUM];
+};
+
+struct render_init_paras {
+	pid_t render_pid;
+	bool force_init;
+};
+
+struct render_stop {
+	pid_t render_pid;
+	int stopped;
+};
+
+#if IS_ENABLED(CONFIG_RENDER_RT)
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5,10,0))
+void add_render_rthread(void *unused, struct task_struct *task);
+void remove_render_rthread(void *unused, struct task_struct *task);
+void add_waker_to_render_rthread(void *unused, struct task_struct *task);
+#else
+void add_render_rthread(struct task_struct *task);
+void remove_render_rthread(struct task_struct *task);
+void add_waker_to_render_rthread(struct task_struct *task);
+#endif
+bool render_rt_inited(void);
+#else
+#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5,10,0))
+static inline void add_waker_to_render_rthread(void *unused, struct task_struct *task)
+{
+	return;
+}
+static inline void add_render_rthread(void *unused, struct task_struct *task)
+{
+	return;
+}
+static inline void remove_render_rthread(void *unused, struct task_struct *task)
+{
+	return;
+}
+#else
+static inline void add_waker_to_render_rthread(struct task_struct *task)
+{
+	return;
+}
+static inline void add_render_rthread(struct task_struct *task)
+{
+	return;
+}
+static inline void remove_render_rthread(struct task_struct *task)
+{
+	return;
+}
+#endif
+static inline bool render_rt_inited(void)
+{
+	return false;
+}
+#endif
+
+#endif /* __RENDER_RT_H  */

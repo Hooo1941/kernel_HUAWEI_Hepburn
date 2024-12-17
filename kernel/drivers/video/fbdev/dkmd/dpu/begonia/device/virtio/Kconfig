@@ -1,0 +1,3 @@
+config VIRTIO_FB
+	bool "Support virtio framebuffer"
+	default n

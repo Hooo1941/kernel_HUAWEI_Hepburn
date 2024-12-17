@@ -1,0 +1,16 @@
+#
+# huawei usb drivers
+#
+
+config HUAWEI_USB
+	bool "huawei usb"
+	default n
+	help
+	  Say Y here to enable usb driver.
+
+config HUAWEI_USB_VENDOR
+	bool "huawei usb extra set"
+	default n
+	help
+	  Enable this option to support extra function.
+

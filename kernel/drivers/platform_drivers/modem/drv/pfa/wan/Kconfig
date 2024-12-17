@@ -1,0 +1,9 @@
+#
+#pfa_tft configuration
+#
+
+config WAN_SUPPORT
+tristate "wan support"
+default n
+help
+wan driver

@@ -1,0 +1,7 @@
+config PAC_FEATURE_STUB
+	bool "stub pac feacture"
+	default n
+config PAC_QARMA3_ENABLE
+	bool "pac for qarma3"
+	default n
+

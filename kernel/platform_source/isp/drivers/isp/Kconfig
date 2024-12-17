@@ -1,0 +1,88 @@
+config ISP
+    tristate "Histar ISP device"
+    depends on REMOTEPROC
+    depends on ARCH_HISI
+    depends on RPMSG
+
+config HISP_RPMSG
+    tristate "HISP RPMSG bus driver"
+    select RPMSG
+    select VIRTIO
+
+config HISP_DEBUG
+	bool "hisp debug"
+	default n
+	help
+		Say yes here to support hisp debug.
+
+config HISP_DPM
+	tristate "HISP DPM(digital power monitor) support"
+	depends on DPM_HWMON
+	default n
+	help
+		This framebuffer driver supports dpm function.
+
+config HISP_EXCLUDE_NOC_DEBUG
+	bool "hisp exclude noc modid debug"
+	default n
+	help
+		Say yes here to not support hisp noc modid debug.
+
+config HISP_FFA_SUPPORT
+	bool "hisp choose ffa support"
+	depends on FFA_SUPPORT
+	default n
+	help
+		Say yes here to support ffa.
+
+config HISP_MEMECC_SUPPORT
+	bool "hisp choose memecc dmd support"
+	default n
+	help
+		Say yes here to support memecc dmd report.
+
+config HISP_LOAD_SECISPIMAGE
+	bool "hisp load secispimage support"
+	default n
+	help
+		Say yes here to load secispimge by ap not uefi.
+
+config ISP_BUF_PRIVATIZE
+	bool "hisp buffer privatize"
+	default n
+	help
+		Say yes here to support hisp buffer privatize.
+
+config HISP_FUZZ_ENOPEN
+	bool "hisp fuzz enable rpm open"
+	depends on HISP_DEBUG
+	default n
+	help
+		Say yes here to support hisp debug node open when fuzz.
+
+config HISP_KERNEL_FUZZ
+	bool "hisp kernel fuzz"
+	depends on HISP_DEBUG
+	depends on KCOV
+	depends on HISP_FUZZ_ENOPEN
+	default y
+	help
+		Say yes here to support hisp debug node open when fuzz.
+menuconfig HISP_FUZZ
+	bool "Histar ISP device Fuzz"
+	depends on ISP
+	depends on HISP_DEBUG
+	default n
+	help
+		Say yes here to support hisp fuzz test.
+	if HISP_FUZZ
+		config HISP_KCOV_ENABLE_DUMP
+			bool "Histar ISP device Fuzz dump kcov mem to file"
+			default y
+	endif
+config ISP_INTERNAL_MSG
+	bool "hisp internal rpmsg"
+	depends on KERNEL_CAMERA_ISPV500
+	default y
+	help
+		Say yes here to support hisp internal rpmsg.

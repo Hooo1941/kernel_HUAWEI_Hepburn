@@ -1,0 +1,6 @@
+config RTM_DEBUG
+	depends on ARM64 && DFX_DEBUG_FS
+	bool "rtm"
+	default n
+	help
+		Say y if you want to use rtm feature.

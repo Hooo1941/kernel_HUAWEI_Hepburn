@@ -1,0 +1,18 @@
+# Makefile for the irda drivers.
+#
+
+# Each configuration option enables a list of files.
+ifneq ($(CONFIG_TS_KIT_NO_NEED_THIRDPARTY),y)
+obj-$(CONFIG_HUAWEI_TS)  += huawei_touchscreen.o
+obj-$(CONFIG_HUAWEI_TS) += panel/
+obj-$(CONFIG_HUAWEI_TS)  += huawei_touchscreen_algo.o
+endif
+obj-$(CONFIG_HUAWEI_TP_COLOR_INFO) += tp_color.o
+
+ifeq ($(CONFIG_HUAWEI_TS_TEST),y)
+EXTRA_CFLAGS += -DHUAWEI_TOUCHSCREEN_TEST
+endif
+EXTRA_CFLAGS += -Idrivers/hisi/tzdriver
+EXTRA_CFLAGS += -Idrivers/tzdriver
+
+obj-$(CONFIG_HUAWEI_TOUCHPAD) += touchpad/

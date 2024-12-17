@@ -1,0 +1,1 @@
+obj-$(CONFIG_RTM_DEBUG) += rtm_drv.o

@@ -1,0 +1,7 @@
+menu "AMU Driver"
+
+config PLATFORM_ARM64_AMU
+    bool "enable amu extension"
+    help
+      This enables the amu driver.
+endmenu

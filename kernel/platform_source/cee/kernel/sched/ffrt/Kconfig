@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config FFRT_RTG
+	bool "FFRT rtg control"
+	depends on SCHED_RTG
+	default n
+	help
+	  FFRT RTG Control. If you say Y here, /proc/<pid>/ffrt
+	  file will be created. Functions of RTG can be realized
+	  from userspace by using ioctl.
+
+config SCHED_COMMON_QOS_CTRL
+	bool "Common qos ctrl for task"
+	default n
+	help
+	  If set, a proc fs will generated for per task qos control. The truly
+	  implementations should be registered by specific module
+
+config QOS_CTRL
+	bool "Multiple Level Qos Control for thread"
+	default n
+	help
+	  If set, thread can apply qos for less execution latency and get more
+	  cpu supply.
+
+config QOS_POLICY_MAX_NR
+	int "Number of supported qos policy"
+	range 5 20
+	default 5
+	depends on QOS_CTRL
+	help
+	  Qos policy number limit. Truly initialized qos policy could small then
+	  this value.
+
+config FFTS_SCHED
+	bool "Hardware FFTS Sched Control"
+	default n
+	help
+	  y means FFRT need work with FFTS

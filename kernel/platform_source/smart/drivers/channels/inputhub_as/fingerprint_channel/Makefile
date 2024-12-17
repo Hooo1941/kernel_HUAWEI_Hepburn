@@ -1,0 +1,8 @@
+ccflags-y += -I$(srctree)/platform_source/smart/drivers/
+ccflags-y += -I$(srctree)/platform_source/smart/drivers/channels/
+ccflags-y += -I$(srctree)/platform_source/smart/drivers/channels/inputhub_as/
+
+ccflags-y += -I$(srctree)/platform_source/smart/drivers/inputhub_as/fingerprint/
+
+obj-$(CONFIG_FINGERPRINT_CHANNEL) += fingerprint_channel.o
+obj-$(CONFIG_FINGERPRINT_CHANNEL) += common_func.o

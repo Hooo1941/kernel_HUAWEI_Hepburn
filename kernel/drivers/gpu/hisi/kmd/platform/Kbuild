@@ -1,0 +1,36 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+INCLUDE_DIR += \
+	-I$(HVGR_PATH)/platform \
+	-I$(HVGR_PATH)/platform/$(HVGR_PLATFORM_NAME)
+
+ifeq ($(HVGR_PLATFORM_NAME), p0000301)
+	SRC += \
+		$(HVGR_ROOT)/platform/hvgr_smc.c \
+		$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_smc.c \
+		$(HVGR_ROOT)/platform/hvgr_ffa.c \
+		$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_ffa.c
+else ifeq ($(HVGR_PLATFORM_NAME), p0000000)
+	SRC += \
+		$(HVGR_ROOT)/platform/hvgr_smc.c \
+		$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_smc.c
+else
+	SRC += \
+		$(HVGR_ROOT)/platform/hvgr_ffa.c \
+		$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_ffa.c
+endif
+
+SRC += \
+	$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_map.c \
+	$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_reset.c \
+	$(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_ecc.c
+
+ifeq ($(CONFIG_HVGR_DFX_SH), y)
+	SRC += $(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_dfx.c
+endif
+
+ifeq ($(HVGR_FEATURE_SYSTEM_CACHE), 1)
+	SRC += $(HVGR_ROOT)/platform/$(HVGR_PLATFORM_NAME)/hvgr_platform_mem_sc.c
+endif

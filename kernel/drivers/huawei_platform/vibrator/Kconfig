@@ -1,0 +1,10 @@
+menuconfig HUAWEI_VIBRATOR
+	bool "huawei vibrator driver"
+	default n
+	help
+	Say yes here to support the huawei vibrator driver.
+
+source "drivers/huawei_platform/vibrator/drv2605/Kconfig"
+source "drivers/huawei_platform/vibrator/classd_vibrator/Kconfig"
+source "drivers/huawei_platform/vibrator/ext_vibrator/Kconfig"
+source "drivers/huawei_platform/vibrator/pmu_vibrator/Kconfig"

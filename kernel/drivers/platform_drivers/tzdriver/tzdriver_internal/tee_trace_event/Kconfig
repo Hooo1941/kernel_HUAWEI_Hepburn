@@ -1,0 +1,6 @@
+config TEE_TRACE
+    bool "TEE trace event"
+    default n
+    depends on TZDRIVER_INTERNAL
+    help
+      TEE trace event is used to track key events while swithing between TEE and REE

@@ -1,0 +1,23 @@
+#
+# huawei sparklink configuration
+#
+
+config HUAWEI_SPARKLINK
+	bool "huawei sparklink"
+	default n
+	help
+	  If you say yes here you get support for huawei spartlink.
+
+config HUAWEI_1162
+	bool "huawei 1162 device support"
+	default n
+	depends on HUAWEI_SPARKLINK
+	help
+	  If you say yes here you get support for huawei 1162 device.
+
+config HUAWEI_SPARKLINK_UART
+	bool "huawei sparklink uart"
+	default n
+	depends on HUAWEI_SPARKLINK
+	help
+	  If you say yes here you get support for huawei spartlink uart.

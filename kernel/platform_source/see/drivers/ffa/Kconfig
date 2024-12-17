@@ -1,0 +1,7 @@
+config PLATDRV_SUPPORT_FFA
+	bool "platdrv support ffa"
+	depends on ARM_FFA_TRANSPORT
+	default n
+	help
+	  Registering the ffa probe with the platdrv.
+	  The component invokes the ffa interface of the platdrv.

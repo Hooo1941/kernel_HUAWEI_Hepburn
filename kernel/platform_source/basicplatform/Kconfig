@@ -1,0 +1,19 @@
+menu "basicplatform Kernel Configuration"
+
+config VENDOR_CHIP_PREFIX
+    string "SOC chip prefix"
+    help
+        Indicates the chip prefix.
+
+config VENDOR_CHIP_SUFFIX
+    string "SOC chip suffix"
+    help
+        Indicates the chip suffix.
+
+source "platform_source/basicplatform/drivers/Kconfig"
+source "platform_source/basicplatform/block/Kconfig"
+source "platform_source/basicplatform/fs/Kconfig"
+source "platform_source/basicplatform/kernel/Kconfig"
+source "platform_source/basicplatform/mm/Kconfig"
+
+endmenu

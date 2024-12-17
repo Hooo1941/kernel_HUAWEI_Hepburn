@@ -1,0 +1,5 @@
+config FFRT_HTS
+	tristate "FFRT_HTS"
+	default n
+	help
+	Say m here to support hts kernel driver ko.

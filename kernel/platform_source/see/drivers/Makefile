@@ -1,0 +1,26 @@
+
+obj-$(CONFIG_ATF_KERNEL_BL2_LOG) += bl2_log/
+obj-$(CONFIG_HISI_BL31_HIBERNATE) += bl31_hibernate/
+obj-$(CONFIG_ATF_KERNEL_BL31_LOG) += bl31_log/
+obj-$(CONFIG_VENDOR_EFUSE) += efuse/
+obj-$(CONFIG_CRYPTO_HICRYPTO) += hicrypto/
+obj-$(CONFIG_UAPP) += uapp/
+obj-$(CONFIG_SECURITY_INFO) += dev_secinfo/
+obj-$(CONFIG_LOAD_IMAGE) += load_image/
+obj-$(CONFIG_DFX_DEBUG_FS) += load_demo/
+obj-$(CONFIG_HHEE) += hhee/
+obj-$(CONFIG_HKIP_PRMEM) += prmem/
+obj-$(CONFIG_GENERAL_SEE) += general_see/
+obj-$(CONFIG_CRYPTO_CORE)  += crypto_core/
+obj-$(CONFIG_SEPLAT)  += seplat/
+obj-$(CONFIG_CRYPTO_ENHANCE) += crypto_enhance/
+obj-$(CONFIG_THEED) += thee/
+obj-$(CONFIG_EL3_PA_TEST) += cpusec_test/
+obj-$(CONFIG_KERNEL_REGION_PROTECT) += harden/
+obj-$(CONFIG_HISI_KERNEL_HARDEN_DEBUG) += kernel_harden_test/
+obj-$(CONFIG_SECBOOT) += secboot/
+obj-y += cust_atf_shmem/
+obj-$(CONFIG_SHAREVPU_SEC_IRQ) += sharevpu_sec_irq/
+obj-$(CONFIG_PLATDRV_SUPPORT_FFA) += ffa/
+obj-$(CONFIG_RPMBMSPC_SUPPORT_FFA) += ffa_rpmbmspc/
+obj-$(CONFIG_VBMETA_ROLLBACK) += vbmeta/

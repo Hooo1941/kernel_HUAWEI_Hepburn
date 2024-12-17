@@ -1,0 +1,6 @@
+config SCHARGER_SPMI
+    tristate "scharger spmi base driver"
+    depends on OF
+    depends on SPMI_PLATFORM
+    help
+      This driver supports scharger spmi.

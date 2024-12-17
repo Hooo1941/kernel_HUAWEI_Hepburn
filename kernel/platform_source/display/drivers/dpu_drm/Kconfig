@@ -1,0 +1,77 @@
+config DPU_DRM
+	tristate "DRM Support for Hisi DPU SoC Platform"
+	depends on DRM && OF && ARM64 && DPU_COMPOSER
+	select DRM_KMS_HELPER
+	select DRM_GEM_CMA_HELPER
+	select DRM_KMS_CMA_HELPER
+	select DRM_MIPI_DSI
+	select DRM_PANEL
+	help
+	  Choose this option if you have a hisi dpu chipsets.
+	  If M is selected the module will be called dpu_drm.
+
+config DPU_COMPOSER
+	tristate "Dpu composer driver support"
+	depends on DRM && OF && ARM64 && DPU_OPR_MGR
+	select DRM_KMS_HELPER
+	select DRM_GEM_CMA_HELPER
+	select DRM_KMS_CMA_HELPER
+	select DRM_MIPI_DSI
+	select DRM_PANEL
+	help
+	  This feature driver supports dpu composer device driver.
+
+config DPU_MIPI_DSI
+	tristate "Hisi DPU MIPI-DSI Controller Support"
+	select DRM_MIPI_DSI
+	help
+	  Choose this option if you want have an Hisi Dpu SoC with
+	  MIPI-DSI support. If M is selected the module will be called
+	  dpu_mipi_dsi.
+
+config DPU_PANEL
+	tristate "DPU panel support"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	help
+	  Say Y here if you want to enable support for TFT-LCD modules.
+
+config DPU_OPR_MGR
+	tristate "Hisi Dpu operator manager support"
+	help
+	  Say Y here if you want to enable support for Hisi Dpu operator manager.
+
+config DPU_CMDLIST
+	tristate "Hisi Dpu cmdlist support"
+	help
+	  Say Y here if you want to enable support for Hisi Dpu cmdlist.
+
+config DPU_DEBUG_ENABLE
+	tristate "DPU debug info"
+	default y if DPU_MIPI_DSI
+	help
+	  Say y here if you want show debug info
+
+config DPU_DRM_GEM
+	tristate "Hisi DPU drm support GEM memory manager"
+	depends on DPU_DRM
+	help
+	  It is mainly responsible for displaying the allocation and release of buffer,
+	  and it is also the only place where GPU uses DRM, directly dealing with physical buffer,
+	  linking fb and physical buffer
+
+config DRM_DSS_IOMMU
+	tristate "Enable dss iommu"
+	default n
+	help
+	  Choose this option if you have a need dss iommu support.
+
+config DPU_FFA_SUPPORT
+	tristate "Hisi Dpu support ffa"
+	depends on PLATDRV_SUPPORT_FFA
+	default n
+	help
+	  Hisi Dpu support ffa or not.
+
+source "platform_source/display/drivers/dpu_drm/heap/Kconfig"

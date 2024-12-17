@@ -1,0 +1,5 @@
+config ANA_HS_POP_WINDOW
+	tristate "Support for analog headset pop window"
+	default n
+	help
+	  Say Y here if you want to support analog headset pop window

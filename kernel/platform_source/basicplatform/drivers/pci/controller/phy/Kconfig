@@ -1,0 +1,15 @@
+#
+# Kirin PCIe driver configuration
+#
+
+config HIPCIE_KPHY
+	tristate "HiPCIe kphy"
+	depends on HIPCIE_PHY
+	help
+	  Say Y here to enable PCIe kphy support on Kirin SoCs.
+
+config HIPCIE_COMBPHY
+	tristate "HiPCIe combphy"
+	depends on HIPCIE_PHY
+	help
+	  Say Y here to enable PCIe combphy support on Kirin SoCs.

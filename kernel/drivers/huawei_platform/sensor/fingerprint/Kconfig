@@ -1,0 +1,14 @@
+
+#
+# fingerprint configuration
+#
+menuconfig FINGERPRINT
+	bool "fingerprint"
+	default n
+	help
+	Say yes here to support for fingerprint.
+config FINGERPRINT_TP_DECOUPLE
+	bool "fingerprint tp decouple"
+	default n
+	help
+	Say yes here to support for fingerprint_tp_decouple.

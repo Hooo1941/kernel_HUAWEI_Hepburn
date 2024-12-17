@@ -1,0 +1,9 @@
+#
+# huawei touchpad drivers  configuration
+#
+
+config HUAWEI_TOUCHPAD
+	bool "huawei touchpad drvier"
+	default n
+	help
+	  huawei touchpad drivers

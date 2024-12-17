@@ -1,0 +1,5 @@
+config HW_COLDSTART
+	tristate "kernel huawei custom packet startclod for wlan"
+	default n
+	help
+		This module adds support cold start feature.

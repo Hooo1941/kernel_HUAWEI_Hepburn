@@ -1,0 +1,10 @@
+config POWER_PLATFORM
+    bool "platform power charger/coul driver"
+	default n
+	help
+	  support platform power charger/coul driver
+
+if POWER_PLATFORM
+source "platform_source/basicplatform/drivers/power/platform/Kconfig"
+endif
+

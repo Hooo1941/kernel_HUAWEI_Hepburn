@@ -1,0 +1,5 @@
+config DFX_HCK_VENDOR_HOOKS
+	bool "Dfx Hck Vendor Hooks"
+	depends on TRACEPOINTS
+	help
+	  Enable dfx vendor hooks implemented as tracepoints

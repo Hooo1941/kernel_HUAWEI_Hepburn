@@ -1,0 +1,11 @@
+config SHAREVPU_SEC_IRQ
+	bool "SHAREVPU_SEC_IRQ support"
+	default n
+	help
+	    sharevpu sec irq support
+
+config SHAREVPU_SEC_IRQ_TEST
+	bool "SHAREVPU_SEC_IRQ_TEST support"
+	default n
+	help
+	    sharevpu sec irq test support

@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: GPL-2.0
+obj-$(CONFIG_WIRELESS_CPS8601) += cps8601.o
+obj-$(CONFIG_WIRELESS_CPS8601) += cps8601_dts.o
+obj-$(CONFIG_WIRELESS_CPS8601) += cps8601_tx.o
+obj-$(CONFIG_WIRELESS_CPS8601) += cps8601_fw.o
+obj-$(CONFIG_WIRELESS_CPS8601) += cps8601_qi.o

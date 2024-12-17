@@ -1,0 +1,18 @@
+config HW_STAT_IOSTAT
+	bool "hw_iostat support"
+	depends on HW_STAT
+	default n
+	help
+	  Expose io statistics by size, priority and latency
+config HW_STAT_IOSTAT_VFS
+	bool "hw_stat_iostat vfs io stat"
+	depends on HW_STAT_IOSTAT
+	default n
+	help
+	  hw_iostat, io statistics in vfs layer
+config HW_STAT_IOSTAT_BLK
+	bool "hw_stat_iostat blk io stat"
+	depends on HW_STAT_IOSTAT
+	default n
+	help
+	  hw_iostat, io statistics in block layer

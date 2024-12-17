@@ -1,0 +1,3 @@
+config ETHERNET_HIXGEMAC
+	bool "ethernet module support"
+	default n

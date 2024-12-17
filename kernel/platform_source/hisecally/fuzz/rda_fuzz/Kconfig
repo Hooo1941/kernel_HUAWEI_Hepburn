@@ -1,0 +1,4 @@
+config RDA_SANITIZER
+        tristate "Config for RDA SANITIZER"
+	help
+        enable te support for RDA SANITIZER

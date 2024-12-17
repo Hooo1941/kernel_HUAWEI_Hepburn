@@ -1,0 +1,190 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+menuconfig HISI_GPU
+	tristate "Hvgr series support"
+	select GPU_TRACEPOINTS if ANDROID
+	default n
+	help
+	  Enable this option to support the construction of a Hvgr GPU.
+
+	  Choose M here to compile this driver as a module, called hvgr_kmd.
+
+config HVGR_GPU_DVFS
+	bool "Enable legacy DVFS"
+	depends on HISI_GPU
+	default n
+	help
+	  Enable legacy DVFS in the Hvgr DDK.
+
+config HVGR_GPU_RT_PM
+	bool "Enable Runtime power management"
+	depends on HISI_GPU
+	depends on PM_RUNTIME || PM
+	default n
+	help
+	  Enable runtime power management in the HVGR DDK.
+
+config HVGR_SYSTEM_CACHE
+	bool "Enable system cache"
+	depends on HISI_GPU && MM_LB
+	default n
+	help
+	  Enable system cache in the HVGR DDK.
+
+menuconfig HVGR_EXPERT
+	depends on HISI_GPU
+	bool "Enable Expert Settings"
+	default n
+	help
+	  Enable this option and modify the default settings can make the driver
+	  own performance or other limitations.
+
+config HVGR_PLATFORM_NAME
+	depends on HISI_GPU && HVGR_EXPERT
+	string "Platform name"
+	default "p0000000"
+	help
+	  Enable this option to configure the name of the required platform directory,
+	  which will be included in the build.
+	  'platform/$(HVGR_PLATFORM_NAME)/Kbuild' must exist.
+
+config HVGR_DEBUG
+	bool "Debug build"
+	depends on HISI_GPU && HVGR_EXPERT
+	default n
+	help
+	  Enable this option to increase errors checking and reporting.
+
+config HISI_GPU_AI_FENCE_INFO
+	bool "GPU AI frequency schedule fence info"
+	default n
+	help
+	  Enable GPU AI frequency schedule in the HVGR DDK.
+
+config HVGR_V1XX
+	bool "GPU version v1xx"
+	default n
+	help
+	  Used for V1xx gpu and isolate other versions.
+
+config HVGR_V2XX
+	bool "GPU version v2xx"
+	default n
+	help
+	  Used for V2xx gpu and isolate other versions.
+
+config HVGR_V3XX
+	bool "GPU version v3xx"
+	default n
+	help
+	  Used for V3xx gpu and isolate other versions.
+
+config HVGR_V350
+	bool "GPU version v350"
+	default n
+	help
+	  Used for V350 gpu and isolate other versions.
+
+config HVGR_DFX_DEBUG_BUS_DUMP
+	bool "GPU Debug bus dump"
+	default n
+	help
+	  Enable debug bus dump function in the HVGR DDK.
+
+config HVGR_DFX_MNTN_REPORT
+	bool "GPU mntn report"
+	default n
+	help
+	  Enable mntn report function in the HVGR DDK.
+
+config HVGR_DFX_MEM_DUMP
+	bool "GPU Memory dump"
+	default n
+	help
+	  Enable mem dump function in the HVGR DDK.
+
+config HVGR_DFX_DMD_REPORT
+	bool "GPU dmd report"
+	depends on HISI_GPU
+	default n
+	help
+	  Enable dmd report function in the HVGR DDK.
+
+config HVGR_DFX_SH
+	bool "GPU sh"
+	depends on HISI_GPU
+	default n
+	help
+	  Enable sh function in the HVGR DDK.
+
+config HVGR_DFX_DATAN
+	bool "GPU Datan"
+	depends on HISI_GPU
+	default n
+	help
+	  Enable datan function in the HVGR DDK.
+
+config HVGR_IDLE_AUTO_CLK_DIV
+	bool "Idle auto clock divide"
+	depends on HISI_GPU && HVGR_EXPERT
+	default y
+	help
+	  Enable this option to decrease the clock rate automatically, when GPU in IDLE state.
+
+config HVGR_GPU_THROTTLE_DEVFREQ
+	bool "Enable gpu throttlel devfreq"
+	default n
+	help
+	  Enable gpu throttlel devfreq for user in the HVGR DDK.
+
+config HVGR_GPU_CORE_HOTPLUG
+	bool "Enable gpu core hotplug if high temperature scenario"
+	depends on HISI_GPU && HVGR_EXPERT
+	default n
+	help
+	  Enable this option to shutdown some cores if the thermal need
+	  reduce gpu power consumption in the HVGR DDK.
+
+config HVGR_KUTF
+	tristate "HVGR Kernel Unit Test Framework"
+	depends on HISI_GPU
+	default m
+	help
+	  Enables HVGR testing framework. To compile it as a module,
+	  choose M here - this will generate a single module called kutf.
+
+config HVGR_VIRTUAL
+	bool "GPU VIRTUAL"
+	default n
+	help
+	  Enable virtual feature in the HVGR DDK.
+
+config HVGR_VIRTUAL_HOST
+	bool "GPU VIRTUAL HOST"
+	depends on HVGR_VIRTUAL
+	default n
+	help
+	  Enable host driver in the HVGR DDK.
+
+config HVGR_VIRTUAL_GUEST
+	bool "GPU VIRTUAL GUEST"
+	depends on HVGR_VIRTUAL
+	default n
+	help
+	  Enable guest driver in the HVGR DDK.
+
+config HVGR_ASYNC_MEM_RECYCLE
+	bool "Async GPU memory recycle"
+	depends on LIBLINUX
+	default n
+	help
+	  Enable asynchronous recycle of HVGR device memory pages.
+
+config HVGR_SAMEVA_CACHE
+	bool "Sameva cache"
+	depends on LIBLINUX
+	default n
+	help
+	  Enable same va cache

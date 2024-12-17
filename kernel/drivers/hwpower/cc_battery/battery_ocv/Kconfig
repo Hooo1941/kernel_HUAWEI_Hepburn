@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0
+#
+# huawei battery ocv driver
+#
+
+config HUAWEI_BATTERY_OCV
+	bool "huawei battery ocv driver"
+	default n
+	help
+	  Say Y here to enable battery ocv driver.
+	  This driver provides a unified interface to
+	  get ocv table.

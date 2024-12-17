@@ -1,0 +1,9 @@
+if PROC_FS=y
+
+config HISI_PROC_HARDWARE
+	bool "/proc/hardware support"
+	depends on HISI_PROC && OF
+	help
+	  read the /proc/hardware to get hardware info.
+
+endif # PROC_FS

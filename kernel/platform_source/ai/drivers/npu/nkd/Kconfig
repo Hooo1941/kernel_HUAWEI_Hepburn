@@ -1,0 +1,28 @@
+config NPU_KERNEL_DRIVER
+	tristate "NPU_KERNEL_DRIVER"
+	depends on MODULES
+	default n
+	help
+	  Say m here to support npu kernel driver ko.
+
+config NPU_DPM_ENABLED
+	bool "NPU_DPM_ENABLED depends on DPM_HWMON"
+	depends on DPM_HWMON
+	default n
+	help
+	  Driver for npu dpm
+
+config NPU_DEBUG
+	tristate "NPU_DEBUG"
+	default n
+
+config NPU_FFA_SUPPORT
+	bool "NPU_FFA_SUPPORT depends on ARM_FFA_TRANSPORT"
+	depends on ARM_FFA_TRANSPORT
+	default n
+	help
+	  Driver for npu ffa
+
+config NPU_VIRTUAL
+	bool "NPU_VIRTUAL"
+	default n

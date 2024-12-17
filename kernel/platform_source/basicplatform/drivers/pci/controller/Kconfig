@@ -1,0 +1,29 @@
+#
+# Kirin PCIe driver configuration
+#
+
+config HIPCIE_CORE
+	bool "HiPCIe controller"
+	depends on PCI
+	depends on PCI_MSI_IRQ_DOMAIN
+	select PCIEPORTBUS
+	help
+	  Say Y here to enable PCIe controller support on Kirin SoCs.
+
+config HIPCIE_PHY
+	tristate "HiPCIe phy"
+	depends on HIPCIE_CORE
+	help
+	  Say Y here to enable PCIe phy support on Kirin SoCs.
+
+config HIPCIE_SUPPORT_FFA
+	tristate "HiPCIe controller support ffa"
+	depends on PLATDRV_SUPPORT_FFA
+	default n
+	help
+	  Say Y here to enable PCIe FFA
+
+source "platform_source/basicplatform/drivers/pci/controller/ctrl/Kconfig"
+source "platform_source/basicplatform/drivers/pci/controller/phy/Kconfig"
+source "platform_source/basicplatform/drivers/pci/controller/plat/Kconfig"
+source "platform_source/basicplatform/drivers/pci/controller/test/Kconfig"

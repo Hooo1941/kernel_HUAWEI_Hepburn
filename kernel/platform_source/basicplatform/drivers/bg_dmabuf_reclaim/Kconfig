@@ -1,0 +1,25 @@
+config BG_DMABUF_RECLAIM
+    bool "background application dmabuf reclaim"
+    depends on ION_SYSTEM_HEAP
+    help
+      Choose this option to enable the Background Application
+      Dmabuf Reclaim of System Heap. Reclaiming and restoring
+      the buffer are initiated by the caller, so the content
+      of the buffer is also saved or restored by the caller.
+
+config BG_DMABUF_TEST
+    bool "background application dmabuf manager test"
+    depends on BG_DMABUF_RECLAIM
+    help
+      Choose this option to enable the Background Application
+      Dmabuf test program. This program needs to be used with
+      the hal layer code.
+
+config BG_DMABUF_DROP_CACHE
+    bool "bg dmabuf alloc speedup by drop cache"
+    depends on BG_DMABUF_RECLAIM
+    help
+      Choose this option to enable bg dmabuf memory alloc speedup
+      feature when memory is low or ion_cache is zero. Currently,
+      no specific performance problem is encountered, Therefore,
+      this feature is disabled first.

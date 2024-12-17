@@ -1,0 +1,19 @@
+config CPUID_MIDR_HIDE
+	bool "hide the real cpu midr"
+	default n
+	help
+	  hide the real cpu midr
+
+config CPUID_BIG_MID_UNIQUE
+	bool "unique big and middle cpu id"
+	depends on CPUID_MIDR_HIDE
+	default n
+	help
+	  unique big and middle cpu id in some platform
+
+config CPUID_MID_LIT_EXCLUSIVE
+	bool "exclusive middle and little cpu id"
+	depends on CPUID_MIDR_HIDE
+	default n
+	help
+	  exclusive middle and little cpu id in some platform

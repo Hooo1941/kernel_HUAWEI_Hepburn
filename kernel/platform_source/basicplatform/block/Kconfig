@@ -1,0 +1,156 @@
+menu "mas_block_Configuration"
+
+config MAS_BLK
+	bool "MAS Block feature"
+	depends on BLOCK
+	default n
+	help
+		MAS Block feature
+
+config MAS_DEBUG_FS
+	bool "mas debug fs"
+	depends on MAS_BLK
+	default n
+
+config MAS_BKOPS
+	bool "MAS BKOPS"
+	depends on MAS_BLK
+	default n
+	help
+	MAS BKOPS feature
+
+config MAS_QOS_MQ
+	bool "MAS QoS MQ IO scheduler"
+	depends on MAS_BLK && HUFS_HC_CORE_UTR
+	default n
+	help
+	MAS QoS MQ IO scheduler
+
+config MAS_STORAGE
+	bool "MAS Storage related change"
+	default n
+	help
+		MAS Storage related change of Linux source code
+
+config MAS_BLK_BW_OPTIMIZE
+	bool "Enlarge async inflight when dirty page flashing"
+	depends on MAS_BLK
+	default n
+
+config MMC_BLOCK_IOMMU_64BIT
+	bool "Block bounce limit"
+	depends on BLOCK
+	default n
+	help
+		Blk-setting will use address >4G for IOMMU.
+
+choice
+	prompt "Select IO classify method"
+	depends on MAS_BLK
+
+config MAS_IO_CLASSIFY_FG
+	bool "use iaware FG classification"
+config MAS_IO_CLASSIFY_SCHED_TUNE
+	bool "use AI sched tune"
+	depends on SCHED_TUNE
+endchoice
+
+config MAS_MQ_USING_CP
+	bool "MAS UFS Command Priority"
+	depends on MAS_BLK
+	default n
+	help
+		MAS UFS Command Priority, good for foreground APP's IO performance
+
+config MAS_MQ_USING_CPP
+	bool "MAS UFS Command Priority"
+	depends on MAS_BLK && MAS_UNISTORE_PRESERVE && MAS_MQ_USING_CP
+	default n
+	help
+		MAS UFS Command Priority, good for foreground APP's IO performance
+
+config MAS_ORDER_PRESERVE
+	bool "MAS UFS Order Preserving"
+	depends on MAS_BLK
+	default n
+	help
+		MAS UFS Order Preserving, good for SQL's IO performance
+
+config MAS_UNISTORE_PRESERVE
+	bool "MAS BLK Unistorage Preserving"
+	depends on MAS_BLK
+	default n
+	help
+		mas unistorage preserving in block layer
+
+config MAS_IO_TRACE
+	bool "MAS_IO_TRACE"
+	depends on MAS_DEBUG_FS
+	default n
+	help
+		MAS io trace event, as supplement to block_rq_issue and block_rq_complete
+
+config MAS_IO_DEBUG_TRACE
+	bool "MAS_IO_DEBUG_TRACE"
+	depends on MAS_IO_TRACE
+	default n
+	help
+		MAS io debug trace event
+
+config MAS_HEALTH
+	bool "check ufs health"
+	depends on MAS_BLK
+	default n
+	help
+		MAS interface for ufs health check
+
+config MAS_UFS_GEAR_CTRL
+	bool "MAS UFS gear ctrl"
+	depends on MAS_BLK && SCSI_UFS_GEAR_CTRL
+	default n
+	help
+		MAS manual/auto gear ctrl.
+
+config VIRTIO_BLK_COOKIE_FE
+	tristate "Virtio block cookie front end"
+	depends on VIRTIO_BLK && (SCSI_UFS_INLINE_CRYPTO || MAS_BLK)
+	default n
+	help
+		Virtio block cookie front end.
+
+config VIRTIO_BLK_COOKIE_BE
+	tristate "Virtio block cookie back end"
+	depends on LIBLINUX
+	default n
+	help
+		Virtio block cookie back end.
+
+config MAS_VIRTIO_BLK_FE
+	bool "MAS Virtio Block feature front end"
+	depends on VIRTIO_BLK && MAS_BLK
+	default n
+	help
+		MAS Virtio Block feature front end
+
+config MAS_VIRTIO_BLK_BE
+	bool "MAS Virtio Block feature back end"
+	depends on VIRTIO_BLK_COOKIE_BE
+	default n
+	help
+		MAS Virtio Block feature back end
+
+config MAS_MCQ
+	bool "MAS Block feature with Multi-Circular Queue"
+	depends on MAS_BLK
+	default n
+	help
+		MAS Block feature with Multi-Circular Queue
+
+config MAS_BLK_HM
+	bool "MAS Block HM"
+	depends on LIBLINUX
+	default n
+	help
+		MAS Block HM
+endmenu
+

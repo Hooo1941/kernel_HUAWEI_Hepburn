@@ -1,0 +1,2 @@
+config TASK_COPROCESSOR
+	bool "task coprocessor support"

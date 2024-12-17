@@ -1,0 +1,5 @@
+config MM_DMA_HEAP_FLUSH_CACHE_ALL
+	bool "Enable flush all cpu cache when alloc mm dma-heap memory"
+	depends on DMABUF_HEAPS
+	help
+	  When alloc from mm dma-heap memory, flush all cpu caches regardless of cpu-idle status.

@@ -1,0 +1,11 @@
+prebuilt_etc {
+    name: "upcase.dat",
+    src: "bin/upcase.dat",
+    sub_dir: "samba",
+}
+
+prebuilt_etc {
+    name: "lowcase.dat",
+    src: "bin/lowcase.dat",
+    sub_dir: "samba",
+}

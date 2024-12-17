@@ -1,0 +1,6 @@
+if PHYLIB
+config MOTORCOMM_PHY
+        tristate "Motorcomm PHYS"
+        help
+          Support the YT8521
+endif

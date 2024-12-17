@@ -1,0 +1,31 @@
+menu "S/R Configuration Options"
+
+config SR
+	bool "SR adaptation"
+	depends on SUSPEND
+	default n
+	help
+	   Support suspend and resume
+if SR
+	source "platform_source/cee/drivers/pm/main/Kconfig"
+endif
+
+config SR_DEBUG
+	bool "SR debug"
+	depends on SR
+	default n
+	help
+	   debug for SR
+
+config SR_MNTN
+	bool "SR maintenance"
+	depends on SR
+	default n
+	help
+	   Support maintenance for SR
+
+if SR_MNTN
+	source "platform_source/cee/drivers/pm/mntn/Kconfig"
+endif
+
+endmenu

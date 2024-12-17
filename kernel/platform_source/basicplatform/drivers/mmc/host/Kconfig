@@ -1,0 +1,171 @@
+config MMC_SDHCI_ZODIAC
+	tristate "SDHCI OF support for the zodiac SDHCI controllers"
+	depends on MMC_SDHCI_PLTFM
+	help
+	  If you have a controller with this interface, say Y or M here.
+
+config MMC_SDHCI_ZODIAC_AQUILA
+	tristate "SDHCI OF support for the aquila SDHCI controllers"
+	depends on MMC_SDHCI_ZODIAC
+	help
+	  This selects the Arasan Secure Digital Host Controller Interface
+	  (SDHCI). This hardware is found e.g. in Xilinx' Zynq SoC.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_ZODIAC_ANTLIA
+	tristate "SDHCI OF support for the antlia SDHCI controllers"
+	depends on MMC_SDHCI_ZODIAC
+	help
+	  This selects the Arasan Secure Digital Host Controller Interface
+	  (SDHCI). This hardware is found e.g. in Xilinx' Zynq SoC.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_ZODIAC_SCORPIO
+	tristate "SDHCI OF support for the scorpio SDHCI controllers"
+	depends on MMC_SDHCI_ZODIAC
+	help
+	  This selects the Arasan Secure Digital Host Controller Interface
+	  (SDHCI). This hardware is found e.g. in Xilinx' Zynq SoC.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_ZODIAC_ANDROMEDA
+	tristate "SDHCI OF support for the andromeda SDHCI controllers"
+	depends on MMC_SDHCI_ZODIAC
+	help
+	  This selects the Arasan Secure Digital Host Controller Interface
+	  (SDHCI). This hardware is found e.g. in Xilinx' Zynq SoC.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_ZODIAC_APUS
+	tristate "SDHCI OF support for the apus SDHCI controllers"
+	depends on MMC_SDHCI_ZODIAC
+	help
+	  This selects the Arasan Secure Digital Host Controller Interface
+	  (SDHCI). This hardware is found e.g. in Xilinx' Zynq SoC.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_MUX_SDSIM
+	tristate "SDHCI MUX SDSIM supoort"
+	depends on MMC_SDHCI_ZODIAC
+	default n
+	help
+	  this select supoort for sdhci controller for sd/sim
+
+	  If unsure, say N.
+
+config MMC_DW_IDMAC
+	bool "Internal DMAC interface"
+	depends on MMC_DW
+	help
+	  This selects support for the internal DMAC block within the Synopsys
+	  Designware Mobile Storage IP block. This disables the external DMA
+	  interface.
+config MMC_DW_HI3XXX
+	tristate "zodiac 9Serial specific extensions for Synopsys DW Memory Card Interface"
+	depends on MMC_DW
+	select MMC_DW_PLTFM
+	select MMC_DW_IDMAC
+	default n
+	help
+	  This selects support for zodiac SoC specific extensions to the
+	  Synopsys DesignWare Memory Card Interface driver. Select this option
+	  for platforms based on zodiac 9 serial SoC's.
+
+config MMC_DW_MUX_SDSIM
+	tristate "MUX SDSIM support"
+	depends on MMC_DW
+	default n
+	help
+	  This selects support for MMC_DW MUX_SDSIM.
+
+config MMC_DW_MUX_SDSIM_LIBRA
+	tristate "MUX SDSIM support for libra platform"
+	depends on MMC_DW && MMC_DW_MUX_SDSIM
+	default n
+	help
+	  This selects support for MMC_DW MUX_SDSIM in libra platform.
+
+config MMC_DW_EMMC_USED_AS_MODEM
+	tristate "zodiac eMMC used as third_party modem for Synopsys DW Memory Card Interface"
+	depends on MMC_DW && MMC_DW_HI3XXX
+	default n
+	help
+	  This selects support for zodiac SoC use eMMC IP as the third_party to the
+	  Synopsys DesignWare Memory Card Interface driver.
+
+
+config MMC_DW_SD_CLK_SLOWDOWN
+	tristate "zodiac specific extensions for Synopsys DW Memory Card Interface"
+	depends on MMC_DW && MMC_DW_HI3XXX
+	select MMC_DW_PLTFM
+	default n
+	help
+	  This selects support for zodiac SoC specific extensions to the
+	  Synopsys DesignWare Memory Card Interface driver. Select this option
+	  for platforms based on zodiac 9 serial SoC's.
+
+config MMC_CQ_HCI
+	tristate "Command Queue Support"
+	depends on HAS_DMA && ZODIAC_MMC
+	help
+	  This controller supports eMMC devices with command queue support.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_MQ_CQ_HCI
+	tristate "Command Queue Support mq"
+	depends on MAS_BLK
+	default n
+	help
+	  This controller supports eMMC devices with command queue support.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_DWC_MSHC
+	tristate "SDHCI OF support for the Synopsys controllers"
+	depends on MMC_SDHCI_PLTFM
+	depends on ZODIAC_MMC
+	help
+	  This selects Synopsys DesignWare Cores Mobile Storage Host
+	  Controller(SDHCI protocol compliance). This hardware is found
+	  e.g. in zodiac SoC.
+
+	  If you have a controller with this interface, say Y or M here.
+
+	  If unsure, say N.
+
+config MMC_SDHCI_MSHC_LIBRA
+	tristate "controllers for LIBRA"
+	depends on MMC_SDHCI_DWC_MSHC
+	help
+	  If you have a controller for libra, say Y or M here.
+	  If unsure, say N.
+
+config EMMC_FAULT_INJECT
+	tristate "eMMC Fault Inject"
+	depends on FAULT_INJECTION_DEBUG_FS
+	help
+	  The infrastructure can be used for debugging the driver from user space
+	  by injecting fault to the driver.
+
+	  Select this if you want to enable fault injection.
+	  If unsure, say N.

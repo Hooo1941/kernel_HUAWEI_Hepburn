@@ -1,0 +1,13 @@
+config VENDOR_EFUSE
+	bool "Support vendor efuse driver"
+	default n
+	help
+	vendor efuse driver support
+
+config EFUSE_SUPPORT_FFA
+	bool "efuse support ffa"
+	depends on ARM_FFA_TRANSPORT
+	default n
+	help
+	Registering the ffa probe with efuse.
+	The component invokes the ffa interface of efuse.

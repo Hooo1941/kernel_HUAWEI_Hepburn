@@ -1,0 +1,20 @@
+config CAM_IDI2AXI_SENSOR
+    tristate "idi2axi sensors driver"
+    default n
+    select CAM_IDI2AXI
+    help
+        enable idi2axi sensor device, if enabled, need select idi2axi
+
+#if CAM_IDI2AXI_SENSOR
+#choice
+#    prompt "idi2axi version"
+#    default IDI2AXI_V100
+#    config IDI2AXI_V100
+#        bool "idi2axi v100"
+#endchoice
+
+#if IDI2AXI_V100
+#source "platform_source/camera/drivers/media/native/camera/idi2axi_sensor/platform/v100/Kconfig"
+#endif # IDI2AXI_V100
+
+#endif # CAM_IDI2AXI_SENSOR

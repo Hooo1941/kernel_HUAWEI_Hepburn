@@ -1,0 +1,5 @@
+menuconfig HUAWEI_EXTERNAL_CAMERA
+	bool "huawei external CAMERA device control"
+	default n
+	help
+	Say yes here to support external CAMERA device control.

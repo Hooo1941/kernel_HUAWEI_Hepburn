@@ -1,0 +1,1 @@
+obj-$(CONFIG_MNTN_POWERKEY_REBOOT) += powerkey_reboot.o

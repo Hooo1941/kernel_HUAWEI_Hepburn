@@ -1,0 +1,7 @@
+menu "fuzz Kernel Configuration"
+
+source "platform_source/hisecally/fuzz/atf_fuzz/Kconfig"
+
+source "platform_source/hisecally/fuzz/rda_fuzz/Kconfig"
+
+endmenu

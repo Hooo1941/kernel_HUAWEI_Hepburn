@@ -1,0 +1,10 @@
+# SPDX-License-Identifier: GPL-2.0
+menu "CEE Hck"
+
+config CEE_CPU_HCK
+	bool "CEE CPU Hck Drivers"
+	default n
+	help
+	  Enable support for cpu drivers needed on the HiSilicon Common Kernel
+
+endmenu

@@ -1,0 +1,56 @@
+config CONTEXTHUB
+	bool "Sensor CONTEXTHUB driver"
+	default n
+	help
+	Sensor CONTEXTHUB driver.
+
+config CONTEXTHUB_BOOT_STAT
+	bool "sensorhub boot stat"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to record boot stat during sensorhub startup
+
+config CONTEXTHUB_TZSP
+	bool "sensorhub tzsp"
+	depends on CONTEXTHUB && ARM_FFA_TRANSPORT
+	default n
+	help
+	Say yes here if you want to use tzsp to send messages.
+
+config CONTEXTHUB_SH_NOCZERO
+	bool "Sensor CONTEXTHUB_SH_NOCZERO"
+	default n
+	help
+	Sensor CONTEXTHUB_SH_NOCZERO
+
+config CONTEXTHUB_DFX_NOCMID
+	bool "Sensor CONTEXTHUB_DFX_NOCMID"
+	default n
+	help
+	New platform has no MID, So you need to open this Kconfig.
+
+config SECURITY_HEADER_FILE_REPLACE
+	bool "Security header file Replacement"
+	default n
+	help
+	If the kernel use the security header file information,
+	you can say yes here and use DTS to obtain it .
+
+config SUPPORT_EXTEND_TAGS
+	bool "sensorhub support more tags"
+	depends on CONTEXTHUB
+	default n
+	help
+	Say yes here if you want to extend more tags during sensorhub startup
+
+config CONTEXTHUB_DSS_TRISTATEID  
+	bool "CONTEXTHUB DSS TRISTATEID"
+	default n
+	help
+	Added three state IDs for DSS
+
+source "platform_source/smart/drivers/bsp/Kconfig"
+source "platform_source/smart/drivers/channels/Kconfig"
+source "platform_source/smart/drivers/syscounter/Kconfig"
+

@@ -1,0 +1,28 @@
+config EL3_PA_TEST
+	bool "El3 PA Restriction feature test support"
+	depends on HAVE_ARM_SMCCC
+	default n
+	help
+          El3 PA Restriction test function
+
+config BTI_TEST
+	bool "bti test support"
+	depends on HAVE_ARM_SMCCC
+	default n
+	help
+          bti test function
+
+config PAC_TEST
+	bool "pac test "
+	depends on HAVE_ARM_SMCCC
+	default n
+	help
+	  pac test function
+
+config FAC_TEST
+	bool "fac test "
+	depends on HAVE_ARM_SMCCC
+	default n
+	help
+	  fac test function
+

@@ -1,0 +1,1 @@
+obj-$(CONFIG_RDA_SANITIZER) += cdc_fuzz.o

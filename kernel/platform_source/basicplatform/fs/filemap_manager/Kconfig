@@ -1,0 +1,14 @@
+
+config MM_PAGECACHE_HELPER
+	tristate "page cache helper module"
+	default n
+	help
+	  This selects the page cache helper module.
+	  Select this if you want to optimize your Android system.
+	  If unsure, say N.
+
+config MM_BUFFERED_READAHEAD
+	bool "enlarge readahead for buffered read"
+	default n
+	help
+	  for buffered readahead.

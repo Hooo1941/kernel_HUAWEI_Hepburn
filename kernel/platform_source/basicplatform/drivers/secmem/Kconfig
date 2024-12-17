@@ -1,0 +1,11 @@
+config MEMORY_VLTMM
+	bool "Enable mm secure memory dynamic allocate"
+	depends on DMABUF_MM
+	help
+	  Support allocate secure volatile memory form secos.
+
+config MM_SECMEM_TEST
+	bool "sec memory alloc test"
+	depends on DMABUF_HEAPS_SECSG
+	help
+	  Only for sec memory alloc test in develop version.

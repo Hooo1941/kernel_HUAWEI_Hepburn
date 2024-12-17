@@ -1,0 +1,1 @@
+obj-$(CONFIG_HUAWEI_EXT_NTC) += ntc_thermal/

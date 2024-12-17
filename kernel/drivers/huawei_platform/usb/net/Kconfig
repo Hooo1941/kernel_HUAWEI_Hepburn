@@ -1,0 +1,18 @@
+#
+# USB Network devices configuration
+#
+
+config USB_RTL8153
+	tristate "Realtek RTL8153 driver Based USB Ethernet Adapters"
+	depends on USB_NET_DRIVERS
+	select MII
+	select CRC32
+	select CRYPTO
+	select CRYPTO_HASH
+	select CRYPTO_SHA256
+	help
+	  This option adds support for RTL8153 based USB
+	  Ethernet adapters.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called r8153.

@@ -1,0 +1,11 @@
+#
+# Copyright (c) Hisilicon Technologies Co., Ltd. 2021-2021. All rights reserved.
+#
+
+include $(HVGR_PATH)/sch/cq/Kbuild
+include $(HVGR_PATH)/sch/softjob/Kbuild
+
+SRC += \
+	$(HVGR_ROOT)/sch/hvgr_sch_api.c \
+	$(HVGR_ROOT)/sch/hvgr_protect_mode.c
+

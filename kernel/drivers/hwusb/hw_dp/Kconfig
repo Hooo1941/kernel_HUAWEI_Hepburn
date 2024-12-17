@@ -1,0 +1,19 @@
+config HUAWEI_DP_SOURCE
+	tristate "huawei dp source switch driver"
+	help
+	  Enable this option to enable the dp source switch
+
+config HUAWEI_DP_DSM
+	tristate "huawei dp dsm driver"
+	help
+	  Enable this option to enable the dp dsm
+
+config HUAWEI_DP_LAHAINA
+	tristate "lahaina platform for dp driver"
+	help
+	  Enable this option to enable the lahaina platform
+
+config HUAWEI_DP_TARO
+	tristate "taro platform for dp driver"
+	help
+	  Enable this option to enable the taro platform

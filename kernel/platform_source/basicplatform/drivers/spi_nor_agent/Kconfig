@@ -1,0 +1,5 @@
+config SPI_NOR_AGENT
+	bool "spi nor agent support"
+	default n
+	help
+	  Say Y here if support spi nor agent.

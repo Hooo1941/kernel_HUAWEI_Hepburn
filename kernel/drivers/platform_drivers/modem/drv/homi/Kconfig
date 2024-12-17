@@ -1,0 +1,8 @@
+#
+# homi driver
+#
+config HOMI
+	tristate "support homi"
+	default n
+	help
+	  homi driver

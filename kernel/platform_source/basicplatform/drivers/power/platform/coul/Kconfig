@@ -1,0 +1,14 @@
+
+config COUL_DRV
+        bool "pmic coul"
+        default n
+
+config COUL_TEST
+        bool "coul test"
+        default n
+
+config COUL_ALGORITHM_CORE
+        bool "coul algorithm"
+        default n
+
+source "platform_source/basicplatform/drivers/power/platform/coul/coul_core/Kconfig"

@@ -1,0 +1,10 @@
+#
+# Kirin HSDT BUS Configurate
+#
+config HSDT_BUS_DOMAIN
+	bool "HSDT_BUS DOMAIN"
+	default n
+	help
+	  Say Y here to enable HSDT BUS support on Kirin SoCs.
+
+source "platform_source/basicplatform/drivers/hsdt_bus/platform/Kconfig"

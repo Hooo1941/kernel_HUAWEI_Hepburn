@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-2.0
+
+config DIRECT_CHARGER
+        bool "direct_charger"
+        default n
+
+source "drivers/hwpower/cc_charger/reverse_charge/Kconfig"

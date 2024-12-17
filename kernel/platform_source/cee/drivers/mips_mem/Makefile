@@ -1,0 +1,1 @@
+obj-$(CONFIG_MIPS_MEM_FREQ) += mips_mem.o

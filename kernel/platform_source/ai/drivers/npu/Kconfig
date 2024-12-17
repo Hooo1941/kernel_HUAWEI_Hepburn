@@ -1,0 +1,9 @@
+menu "NPU Driver Configuration"
+
+-source "platform_source/ai/drivers/npu/nkd/Kconfig"
+-source "platform_source/ai/drivers/npu/npd/Kconfig"
+-source "platform_source/ai/drivers/npu/pcie/Kconfig"
+-source "platform_source/ai/drivers/npu/bbit_debugfs/Kconfig"
+-source "platform_source/ai/drivers/npu/load_ts/Kconfig"
+
+endmenu

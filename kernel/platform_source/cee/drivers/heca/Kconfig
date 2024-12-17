@@ -1,0 +1,12 @@
+config HECA
+	bool "HECA"
+	default n
+	help
+	  Hisilicon Efficiency Control Algorithm
+
+config HECA_DEBUG
+	bool "HECA Debug"
+	depends on HECA
+	default n
+	help
+		HECA Debug
